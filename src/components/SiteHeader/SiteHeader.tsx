@@ -1,4 +1,5 @@
 import { Logo } from "@/components/Logo/Logo";
+import { MobileMenu } from "@/components/MobileMenu/MobileMenu";
 
 import styles from "./SiteHeader.module.css";
 
@@ -10,10 +11,7 @@ function Diamond(): React.ReactElement {
 export function SiteHeader(): React.ReactElement {
   return (
     <header data-header="1" className={styles.header}>
-      <button data-navtoggle="1" aria-label="Menu" className={styles.toggle}>
-        <span />
-        <span />
-      </button>
+      <MobileMenu />
       <span data-navspacer="1" className={styles.spacer} />
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navLeft}`}>
@@ -36,7 +34,10 @@ export function SiteHeader(): React.ReactElement {
 
       <a data-brand="1" href="#" className={styles.brand}>
         <Logo className={styles.brandLogo} priority />
-        <span className={styles.brandName}>The Seventh Vow</span>
+        <span className={styles.brandName}>
+          <span className={styles.brandNameMain}>The Seventh Vow</span>
+          <span className={styles.brandNameWeddings}>Weddings</span>
+        </span>
       </a>
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navRight}`}>

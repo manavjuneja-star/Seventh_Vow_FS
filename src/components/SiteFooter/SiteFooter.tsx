@@ -1,3 +1,5 @@
+import { Logo } from "@/components/Logo/Logo";
+
 import styles from "./SiteFooter.module.css";
 
 const SERVICES = [
@@ -68,26 +70,8 @@ export function SiteFooter(): React.ReactElement {
         <div data-grid2="1" className={styles.grid}>
           <div>
             <div className={styles.brand}>
-              <svg viewBox="0 0 40 40" fill="none">
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="16"
-                  stroke="var(--gold-light)"
-                  strokeWidth="1"
-                />
-                <text
-                  x="20"
-                  y="25"
-                  textAnchor="middle"
-                  fontFamily="Fraunces, serif"
-                  fontSize="15"
-                  fill="var(--gold-light)"
-                >
-                  7V
-                </text>
-              </svg>
-              The Seventh Vow
+              <Logo className={styles.brandLogo} priority />
+              The Seventh Vow Weddings
             </div>
             <p className={styles.blurb}>
               A bespoke wedding design house in New Delhi, taking on twelve

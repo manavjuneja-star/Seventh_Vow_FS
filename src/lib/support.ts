@@ -73,6 +73,13 @@ const CTA_SCROLLED: Partial<CSSStyleDeclaration> = {
   boxShadow: "0 6px 16px -8px rgba(74,48,45,.5)",
 };
 
+/** Tint the phone hamburger to match the scroll state (unless the menu is open). */
+function paintToggle(color: string): void {
+  const toggle = one("[data-navtoggle]");
+  if (!toggle || toggle.getAttribute("aria-expanded") === "true") return;
+  toggle.style.color = color;
+}
+
 /** Header: ivory over the hero, blush + solid gold CTA once scrolled. */
 function initHeader(): Cleanup {
   const header = one("[data-header]");
@@ -95,6 +102,7 @@ function initHeader(): Cleanup {
     });
     Object.assign(cta.style, s ? CTA_SCROLLED : CTA_TOP);
     cta.style.color = "var(--ivory)";
+    paintToggle(c);
   };
 
   let last: boolean | null = null;
@@ -293,21 +301,6 @@ function initEnquiry(): Cleanup {
   return () => window.removeEventListener("keydown", onKey);
 }
 
-function initMobileMenu(): void {
-  const header = one("[data-header]");
-  const toggle = one("[data-navtoggle]");
-  if (!header || !toggle) return;
-  header.dataset.menu = "closed";
-  toggle.addEventListener("click", () => {
-    header.dataset.menu = header.dataset.menu === "open" ? "closed" : "open";
-  });
-  q("[data-navtext]").forEach((a) =>
-    a.addEventListener("click", () => {
-      header.dataset.menu = "closed";
-    }),
-  );
-}
-
 /** Nav scroll spy. */
 function initScrollSpy(): void {
   type Spy = { h: string; el: Element; link: HTMLElement };
@@ -438,7 +431,6 @@ export function initSupport(): Cleanup {
   initEnvelope();
   initReveals();
   initThreshold();
-  initMobileMenu();
   initScrollSpy();
   initPosts();
   initArch();

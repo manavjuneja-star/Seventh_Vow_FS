@@ -55,9 +55,10 @@
   color: var(--ivory);
 }
 
-.brand svg {
-  width: 34px;
-  height: 34px;
+.brandLogo {
+  width: 40px;
+  height: auto;
+  flex: 0 0 auto;
 }
 
 .blurb {

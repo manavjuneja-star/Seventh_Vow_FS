@@ -1,0 +1,273 @@
+/* Hamburger — lives in the header row, hidden until the nav collapses
+   (globals shows it at <=1040px via [data-navtoggle]). */
+.toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ivory);
+  cursor: pointer;
+  z-index: 80;
+}
+
+.toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition:
+    transform 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    background 0.3s ease;
+}
+
+.toggleOpen span {
+  background: var(--ivory);
+}
+
+.toggleOpen span:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.toggleOpen span:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* Full-viewport panel */
+.panel {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  padding: 116px 10vw 44px;
+  background: linear-gradient(
+    155deg,
+    var(--mauve-dark) 0%,
+    var(--mauve-deep) 52%,
+    #3a2523 100%
+  );
+  overflow: hidden;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+    visibility 0s linear 0.72s;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 18% 0%,
+    rgba(201, 162, 92, 0.16),
+    transparent 58%
+  );
+  pointer-events: none;
+}
+
+.panelOpen {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 0.72s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.topRule {
+  position: absolute;
+  left: 10vw;
+  right: 10vw;
+  top: 94px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 162, 92, 0.55) 20%,
+    rgba(201, 162, 92, 0.55) 80%,
+    transparent
+  );
+  transform: scaleX(0);
+  transition: transform 0.7s ease 0.12s;
+}
+
+.panelOpen .topRule {
+  transform: scaleX(1);
+}
+
+.watermark {
+  position: absolute;
+  right: -14vw;
+  bottom: -12vh;
+  width: min(78vw, 540px);
+  opacity: 0.06;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.panelOpen .watermark {
+  animation: wmDrift 22s ease-in-out infinite alternate;
+}
+
+.watermarkLogo {
+  width: 100%;
+  height: auto;
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(2vh, 6vh, 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(201, 162, 92, 0.18);
+  color: var(--ivory);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.panelOpen .link {
+  opacity: 1;
+  transform: none;
+}
+
+.panelOpen .link:nth-child(1) {
+  transition-delay: 0.14s;
+}
+.panelOpen .link:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.panelOpen .link:nth-child(3) {
+  transition-delay: 0.26s;
+}
+.panelOpen .link:nth-child(4) {
+  transition-delay: 0.32s;
+}
+.panelOpen .link:nth-child(5) {
+  transition-delay: 0.38s;
+}
+.panelOpen .link:nth-child(6) {
+  transition-delay: 0.44s;
+}
+
+.index {
+  flex: 0 0 auto;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  transition: color 0.35s ease;
+}
+
+.linkText {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: clamp(1.85rem, 8vw, 2.9rem);
+  line-height: 1.06;
+  color: inherit;
+  transition: color 0.35s ease;
+}
+
+.link:hover .linkText,
+.link:focus-visible .linkText {
+  color: var(--gold-light);
+}
+
+.link:hover .index,
+.link:focus-visible .index {
+  color: var(--ivory);
+}
+
+.foot {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease 0.52s,
+    transform 0.6s ease 0.52s;
+}
+
+.panelOpen .foot {
+  opacity: 1;
+  transform: none;
+}
+
+.enquire {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.enquire:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  color: var(--ivory);
+}
+
+.contact {
+  font-family: "Fraunces", serif;
+  font-size: 1rem;
+  color: var(--ivory);
+  opacity: 0.82;
+  text-decoration: none;
+  transition: color 0.35s ease;
+}
+
+.contact:hover {
+  color: var(--gold-light);
+}
+
+.place {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: 0.5;
+}
+
+/* local keyframes (CSS Modules scopes animation names to the file) */
+@keyframes wmDrift {
+  from {
+    transform: rotate(-8deg) translate(0, 0);
+  }
+  to {
+    transform: rotate(-4deg) translate(-3%, -4%);
+  }
+}
