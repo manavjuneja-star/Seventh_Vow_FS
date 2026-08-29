@@ -1,0 +1,232 @@
+.section {
+  padding: 0 0 132px;
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 52px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  line-height: 1.22;
+  max-width: 520px;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.headLink {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  color: var(--mauve-dark);
+  border-bottom: 1px solid var(--gold);
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.headLink:hover {
+  opacity: 0.6;
+}
+
+.feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 3px 30px 3px 30px;
+  width: 100%;
+  height: clamp(380px, 44vw, 560px);
+  box-shadow: 0 36px 70px -30px rgba(74, 48, 45, 0.48);
+}
+
+.feature img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featureScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    60deg,
+    rgba(28, 20, 18, 0.82) 0%,
+    rgba(28, 20, 18, 0.3) 46%,
+    transparent 78%
+  );
+}
+
+.featureBorder {
+  position: absolute;
+  inset: 14px;
+  z-index: 2;
+  border: 1px solid rgba(201, 162, 92, 0.3);
+  border-radius: 2px 22px 2px 22px;
+  pointer-events: none;
+}
+
+.featureText {
+  position: absolute;
+  left: 6%;
+  bottom: 9%;
+  max-width: 34ch;
+  z-index: 2;
+  color: var(--ivory);
+}
+
+.featureLoc {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.featureName {
+  font-family: "Fraunces", serif;
+  color: var(--ivory);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.16;
+  margin: 0;
+}
+
+.featureBody {
+  margin: 14px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ivory);
+  opacity: 0.82;
+  text-wrap: pretty;
+}
+
+.cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 26px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 26px 50px -24px rgba(74, 48, 45, 0.42);
+}
+
+.cardA {
+  border-radius: 22px 3px 22px 3px;
+}
+
+.cardB {
+  border-radius: 3px 22px 3px 22px;
+}
+
+.card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    0deg,
+    rgba(28, 20, 18, 0.78) 0%,
+    rgba(28, 20, 18, 0.1) 46%,
+    transparent 70%
+  );
+}
+
+.cardBorder {
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  border: 1px solid rgba(201, 162, 92, 0.3);
+  border-radius: 2px 16px 2px 16px;
+  pointer-events: none;
+}
+
+.cardText {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  z-index: 2;
+  color: var(--ivory);
+}
+
+.cardLoc {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.cardName {
+  font-family: "Fraunces", serif;
+  color: var(--ivory);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0;
+}

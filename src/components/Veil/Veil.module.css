@@ -1,0 +1,49 @@
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    var(--ivory) 0%,
+    var(--blush) 62%,
+    var(--blush-deep) 100%
+  );
+  pointer-events: none;
+  animation: veil 1.6s cubic-bezier(0.4, 0, 0.2, 1) 3.1s both;
+}
+
+.mark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 51;
+  width: 232px;
+  height: 212px;
+  pointer-events: none;
+  animation: veil 1.2s cubic-bezier(0.4, 0, 0.2, 1) 3.1s both;
+}
+
+.markLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: logoIn 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+/* local keyframes (CSS Modules scopes animation names to the file) */
+@keyframes veil {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

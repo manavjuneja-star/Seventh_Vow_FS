@@ -1,0 +1,183 @@
+.section {
+  padding: 0 6vw 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  width: 20px;
+  height: 20px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  animation: driftSlow 11s ease-in-out infinite alternate;
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.22;
+  margin: 0;
+  max-width: 22ch;
+  text-wrap: pretty;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Fraunces", serif;
+  font-size: 1.02rem;
+  color: var(--mauve-dark);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gold);
+  white-space: nowrap;
+  transition: opacity 0.35s ease;
+}
+
+.handle:hover {
+  opacity: 0.62;
+}
+
+.handleIcon {
+  width: 17px;
+  height: 17px;
+  color: var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.post {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: 0 22px 40px -26px rgba(74, 48, 45, 0.45);
+}
+
+.postA {
+  border-radius: 20px 3px 20px 3px;
+}
+
+.postB {
+  border-radius: 3px 20px 3px 20px;
+}
+
+.post img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.postVeil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 32, 30, 0.72) 0%,
+    rgba(43, 32, 30, 0.1) 55%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.postCap {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--ivory);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.postCap svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  color: var(--gold-light);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mauve-dark);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gold);
+  transition: opacity 0.35s ease;
+}
+
+.moreLink:hover {
+  opacity: 0.6;
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+
+/* local keyframes (CSS Modules scopes animation names to the file) */
+@keyframes driftSlow{0%{transform:translate(0,0) rotate(0deg);}100%{transform:translate(-18px,18px) rotate(-10deg);}}

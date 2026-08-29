@@ -1,0 +1,164 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding: 24px 6vw 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  transition:
+    background 0.5s ease,
+    padding-top 0.5s ease,
+    padding-bottom 0.5s ease,
+    box-shadow 0.5s ease;
+  animation: fadein 1s ease 4.6s both;
+}
+
+.toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle span {
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  display: block;
+}
+
+.spacer {
+  flex: 0 0 auto;
+  width: 118px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.navLeft {
+  justify-content: flex-end;
+}
+
+.navRight {
+  justify-content: flex-start;
+}
+
+.link {
+  position: relative;
+  font-family: "Fraunces", serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.1em;
+  color: var(--ivory);
+  padding: 4px 0;
+  transition:
+    color 0.5s ease,
+    opacity 0.4s ease;
+  opacity: 0.88;
+}
+
+.link:hover {
+  opacity: 1;
+  color: var(--gold-light);
+}
+
+.linkNowrap {
+  white-space: nowrap;
+}
+
+.diamond {
+  width: 4px;
+  height: 4px;
+  flex: 0 0 auto;
+  transform: rotate(45deg);
+  background: var(--gold-light);
+  opacity: 0.6;
+}
+
+.brand {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  color: var(--ivory);
+  transition: color 0.5s ease;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.brand:hover {
+  color: var(--gold-light);
+}
+
+.brandLogo {
+  width: 38px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.brandName {
+  font-family: "Fraunces", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cta {
+  flex: 0 0 auto;
+  width: 118px;
+  text-align: center;
+  border: 1px solid rgba(255, 253, 251, 0.55);
+  color: var(--ivory);
+  padding: 10px 24px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.5s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.rule {
+  position: absolute;
+  left: 6vw;
+  right: 6vw;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 162, 92, 0.55) 22%,
+    rgba(201, 162, 92, 0.55) 78%,
+    transparent
+  );
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+
+/* local keyframes (CSS Modules scopes animation names to the file) */
+@keyframes fadein{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}

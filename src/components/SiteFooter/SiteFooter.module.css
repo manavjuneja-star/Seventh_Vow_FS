@@ -1,0 +1,240 @@
+.divider {
+  display: flex;
+  justify-content: center;
+  padding: 0 6vw 72px;
+}
+
+.dividerSvg {
+  width: min(560px, 80%);
+  height: auto;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+.footer {
+  position: relative;
+  background: linear-gradient(
+    160deg,
+    var(--mauve-dark) 0%,
+    var(--mauve-deep) 58%,
+    #3a2523 100%
+  );
+  color: var(--ivory);
+  padding: 96px 6vw 34px;
+  overflow: hidden;
+}
+
+.rings {
+  position: absolute;
+  right: -160px;
+  top: -200px;
+  width: 520px;
+  height: 520px;
+  opacity: 0.13;
+  color: var(--gold-light);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.1fr;
+  gap: 6vw 5vw;
+  align-items: start;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory);
+}
+
+.brand svg {
+  width: 34px;
+  height: 34px;
+}
+
+.blurb {
+  margin: 22px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ivory);
+  opacity: 0.75;
+  max-width: 34ch;
+  text-wrap: pretty;
+}
+
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gold-light);
+  transition: opacity 0.35s ease;
+}
+
+.inlineLink:hover {
+  opacity: 0.62;
+  color: var(--ivory);
+}
+
+.colTitle {
+  display: block;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  color: var(--gold-light);
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ivory);
+  opacity: 0.78;
+  transition:
+    opacity 0.35s ease,
+    padding-left 0.35s ease;
+}
+
+.navLink:hover {
+  opacity: 1;
+  color: var(--gold-light);
+  padding-left: 6px;
+}
+
+.studioCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.studioLink {
+  font-family: "Fraunces", serif;
+  font-size: 1.02rem;
+  color: var(--ivory);
+  transition: color 0.35s ease;
+}
+
+.studioLink:hover {
+  color: var(--gold-light);
+}
+
+.studioPlace {
+  font-size: 0.9rem;
+  color: var(--ivory);
+  opacity: 0.7;
+}
+
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.55);
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+.whatsapp:hover {
+  background: var(--gold-light);
+  color: var(--ivory);
+  transform: translateY(-3px);
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 162, 92, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.socialLink:hover {
+  background: var(--gold);
+  color: var(--ivory);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.socialLink svg {
+  width: 17px;
+  height: 17px;
+}
+
+.socialGlyph {
+  font-family: "Fraunces", serif;
+  line-height: 1;
+}
+
+.bottom {
+  position: relative;
+  max-width: 1240px;
+  margin: 70px auto 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(201, 162, 92, 0.28);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-size: 0.74rem;
+  color: var(--ivory);
+  opacity: 0.55;
+}
+
+.signoff {
+  font-family: "Petit Formal Script", cursive;
+  color: var(--gold-light);
+  font-size: 1.15rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}

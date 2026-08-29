@@ -1,0 +1,224 @@
+.section {
+  padding: 8px 0 128px;
+  position: relative;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petal1 {
+  top: 8%;
+  right: 5%;
+  width: 22px;
+  height: 22px;
+  opacity: 0.4;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+.petal2 {
+  bottom: 12%;
+  left: 4%;
+  width: 16px;
+  height: 16px;
+  opacity: 0.35;
+  animation: driftSlow 10s ease-in-out infinite alternate;
+}
+
+.grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 7vw;
+  align-items: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  line-height: 1.22;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.body {
+  margin-top: 24px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  opacity: 0.8;
+  max-width: 38ch;
+  text-wrap: pretty;
+}
+
+.signRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.signScript {
+  font-family: "Petit Formal Script", cursive;
+  color: var(--gold);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.signLine {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  max-width: 120px;
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mauve-dark);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--gold);
+  transition: opacity 0.35s ease;
+}
+
+.moreLink:hover {
+  opacity: 0.6;
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.note {
+  position: relative;
+  width: min(100%, 440px);
+  border: 1px solid var(--line);
+  border-radius: 2px 16px 2px 16px;
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 18px 34px -22px rgba(74, 48, 45, 0.45);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.55s ease;
+}
+
+.note:hover {
+  transform: rotate(0deg) translate(6px, -8px);
+  box-shadow: 0 30px 46px -24px rgba(169, 120, 43, 0.5);
+  z-index: 20;
+}
+
+.noteLight {
+  background:
+    repeating-linear-gradient(
+      115deg,
+      rgba(169, 120, 43, 0.035) 0 2px,
+      transparent 2px 9px
+    ),
+    var(--ivory);
+}
+
+.noteDeep {
+  background:
+    repeating-linear-gradient(
+      115deg,
+      rgba(169, 120, 43, 0.035) 0 2px,
+      transparent 2px 9px
+    ),
+    var(--blush-deep);
+}
+
+.note1 {
+  z-index: 1;
+  margin-left: 0;
+  margin-top: 0;
+  transform: rotate(-1.6deg);
+}
+.note2 {
+  z-index: 2;
+  margin-left: 28px;
+  margin-top: -10px;
+  transform: rotate(1.3deg);
+}
+.note3 {
+  z-index: 3;
+  margin-left: 10px;
+  margin-top: -10px;
+  transform: rotate(-1deg);
+}
+.note4 {
+  z-index: 4;
+  margin-left: 32px;
+  margin-top: -10px;
+  transform: rotate(1.6deg);
+}
+
+.noteNum {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.noteTitle {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  line-height: 1.22;
+}
+
+.noteDesc {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  opacity: 0.72;
+}
+
+
+/* local keyframes (CSS Modules scopes animation names to the file) */
+@keyframes drift{0%{transform:translate(0,0) rotate(0deg);}100%{transform:translate(14px,-22px) rotate(12deg);}}
+@keyframes driftSlow{0%{transform:translate(0,0) rotate(0deg);}100%{transform:translate(-18px,18px) rotate(-10deg);}}
