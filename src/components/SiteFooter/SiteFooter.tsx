@@ -8,6 +8,12 @@ const SERVICES = [
   "Event Design & Styling",
   "Vendor Coordination",
   "Hospitality & Guest Management",
+  "Roka Ceremony",
+  "Engagement Party",
+  "Complete Wedding Ceremony",
+  "Anniversaries",
+  "Birthday Parties",
+  "Corporate Events",
 ];
 
 function Divider(): React.ReactElement {

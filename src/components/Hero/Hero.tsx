@@ -1,10 +1,10 @@
-import { Logo } from "@/components/Logo/Logo";
+import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 
 import styles from "./Hero.module.css";
 
 const PETAL_LEAF = "M12 2 C16 8 16 16 12 22 C8 16 8 8 12 2 Z";
 
-/** Full-viewport hero: crossfading photography, the settling monogram ring. */
+/** Full-viewport hero: crossfading photography behind the brand lockup. */
 export function Hero(): React.ReactElement {
   return (
     <section data-hero="1" className={styles.hero}>
@@ -49,20 +49,10 @@ export function Hero(): React.ReactElement {
         <path d={PETAL_LEAF} fill="#C9A25C" />
       </svg>
 
-      <div data-ring="1" className={styles.ring}>
-        <Logo className={styles.ringLogo} priority />
-      </div>
+      <h1 className={styles.lockupWrap}>
+        <LogoLockup className={styles.lockup} priority />
+      </h1>
 
-      <div className={styles.eyebrow}>
-        <span className={`${styles.eyebrowLine} ${styles.eyebrowLineLeft}`} />
-        <span className={styles.eyebrowText}>The</span>
-        <span className={`${styles.eyebrowLine} ${styles.eyebrowLineRight}`} />
-      </div>
-
-      <h1 className={styles.title}>Seventh Vow</h1>
-      <div data-note="1" className={styles.script}>
-        Weddings
-      </div>
       <p className={styles.sub}>
         A bespoke wedding design house crafting cinematic, deeply personal
         celebrations, one union at a time, never repeated twice.

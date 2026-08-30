@@ -118,27 +118,6 @@ function initHeader(): Cleanup {
   return () => window.removeEventListener("scroll", onScroll);
 }
 
-/** Release the intro ring animation, then allow parallax tilt. */
-function initRing(): void {
-  const ring = one("[data-ring]");
-  const hero = one("[data-hero]");
-  window.setTimeout(() => {
-    if (ring) ring.style.animation = "none";
-  }, 5200);
-  if (!hero || !ring) return;
-  hero.addEventListener("mousemove", (e) => {
-    if (ring.style.animation !== "none") return;
-    const r = hero.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    ring.style.transform =
-      "rotateY(" + px * 20 + "deg) rotateX(" + -py * 20 + "deg)";
-  });
-  hero.addEventListener("mouseleave", () => {
-    if (ring.style.animation === "none") ring.style.transform = "none";
-  });
-}
-
 /** Envelope opens on approach (kept for design parity). */
 function initEnvelope(): void {
   const env = one("[data-envelope]");
@@ -427,7 +406,6 @@ export function initSupport(): Cleanup {
     initCarousel(),
     initEnquiry(),
   ];
-  initRing();
   initEnvelope();
   initReveals();
   initThreshold();
