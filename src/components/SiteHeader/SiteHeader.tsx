@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo/Logo";
+import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 import { MobileMenu } from "@/components/MobileMenu/MobileMenu";
 
 import styles from "./SiteHeader.module.css";
@@ -15,11 +15,11 @@ export function SiteHeader(): React.ReactElement {
       <span data-navspacer="1" className={styles.spacer} />
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navLeft}`}>
-        <a data-navtext="1" href="#about" className={styles.link}>
+        <a data-navtext="1" href="/#about" className={styles.link}>
           About
         </a>
         <Diamond />
-        <a data-navtext="1" href="#services" className={styles.link}>
+        <a data-navtext="1" href="/#services" className={styles.link}>
           Services
         </a>
         <Diamond />
@@ -32,20 +32,21 @@ export function SiteHeader(): React.ReactElement {
         </a>
       </nav>
 
-      <a data-brand="1" href="#" className={styles.brand}>
-        <Logo className={styles.brandLogo} priority />
-        <span className={styles.brandName}>
-          <span className={styles.brandNameMain}>The Seventh Vow</span>
-          <span className={styles.brandNameWeddings}>Weddings</span>
-        </span>
+      <a
+        data-brand="1"
+        href="/"
+        aria-label="The Seventh Vow Weddings"
+        className={styles.brand}
+      >
+        <LogoLockup className={styles.brandLogo} variant="ivory" priority />
       </a>
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navRight}`}>
-        <a data-navtext="1" href="#portfolio" className={styles.link}>
+        <a data-navtext="1" href="/#portfolio" className={styles.link}>
           Portfolio
         </a>
         <Diamond />
-        <a data-navtext="1" href="#" className={styles.link}>
+        <a data-navtext="1" href="/blog" className={styles.link}>
           Blogs
         </a>
         <Diamond />

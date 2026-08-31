@@ -51,15 +51,15 @@ function initLook(): void {
 const HEADER_TOP: Partial<CSSStyleDeclaration> = {
   background: "transparent",
   backdropFilter: "none",
-  paddingTop: "24px",
-  paddingBottom: "20px",
+  paddingTop: "14px",
+  paddingBottom: "12px",
   boxShadow: "none",
 };
 const HEADER_SCROLLED: Partial<CSSStyleDeclaration> = {
-  background: "rgba(251,240,236,0.94)",
+  background: "rgba(58,37,35,0.9)",
   backdropFilter: "blur(12px)",
-  paddingTop: "14px",
-  paddingBottom: "12px",
+  paddingTop: "9px",
+  paddingBottom: "9px",
   boxShadow: "0 1px 0 var(--line)",
 };
 const CTA_TOP: Partial<CSSStyleDeclaration> = {
@@ -80,7 +80,8 @@ function paintToggle(color: string): void {
   toggle.style.color = color;
 }
 
-/** Header: ivory over the hero, blush + solid gold CTA once scrolled. */
+/** Header: transparent over the hero, a solid dark bar once scrolled. The nav
+    stays in its ivory-on-dark palette throughout; only the backing changes. */
 function initHeader(): Cleanup {
   const header = one("[data-header]");
   const brand = one("[data-brand]");
@@ -90,7 +91,7 @@ function initHeader(): Cleanup {
 
   const apply = (s: boolean): void => {
     Object.assign(header.style, s ? HEADER_SCROLLED : HEADER_TOP);
-    const c = s ? "var(--mauve-deep)" : "var(--ivory)";
+    const c = "var(--ivory)";
     const sh = s ? "none" : "0 1px 12px rgba(0,0,0,.35)";
     brand.style.color = c;
     brand.style.textShadow = sh;
@@ -282,13 +283,13 @@ function initEnquiry(): Cleanup {
 
 /** Nav scroll spy. */
 function initScrollSpy(): void {
-  type Spy = { h: string; el: Element; link: HTMLElement };
-  const spy: Spy[] = ["#about", "#services", "#portfolio"]
-    .map((h) => ({
-      h,
-      el: document.querySelector(h),
+  type Spy = { h: string; el: HTMLElement; link: HTMLElement };
+  const spy: Spy[] = ["about", "services", "portfolio"]
+    .map((id) => ({
+      h: "#" + id,
+      el: document.getElementById(id),
       link: document.querySelector<HTMLElement>(
-        '[data-navtext][href="' + h + '"]',
+        '[data-navtext][href$="#' + id + '"]',
       ),
     }))
     .filter((s): s is Spy => Boolean(s.el && s.link));
@@ -298,11 +299,7 @@ function initScrollSpy(): void {
     spy.forEach((s) => {
       const on = s.h === active;
       s.link.style.opacity = on ? "1" : ".88";
-      s.link.style.color = on
-        ? "var(--gold-light)"
-        : window.scrollY > 40
-          ? "var(--mauve-deep)"
-          : "var(--ivory)";
+      s.link.style.color = on ? "var(--gold-light)" : "var(--ivory)";
       s.link.style.textDecoration = on ? "underline" : "none";
       s.link.style.textUnderlineOffset = "6px";
       s.link.style.textDecorationColor = "var(--gold)";

@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo/Logo";
+import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 
 import styles from "./SiteFooter.module.css";
 
@@ -76,8 +76,11 @@ export function SiteFooter(): React.ReactElement {
         <div data-grid2="1" className={styles.grid}>
           <div>
             <div className={styles.brand}>
-              <Logo className={styles.brandLogo} priority />
-              The Seventh Vow Weddings
+              <LogoLockup
+                className={styles.brandLogo}
+                variant="ivory"
+                priority
+              />
             </div>
             <p className={styles.blurb}>
               A bespoke wedding design house in New Delhi, taking on twelve

@@ -48,17 +48,13 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: "Fraunces", serif;
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
-  color: var(--ivory);
 }
 
 .brandLogo {
-  width: 40px;
+  width: 188px;
+  max-width: 70%;
   height: auto;
-  flex: 0 0 auto;
+  display: block;
 }
 
 .blurb {

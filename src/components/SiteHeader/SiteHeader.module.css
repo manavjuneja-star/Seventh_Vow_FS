@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 60;
-  padding: 24px 6vw 20px;
+  padding: 14px 6vw 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,66 +72,24 @@
 .brand {
   flex: 0 0 auto;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  color: var(--ivory);
-  transition: color 0.5s ease;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.4s ease;
 }
 
 .brand:hover {
-  color: var(--gold-light);
+  opacity: 0.8;
 }
 
 .brandLogo {
-  width: 38px;
+  width: 96px;
   height: auto;
-  flex: 0 0 auto;
+  display: block;
+  filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.3));
 }
 
-.brandName {
-  display: flex;
-  align-items: baseline;
-  gap: 0.34em;
-  font-family: "Fraunces", serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.brandNameMain,
-.brandNameWeddings {
-  white-space: nowrap;
-}
-
-/* Phone: a stacked emblem — logo, then "The Seventh Vow", then "Weddings"
-   set in the script face, all centred. */
 @media (max-width: 1040px) {
-  .brand {
-    flex-direction: column;
-    gap: 6px;
-    text-align: center;
-  }
   .brandLogo {
-    width: 36px;
-  }
-  .brandName {
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    font-size: 0.56rem;
-    letter-spacing: 0.24em;
-    line-height: 1.2;
-  }
-  .brandNameWeddings {
-    font-family: "Petit Formal Script", cursive;
-    font-size: 1rem;
-    letter-spacing: 0.03em;
-    text-transform: none;
-    color: var(--gold-light);
-    line-height: 1;
+    width: 86px;
   }
 }
 

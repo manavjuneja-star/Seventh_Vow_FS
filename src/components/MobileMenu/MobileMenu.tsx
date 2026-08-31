@@ -9,11 +9,11 @@ import styles from "./MobileMenu.module.css";
 type MenuLink = { label: string; href: string; enquiry?: boolean };
 
 const LINKS: MenuLink[] = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
   { label: "Destination & Venues", href: "#" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Blogs", href: "#" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "#enquiry", enquiry: true },
 ];
 

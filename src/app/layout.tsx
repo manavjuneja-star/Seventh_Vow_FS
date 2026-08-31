@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
 
+import { EnquiryModal } from "@/components/EnquiryModal/EnquiryModal";
+import { SiteFooter } from "@/components/SiteFooter/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader/SiteHeader";
+import { SupportScripts } from "@/components/SupportScripts/SupportScripts";
+
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +25,13 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <EnquiryModal />
+        <SupportScripts />
+      </body>
     </html>
   );
 }
