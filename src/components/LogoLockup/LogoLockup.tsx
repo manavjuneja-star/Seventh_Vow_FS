@@ -9,7 +9,7 @@ type LogoLockupProps = {
 /**
  * The full Seventh Vow Weddings lockup — the monogram over the wordmark, "The",
  * "Seventh Vow" and the "Weddings" script, with the divider ornaments. Shipped
- * as transparent PNGs in `public/images/` (1500x1089). Client-mandated art —
+ * as transparent PNGs in `public/images/` (1180x857). Client-mandated art —
  * never recoloured beyond the supplied colour / ivory-knockout pair.
  */
 export function LogoLockup({
@@ -26,10 +26,12 @@ export function LogoLockup({
     <img
       src={src}
       alt="The Seventh Vow Weddings"
-      width={1500}
-      height={1089}
+      width={1180}
+      height={857}
       className={className}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
+      decoding={priority ? "sync" : "async"}
     />
   );
 }

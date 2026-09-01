@@ -24,6 +24,12 @@ const one = (s: string): HTMLElement | null =>
 const prefersReduce = (): boolean =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/** Wire an element's hover handlers at most once (guards Strict Mode double
+ *  runs; fresh elements after a client navigation get wired normally). */
+const wired = new WeakSet<Element>();
+const firstTime = (el: Element): boolean =>
+  wired.has(el) ? false : (wired.add(el), true);
+
 /** Crossfade pacing for a slideshow stack (CSS keyframes drive the fade). */
 function pace(nodes: HTMLElement[], per: number): void {
   const n = nodes.length;
@@ -144,9 +150,11 @@ function initEnvelope(): void {
 }
 
 /** Scroll reveals: visible by default, hidden only while JS holds them. */
-function initReveals(): void {
+function initReveals(): Cleanup {
   const reveals = q("[data-reveal]");
-  if (prefersReduce() || !("IntersectionObserver" in window)) return;
+  if (prefersReduce() || !("IntersectionObserver" in window)) {
+    return () => undefined;
+  }
   reveals.forEach((el) => {
     if (el.dataset.revealBase === undefined) {
       el.dataset.revealBase = el.style.transform || "";
@@ -174,6 +182,7 @@ function initReveals(): void {
     { threshold: 0.06, rootMargin: "0px 0px -6% 0px" },
   );
   reveals.forEach((el) => rio.observe(el));
+  return () => rio.disconnect();
 }
 
 /** Guest-book carousel. */
@@ -219,7 +228,7 @@ function initCarousel(): Cleanup {
 function initThreshold(): void {
   const thr = one("[data-threshold]");
   const thrCue = one("[data-threshold-cue]");
-  if (!thr || !thrCue) return;
+  if (!thr || !thrCue || !firstTime(thr)) return;
   thrCue.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
   thr.addEventListener("mouseenter", () => {
     thrCue.style.transform = "translateX(5px)";
@@ -265,7 +274,11 @@ function initEnquiry(): Cleanup {
     if (e.key === "Escape") closeIt();
   };
 
-  q("[data-enquiry-open]").forEach((b) => b.addEventListener("click", openIt));
+  // Delegated so links added by a later page still open the form.
+  const onDocClick = (e: MouseEvent): void => {
+    if ((e.target as Element | null)?.closest("[data-enquiry-open]")) openIt(e);
+  };
+  document.addEventListener("click", onDocClick);
   one("[data-enquiry-close]")?.addEventListener("click", closeIt);
   ov.addEventListener("click", (e) => {
     if (e.target === ov) closeIt();
@@ -278,11 +291,14 @@ function initEnquiry(): Cleanup {
     if (frm) frm.style.display = "none";
     if (thanks) thanks.style.display = "block";
   });
-  return () => window.removeEventListener("keydown", onKey);
+  return () => {
+    document.removeEventListener("click", onDocClick);
+    window.removeEventListener("keydown", onKey);
+  };
 }
 
 /** Nav scroll spy. */
-function initScrollSpy(): void {
+function initScrollSpy(): Cleanup {
   type Spy = { h: string; el: HTMLElement; link: HTMLElement };
   const spy: Spy[] = ["about", "services", "portfolio"]
     .map((id) => ({
@@ -293,7 +309,7 @@ function initScrollSpy(): void {
       ),
     }))
     .filter((s): s is Spy => Boolean(s.el && s.link));
-  if (!spy.length) return;
+  if (!spy.length) return () => undefined;
 
   const mark = (active: string): void =>
     spy.forEach((s) => {
@@ -315,10 +331,19 @@ function initScrollSpy(): void {
     { threshold: [0.2, 0.5], rootMargin: "-30% 0px -40% 0px" },
   );
   spy.forEach((s) => sio.observe(s.el));
+  return () => {
+    sio.disconnect();
+    spy.forEach((s) => {
+      s.link.style.color = "";
+      s.link.style.opacity = "";
+      s.link.style.textDecoration = "";
+    });
+  };
 }
 
 function initPosts(): void {
   q("[data-post]").forEach((p) => {
+    if (!firstTime(p)) return;
     const img = p.querySelector<HTMLElement>("img");
     const veil = p.querySelector<HTMLElement>("[data-post-veil]");
     const cap = p.querySelector<HTMLElement>("[data-post-cap]");
@@ -343,6 +368,7 @@ function initPosts(): void {
 
 function initArch(): void {
   q("[data-arch]").forEach((a) => {
+    if (!firstTime(a)) return;
     const img = a.querySelector<HTMLElement>("img");
     a.addEventListener("mouseenter", () => {
       if (img) img.style.transform = "scale(1.07)";
@@ -355,6 +381,7 @@ function initArch(): void {
 
 function initTilt(): void {
   q("[data-tilt]").forEach((card) => {
+    if (!firstTime(card)) return;
     card.style.transformStyle = "preserve-3d";
     const img = card.querySelector<HTMLElement>("img");
     const cue = card.querySelector<HTMLElement>("[data-cue]");
@@ -391,22 +418,28 @@ function initTilt(): void {
   });
 }
 
-/** Wire every behaviour; returns a cleanup that unwinds global listeners. */
-export function initSupport(): Cleanup {
+/** Wire the behaviours that live for the whole session — the header (a scroll
+ *  listener on a header that never unmounts) and the enquiry overlay. Guarded so
+ *  a Strict Mode remount is a no-op. */
+export function initOnce(): void {
   const root = document.documentElement;
-  if (root.dataset.svReady) return () => undefined;
+  if (root.dataset.svReady) return;
   root.dataset.svReady = "1";
+  initHeader();
+  initEnquiry();
+}
 
+/** Wire the behaviours tied to the current page's DOM. Re-run on every client
+ *  navigation; the returned cleanup unwinds the observers first. */
+export function initRoute(): Cleanup {
   initLook();
   const cleanups: Cleanup[] = [
-    initHeader(),
+    initReveals(),
     initCarousel(),
-    initEnquiry(),
+    initScrollSpy(),
   ];
   initEnvelope();
-  initReveals();
   initThreshold();
-  initScrollSpy();
   initPosts();
   initArch();
   initTilt();

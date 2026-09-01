@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./Vows.module.css";
 
 const PETAL_LEAF = "M12 2 C16 8 16 16 12 22 C8 16 8 8 12 2 Z";
@@ -104,9 +106,9 @@ export function Vows(): React.ReactElement {
             <span className={styles.signScript}>The Seventh Vow Weddings</span>
             <span className={styles.signLine} />
           </div>
-          <a href="services.html" className={styles.moreLink}>
+          <Link href="/services" className={styles.moreLink}>
             Explore all services <span className={styles.arrow}>→</span>
-          </a>
+          </Link>
         </div>
 
         <div className={styles.stack}>

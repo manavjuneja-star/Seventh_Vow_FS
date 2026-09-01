@@ -11,6 +11,8 @@
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;overflow-x:hidden;}
 body{margin:0;background:var(--blush);color:var(--charcoal);font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;}
+/* Intro veil plays on the first load of a session only. */
+html[data-veil-seen] [data-veil],html[data-veil-seen] [data-veilmark]{display:none !important;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:var(--gold);}
 img{max-width:100%;display:block;}

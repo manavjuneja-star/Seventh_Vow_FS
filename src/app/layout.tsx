@@ -26,6 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('svVeilShown')){document.documentElement.setAttribute('data-veil-seen','')}}catch(e){}",
+          }}
+        />
         <SiteHeader />
         {children}
         <SiteFooter />

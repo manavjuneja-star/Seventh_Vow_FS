@@ -231,6 +231,16 @@
 }
 
 
+/* Return visits skip the veil, so the hero content must be there at once —
+   drop the intro delays that were timed to the veil lift. */
+:global(html[data-veil-seen]) .lockupWrap,
+:global(html[data-veil-seen]) .sub,
+:global(html[data-veil-seen]) .actions,
+:global(html[data-veil-seen]) .cue {
+  animation: none;
+  opacity: 1;
+}
+
 /* local keyframes (CSS Modules scopes animation names to the file) */
 @keyframes fade4{0%{opacity:1;transform:scale(1);}22%{opacity:1;}30%{opacity:0;transform:scale(1.1);}31%{transform:scale(1);}92%{opacity:0;transform:scale(1);}100%{opacity:1;transform:scale(1);}}
 @keyframes fadein{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}

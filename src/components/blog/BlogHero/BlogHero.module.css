@@ -1,111 +1,156 @@
 .hero {
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(460px, 74vh, 660px);
   overflow: hidden;
-  background: linear-gradient(
-    160deg,
-    var(--mauve-dark) 0%,
-    var(--mauve-deep) 55%,
-    #3a2523 100%
-  );
   color: var(--ivory);
-  padding: clamp(150px, 22vw, 215px) 6vw clamp(96px, 14vw, 150px);
-  text-align: center;
+  text-decoration: none;
 }
 
-.rings {
+.bg {
   position: absolute;
-  right: -180px;
-  top: -160px;
-  width: 480px;
-  height: 480px;
-  opacity: 0.12;
-  color: var(--gold-light);
-  pointer-events: none;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero:hover .bg img,
+.hero:focus-visible .bg img {
+  transform: scale(1.035);
+}
+
+.hero:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: -6px;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(43, 32, 30, 0.5) 0%,
+      rgba(43, 32, 30, 0.18) 34%,
+      rgba(74, 48, 45, 0.72) 76%,
+      rgba(58, 37, 35, 0.97) 100%
+    ),
+    linear-gradient(
+      72deg,
+      rgba(43, 32, 30, 0.74) 0%,
+      rgba(43, 32, 30, 0.2) 52%,
+      transparent 78%
+    );
 }
 
 .petal {
   position: absolute;
+  z-index: 2;
   pointer-events: none;
-  z-index: 1;
 }
 
 .petal1 {
-  top: 24%;
-  left: 9%;
+  top: 20%;
+  right: 8%;
   width: 22px;
   height: 22px;
   opacity: 0.5;
-  animation: drift 11s ease-in-out infinite alternate;
+  animation: drift 12s ease-in-out infinite alternate;
 }
+
 .petal2 {
-  top: 62%;
-  right: 11%;
-  width: 16px;
-  height: 16px;
+  top: 44%;
+  right: 15%;
+  width: 14px;
+  height: 14px;
   opacity: 0.4;
-  animation: driftSlow 9s ease-in-out infinite alternate;
-}
-.petal3 {
-  bottom: 26%;
-  left: 16%;
-  width: 13px;
-  height: 13px;
-  opacity: 0.35;
-  animation: drift 13s ease-in-out infinite alternate;
+  animation: driftSlow 10s ease-in-out infinite alternate;
 }
 
 .inner {
   position: relative;
-  z-index: 2;
-  max-width: 720px;
+  z-index: 3;
+  width: 100%;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 150px 6vw clamp(58px, 9vw, 100px);
 }
 
-.eyebrow {
+.kicker {
   display: block;
-  margin-bottom: 18px;
-  text-transform: uppercase;
+  font-size: 0.7rem;
   letter-spacing: 0.32em;
-  font-size: 0.72rem;
-  font-weight: 500;
+  text-transform: uppercase;
   color: var(--gold-light);
 }
 
-.title {
-  font-family: "Fraunces", serif;
-  font-weight: 400;
-  color: var(--ivory);
-  font-size: clamp(2.3rem, 5.6vw, 3.9rem);
-  line-height: 1.12;
-  margin: 0;
-  text-wrap: balance;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-.title em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-
-.sub {
-  margin: 24px auto 0;
-  max-width: 33rem;
-  font-size: 1.02rem;
-  line-height: 1.75;
+.meta {
+  margin: 14px 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--ivory);
   opacity: 0.82;
 }
 
-.rule {
-  width: 64px;
-  height: 1px;
-  margin: 34px auto 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold-light),
-    transparent
-  );
+.dot {
+  margin: 0 0.6em;
+  color: var(--gold-light);
+}
+
+.title {
+  margin: 12px 0 0;
+  max-width: 20ch;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.14;
+  color: var(--ivory);
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.excerpt {
+  margin: 18px 0 0;
+  max-width: 46ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ivory);
+  opacity: 0.85;
+  text-wrap: pretty;
+}
+
+.read {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gold-light);
+  transition: gap 0.35s ease;
+}
+
+.hero:hover .read {
+  gap: 15px;
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .wave {
@@ -113,9 +158,16 @@
   left: 0;
   right: 0;
   bottom: -1px;
+  z-index: 3;
   width: 100%;
-  height: 64px;
-  z-index: 2;
+  height: 60px;
+  pointer-events: none;
+}
+
+@media (max-width: 620px) {
+  .excerpt {
+    display: none;
+  }
 }
 
 /* local keyframes (CSS Modules scopes animation names to the file) */

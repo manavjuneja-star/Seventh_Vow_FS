@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/Logo/Logo";
@@ -10,7 +11,7 @@ type MenuLink = { label: string; href: string; enquiry?: boolean };
 
 const LINKS: MenuLink[] = [
   { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Destination & Venues", href: "#" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Blogs", href: "/blog" },
@@ -74,20 +75,36 @@ export function MobileMenu(): React.ReactElement {
         </div>
 
         <nav className={styles.nav}>
-          {LINKS.map((link, i) => (
-            <a
-              key={link.label}
-              href={link.href}
-              data-enquiry-open={link.enquiry ? "1" : undefined}
-              className={styles.link}
-              onClick={close}
-            >
-              <span className={styles.index}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className={styles.linkText}>{link.label}</span>
-            </a>
-          ))}
+          {LINKS.map((link, i) => {
+            const inner = (
+              <>
+                <span className={styles.index}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className={styles.linkText}>{link.label}</span>
+              </>
+            );
+            return link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={styles.link}
+                onClick={close}
+              >
+                {inner}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                data-enquiry-open={link.enquiry ? "1" : undefined}
+                className={styles.link}
+                onClick={close}
+              >
+                {inner}
+              </a>
+            );
+          })}
         </nav>
 
         <div className={styles.foot}>

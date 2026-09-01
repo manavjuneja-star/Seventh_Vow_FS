@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero/Hero";
 import { Instagram } from "@/components/Instagram/Instagram";
 import { Portfolio } from "@/components/Portfolio/Portfolio";
 import { Services } from "@/components/Services/Services";
+import { FooterDivider } from "@/components/SiteFooter/SiteFooter";
 import { Threshold } from "@/components/Threshold/Threshold";
 import { Veil } from "@/components/Veil/Veil";
 import { Vows } from "@/components/Vows/Vows";
@@ -20,6 +21,7 @@ export default function HomePage(): React.ReactElement {
       <GuestBook />
       <Threshold />
       <Instagram />
+      <FooterDivider />
     </>
   );
 }

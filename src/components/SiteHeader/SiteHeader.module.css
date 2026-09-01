@@ -14,6 +14,11 @@
     padding-top 0.5s ease,
     padding-bottom 0.5s ease,
     box-shadow 0.5s ease;
+}
+
+/* On the homepage's first load the header waits for the intro veil to lift;
+   everywhere else (and on repeat visits) it shows immediately. */
+:global(html:not([data-veil-seen])) :global(body:has([data-veil])) .header {
   animation: fadein 1s ease 4.6s both;
 }
 

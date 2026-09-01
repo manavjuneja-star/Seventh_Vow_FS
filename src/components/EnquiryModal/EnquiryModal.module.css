@@ -59,13 +59,11 @@
   );
 }
 
-.dividerMark {
+.dividerMonogram {
   flex: 0 0 auto;
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  color: #d9a794;
+  width: 30px;
+  height: auto;
+  display: block;
 }
 
 .dividerSprig {

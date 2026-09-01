@@ -1,0 +1,66 @@
+.section {
+  position: relative;
+  background: var(--blush);
+  padding: clamp(64px, 10vw, 120px) 6vw;
+}
+
+
+.section + .section {
+  padding-top: 0;
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.head {
+  max-width: 640px;
+  margin: 0 auto clamp(48px, 8vw, 88px);
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.intro {
+  margin: 18px 0 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.78;
+  text-wrap: pretty;
+}
+
+.garland {
+  position: relative;
+  height: 1px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.garland svg {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  color: var(--line);
+}

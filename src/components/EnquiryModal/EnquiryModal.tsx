@@ -41,7 +41,12 @@ function DividerTop(): React.ReactElement {
     <div className={`${styles.divider} ${styles.dividerTop}`}>
       <span className={styles.dividerDot} />
       <span className={styles.dividerLine} />
-      <span className={styles.dividerMark}>7V</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/monogram-mark.png"
+        alt=""
+        className={styles.dividerMonogram}
+      />
       <span className={styles.dividerLine} />
       <span className={styles.dividerDot} />
     </div>

@@ -14,19 +14,18 @@ type BlogListProps = {
   categories: string[];
 };
 
-/** The Journal grid with category filtering. The featured post shows wide at the
- *  top only while the "All" filter is selected. */
-export function BlogList({ posts, categories }: BlogListProps): React.ReactElement {
+/** The Journal grid with category filtering. The featured post lives in the
+ *  hero, so it isn't in `posts`. */
+export function BlogList({
+  posts,
+  categories,
+}: BlogListProps): React.ReactElement {
   const [active, setActive] = useState(ALL);
 
   const filtered = useMemo(
     () => (active === ALL ? posts : posts.filter((p) => p.category === active)),
     [posts, active],
   );
-
-  const showFeature = active === ALL;
-  const feature = showFeature ? filtered.find((p) => p.featured) : undefined;
-  const rest = feature ? filtered.filter((p) => p !== feature) : filtered;
 
   return (
     <section className={styles.section}>
@@ -48,15 +47,9 @@ export function BlogList({ posts, categories }: BlogListProps): React.ReactEleme
           ))}
         </div>
 
-        {feature && (
-          <div className={styles.feature}>
-            <PostCard post={feature} feature />
-          </div>
-        )}
-
-        {rest.length > 0 ? (
+        {filtered.length > 0 ? (
           <div className={styles.grid}>
-            {rest.map((post) => (
+            {filtered.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
           </div>

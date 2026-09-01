@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { BlogHero } from "@/components/blog/BlogHero/BlogHero";
 import { BlogList } from "@/components/blog/BlogList/BlogList";
-import { getCategories, getPosts } from "@/lib/blog";
+import { BLOG_CATEGORIES, getPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "The Journal — The Seventh Vow Weddings",
@@ -11,10 +11,16 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage(): React.ReactElement {
+  const posts = getPosts();
+  const featured = posts.find((p) => p.featured) ?? posts[0];
+  const rest = posts.filter((p) => p !== featured);
+  const present = new Set(rest.map((p) => p.category));
+  const categories = BLOG_CATEGORIES.filter((c) => present.has(c));
+
   return (
     <>
-      <BlogHero />
-      <BlogList posts={getPosts()} categories={getCategories()} />
+      <BlogHero post={featured} />
+      <BlogList posts={rest} categories={categories} />
     </>
   );
 }

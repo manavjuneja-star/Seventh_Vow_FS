@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 import { MobileMenu } from "@/components/MobileMenu/MobileMenu";
 
@@ -15,13 +17,13 @@ export function SiteHeader(): React.ReactElement {
       <span data-navspacer="1" className={styles.spacer} />
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navLeft}`}>
-        <a data-navtext="1" href="/#about" className={styles.link}>
+        <Link data-navtext="1" href="/#about" className={styles.link}>
           About
-        </a>
+        </Link>
         <Diamond />
-        <a data-navtext="1" href="/#services" className={styles.link}>
+        <Link data-navtext="1" href="/services" className={styles.link}>
           Services
-        </a>
+        </Link>
         <Diamond />
         <a
           data-navtext="1"
@@ -32,23 +34,23 @@ export function SiteHeader(): React.ReactElement {
         </a>
       </nav>
 
-      <a
+      <Link
         data-brand="1"
         href="/"
         aria-label="The Seventh Vow Weddings"
         className={styles.brand}
       >
         <LogoLockup className={styles.brandLogo} variant="ivory" priority />
-      </a>
+      </Link>
 
       <nav data-nav="1" className={`${styles.nav} ${styles.navRight}`}>
-        <a data-navtext="1" href="/#portfolio" className={styles.link}>
+        <Link data-navtext="1" href="/#portfolio" className={styles.link}>
           Portfolio
-        </a>
+        </Link>
         <Diamond />
-        <a data-navtext="1" href="/blog" className={styles.link}>
+        <Link data-navtext="1" href="/blog" className={styles.link}>
           Blogs
-        </a>
+        </Link>
         <Diamond />
         <a
           data-navtext="1"

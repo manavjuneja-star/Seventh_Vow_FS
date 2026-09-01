@@ -6,6 +6,13 @@
  * query — the `BlogPost` shape is the contract the rest of the site relies on.
  */
 
+/** Filter order shown on the Journal listing. "All" is added by the UI. */
+export const BLOG_CATEGORIES = [
+  "Weddings",
+  "Planning",
+  "Décor & Styling",
+] as const;
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -25,7 +32,7 @@ const POSTS: BlogPost[] = [
     excerpt:
       "Three days on the water, a mandap built to catch the evening light, and four hundred guests who never once had to ask where to be.",
     cover: "/images/mandap.jpg",
-    category: "Real Weddings",
+    category: "Weddings",
     date: "2026-06-02",
     readMinutes: 7,
     featured: true,
@@ -56,7 +63,7 @@ const POSTS: BlogPost[] = [
     excerpt:
       "A small gathering that sets the tone for everything after it. What it means, who it is for, and how to make it feel like the beginning it is.",
     cover: "/images/bouquet.jpg",
-    category: "Traditions",
+    category: "Planning",
     date: "2026-04-11",
     readMinutes: 4,
   },
@@ -66,7 +73,7 @@ const POSTS: BlogPost[] = [
     excerpt:
       "Palaces, coastlines and hidden gardens read very differently in December. A short guide to scouting for the season you are actually marrying in.",
     cover: "/images/gazebo.jpg",
-    category: "Destinations",
+    category: "Planning",
     date: "2026-03-22",
     readMinutes: 8,
   },
@@ -76,7 +83,7 @@ const POSTS: BlogPost[] = [
     excerpt:
       "They handed us a folder of half-ideas and asked for a weekend that felt like it had always existed. The rain, it turned out, was on our side.",
     cover: "/images/vows.jpg",
-    category: "Real Weddings",
+    category: "Weddings",
     date: "2026-02-14",
     readMinutes: 6,
   },
@@ -101,7 +108,8 @@ export function getPost(slug: string): BlogPost | undefined {
 }
 
 export function getCategories(): string[] {
-  return Array.from(new Set(POSTS.map((p) => p.category)));
+  const present = new Set(POSTS.map((p) => p.category));
+  return BLOG_CATEGORIES.filter((c) => present.has(c));
 }
 
 export function formatDate(iso: string): string {

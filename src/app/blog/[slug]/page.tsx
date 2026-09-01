@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { formatDate, getPost, getPosts } from "@/lib/blog";
@@ -50,9 +51,9 @@ export default function BlogPostPage({ params }: Params): React.ReactElement {
           are connected. This page is a placeholder so the Journal is navigable
           while the post template is being designed.
         </p>
-        <a href="/blog" className={styles.back}>
+        <Link href="/blog" className={styles.back}>
           ← Back to the Journal
-        </a>
+        </Link>
       </div>
     </article>
   );

@@ -1,22 +1,38 @@
+import Link from "next/link";
+
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
+import { type Offering, SERVICES, SPECIALIZATIONS } from "@/lib/services";
 
 import styles from "./SiteFooter.module.css";
 
-const SERVICES = [
-  "Wedding Planning",
-  "Destination Weddings",
-  "Event Design & Styling",
-  "Vendor Coordination",
-  "Hospitality & Guest Management",
-  "Roka Ceremony",
-  "Engagement Party",
-  "Complete Wedding Ceremony",
-  "Anniversaries",
-  "Birthday Parties",
-  "Corporate Events",
-];
+function LinkColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: Offering[];
+}): React.ReactElement {
+  return (
+    <div>
+      <span className={styles.colTitle}>{title}</span>
+      <div className={styles.linkCol}>
+        {items.map((item) => (
+          <Link
+            key={item.slug}
+            href={`/services#${item.slug}`}
+            className={styles.navLink}
+          >
+            {item.title}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-function Divider(): React.ReactElement {
+/** The closing garland flourish — rendered only where wanted (the homepage),
+ *  not as part of every footer. */
+export function FooterDivider(): React.ReactElement {
   return (
     <div data-reveal="0" className={styles.divider}>
       <svg viewBox="0 0 620 90" fill="none" className={styles.dividerSvg}>
@@ -40,12 +56,10 @@ function Divider(): React.ReactElement {
   );
 }
 
-/** Closing garland divider and the full studio footer. */
+/** The studio footer. The garland divider above it is opt-in (`<FooterDivider>`). */
 export function SiteFooter(): React.ReactElement {
   return (
-    <>
-      <Divider />
-      <footer className={styles.footer}>
+    <footer className={styles.footer}>
         <svg viewBox="0 0 600 600" className={styles.rings}>
           <circle
             cx="300"
@@ -73,8 +87,8 @@ export function SiteFooter(): React.ReactElement {
           />
         </svg>
 
-        <div data-grid2="1" className={styles.grid}>
-          <div>
+        <div className={styles.grid}>
+          <div className={styles.brandCol}>
             <div className={styles.brand}>
               <LogoLockup
                 className={styles.brandLogo}
@@ -96,18 +110,10 @@ export function SiteFooter(): React.ReactElement {
             </a>
           </div>
 
-          <div>
-            <span className={styles.colTitle}>Services</span>
-            <div className={styles.linkCol}>
-              {SERVICES.map((s) => (
-                <a key={s} href="services.html" className={styles.navLink}>
-                  {s}
-                </a>
-              ))}
-            </div>
-          </div>
+          <LinkColumn title="Services" items={SERVICES} />
+          <LinkColumn title="Specializations" items={SPECIALIZATIONS} />
 
-          <div>
+          <div className={styles.studioBlock}>
             <span className={styles.colTitle}>Studio</span>
             <div className={styles.studioCol}>
               <a
@@ -175,6 +181,5 @@ export function SiteFooter(): React.ReactElement {
           <span className={styles.signoff}>Designed one union at a time</span>
         </div>
       </footer>
-    </>
   );
 }

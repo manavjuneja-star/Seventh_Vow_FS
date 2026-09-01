@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "./Services.module.css";
 
 type Service = {
@@ -83,9 +85,9 @@ export function Services(): React.ReactElement {
         </div>
 
         <div data-reveal=".15" className={styles.more}>
-          <a href="services.html" className={styles.moreLink}>
+          <Link href="/services" className={styles.moreLink}>
             Explore All Services <span className={styles.arrow}>→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

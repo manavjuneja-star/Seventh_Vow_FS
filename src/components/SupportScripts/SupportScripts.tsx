@@ -1,17 +1,24 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-import { initSupport } from "@/lib/support";
+import { initOnce, initRoute } from "@/lib/support";
 
 /**
- * Mounts the landing-page behaviour once the DOM is present. `initSupport`
- * guards against a second run, so a Strict Mode remount is a no-op and the
- * listeners it wires live for the lifetime of the page.
+ * Wires the landing-page behaviour. `initOnce` runs a single time for the
+ * session (header, enquiry overlay — elements that live in the shared layout).
+ * `initRoute` re-runs on every client navigation so a freshly-mounted page's
+ * reveals, carousel, tilt and slideshows get wired.
  */
 export function SupportScripts(): null {
+  const pathname = usePathname();
+
   useEffect(() => {
-    initSupport();
+    initOnce();
   }, []);
+
+  useEffect(() => initRoute(), [pathname]);
+
   return null;
 }
