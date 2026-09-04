@@ -1,23 +1,15 @@
+import { MandapSketch } from "@/components/service-page/MandapSketch/MandapSketch";
+
 import styles from "./ServicesHero.module.css";
 
 const PETAL_LEAF = "M12 2 C16 8 16 16 12 22 C8 16 8 8 12 2 Z";
 
-/** Photographic masthead for the services page — a warm image behind a mauve
- *  wash, with the typographic intro and a ground for the fixed header. */
+/** Services masthead — a line-drawing of a mandap sits behind the type on a
+ *  dark ground, giving the fixed header something to sit on. */
 export function ServicesHero(): React.ReactElement {
   return (
     <section className={styles.hero}>
-      <div className={styles.bg} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/banquet.jpg" alt="" />
-      </div>
-      <div className={styles.scrim} aria-hidden="true" />
-
-      <svg viewBox="0 0 600 600" className={styles.rings} aria-hidden="true">
-        <circle cx="300" cy="300" r="286" fill="none" stroke="currentColor" strokeWidth="1" />
-        <circle cx="300" cy="300" r="200" fill="none" stroke="currentColor" strokeWidth="1" />
-        <circle cx="300" cy="300" r="114" fill="none" stroke="currentColor" strokeWidth="1" />
-      </svg>
+      <MandapSketch />
 
       <svg
         className={`${styles.petal} ${styles.petal1}`}
@@ -47,11 +39,11 @@ export function ServicesHero(): React.ReactElement {
           specialisations that hold it together.
         </p>
         <div className={styles.jump}>
-          <a href="#end-to-end-wedding-planning" className={styles.jumpLink}>
+          <a href="#services" className={styles.jumpLink}>
             Services
           </a>
           <span className={styles.jumpDot} />
-          <a href="#event-design-styling" className={styles.jumpLink}>
+          <a href="#specializations" className={styles.jumpLink}>
             Specializations
           </a>
         </div>

@@ -418,6 +418,21 @@ function initTilt(): void {
   });
 }
 
+/** Re-align to the current `#hash` target, honouring its CSS `scroll-margin-top`.
+ *  Fired a few times because the first jump can land under the fixed header or
+ *  overshoot while content below the fold is still settling. */
+export function alignHash(): void {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const run = (): void => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ block: "start" });
+  };
+  requestAnimationFrame(run);
+  window.setTimeout(run, 220);
+  window.setTimeout(run, 600);
+}
+
 /** Wire the behaviours that live for the whole session — the header (a scroll
  *  listener on a header that never unmounts) and the enquiry overlay. Guarded so
  *  a Strict Mode remount is a no-op. */
@@ -427,6 +442,8 @@ export function initOnce(): void {
   root.dataset.svReady = "1";
   initHeader();
   initEnquiry();
+  window.addEventListener("hashchange", alignHash);
+  if (location.hash) window.setTimeout(alignHash, 40);
 }
 
 /** Wire the behaviours tied to the current page's DOM. Re-run on every client
@@ -443,5 +460,6 @@ export function initRoute(): Cleanup {
   initPosts();
   initArch();
   initTilt();
+  if (location.hash) alignHash();
   return () => cleanups.forEach((c) => c());
 }

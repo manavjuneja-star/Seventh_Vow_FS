@@ -61,6 +61,24 @@
   color: var(--gold-light);
 }
 
+/* Current page. `!important` on the colour because support.ts (initHeader /
+   scroll-spy) writes an inline `color` on every [data-navtext] during scroll
+   swaps; the underline is drawn as ::after so it can't be touched at all. */
+.linkActive {
+  opacity: 1;
+  color: var(--gold-light) !important;
+}
+
+.linkActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--gold-light);
+}
+
 .linkNowrap {
   white-space: nowrap;
 }

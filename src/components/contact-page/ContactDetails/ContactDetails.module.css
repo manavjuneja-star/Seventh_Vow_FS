@@ -1,0 +1,102 @@
+.wrap {
+  align-self: start;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.intro {
+  margin: 20px 0 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.8;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.rule {
+  display: block;
+  width: 72px;
+  height: 1px;
+  margin: 32px 0;
+  background: linear-gradient(90deg, var(--gold-light), transparent);
+}
+
+.methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.method {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.methodIcon {
+  width: 26px;
+  height: 26px;
+  margin-top: 3px;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.methodLabel {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.62rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.methodValue {
+  font-family: "Fraunces", serif;
+  font-size: 1.16rem;
+  color: var(--mauve-deep);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+a.methodValue:hover {
+  color: var(--gold);
+}
+
+.methodMeta {
+  margin: 8px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+  opacity: 0.66;
+  max-width: 40ch;
+}
+
+@media (max-width: 920px) {
+  .intro,
+  .methodMeta {
+    max-width: none;
+  }
+}

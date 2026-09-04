@@ -188,7 +188,8 @@
 }
 
 .link:hover .linkText,
-.link:focus-visible .linkText {
+.link:focus-visible .linkText,
+.linkActive .linkText {
   color: var(--gold-light);
 }
 

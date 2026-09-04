@@ -15,20 +15,20 @@ const SERVICES: Service[] = [
     num: "I",
     title: "Destination Weddings",
     body: "Palaces, coastlines, and hidden gardens across the world, scouted and staged for you.",
-    image: "/images/gazebo.jpg",
+    image: "/images/gazebo.webp",
   },
   {
     num: "II",
     title: "Event Design & Styling",
     body: "Mandaps, tablescapes, and florals designed as one continuous visual language.",
-    image: "/images/bouquet.jpg",
+    image: "/images/bouquet.webp",
     lowered: true,
   },
   {
     num: "III",
     title: "Hospitality & Guest Management",
     body: "Travel, stay, and welcome experiences that make every guest feel expected.",
-    image: "/images/banquet.jpg",
+    image: "/images/banquet.webp",
   },
 ];
 
@@ -65,17 +65,6 @@ export function Services(): React.ReactElement {
             Three disciplines, one vision, carried from first sketch to final
             farewell.
           </h2>
-        </div>
-
-        <div className={styles.garland}>
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              d="M0,60 C200,10 300,110 500,60 C700,10 800,110 1000,60 C1100,35 1150,70 1200,55"
-              stroke="currentColor"
-              fill="none"
-              strokeWidth="1"
-            />
-          </svg>
         </div>
 
         <div data-services-grid="1" data-reveal=".1" className={styles.grid}>

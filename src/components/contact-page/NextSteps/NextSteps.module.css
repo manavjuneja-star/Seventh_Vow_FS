@@ -1,0 +1,94 @@
+.section {
+  position: relative;
+  background: var(--blush-deep);
+  background-image: radial-gradient(
+    rgba(169, 120, 43, 0.06) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+  padding: clamp(64px, 9vw, 108px) 6vw;
+}
+
+.inner {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 52px);
+}
+
+.step {
+  position: relative;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.num {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.stepTitle {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.stepBody {
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  opacity: 0.75;
+}
+
+@media (max-width: 780px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .step {
+    padding: 24px 0;
+  }
+  .step + .step {
+    border-top: 1px solid var(--line);
+  }
+}

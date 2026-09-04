@@ -19,8 +19,8 @@ export function LogoLockup({
 }: LogoLockupProps): React.ReactElement {
   const src =
     variant === "ivory"
-      ? "/images/logo-lockup-ivory.png"
-      : "/images/logo-lockup.png";
+      ? "/images/logo-lockup-ivory.webp"
+      : "/images/logo-lockup.webp";
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img

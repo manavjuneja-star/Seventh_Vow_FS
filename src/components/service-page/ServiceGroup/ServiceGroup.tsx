@@ -4,6 +4,7 @@ import { ServiceRow } from "@/components/service-page/ServiceRow/ServiceRow";
 import styles from "./ServiceGroup.module.css";
 
 type ServiceGroupProps = {
+  id?: string;
   eyebrow: string;
   heading: string;
   intro: string;
@@ -13,6 +14,7 @@ type ServiceGroupProps = {
 
 /** A titled band of alternating offering rows. */
 export function ServiceGroup({
+  id,
   eyebrow,
   heading,
   intro,
@@ -34,7 +36,7 @@ export function ServiceGroup({
         </div>
       )}
       <div className={styles.inner}>
-        <div data-reveal="0" className={styles.head}>
+        <div id={id} data-reveal="0" className={styles.head}>
           <span className={styles.eyebrow}>{eyebrow}</span>
           <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.intro}>{intro}</p>

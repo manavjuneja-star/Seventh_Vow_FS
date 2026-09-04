@@ -48,13 +48,13 @@
 }
 
 .slide1 {
-  background-image: url("/images/mandap.jpg");
+  background-image: url("/images/mandap.webp");
 }
 .slide2 {
-  background-image: url("/images/banquet.jpg");
+  background-image: url("/images/banquet.webp");
 }
 .slide3 {
-  background-image: url("/images/bouquet.jpg");
+  background-image: url("/images/bouquet.webp");
 }
 
 .figureVeil {

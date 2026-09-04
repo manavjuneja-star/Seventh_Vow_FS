@@ -12,21 +12,21 @@ const STORIES: Story[] = [
   {
     loc: "Udaipur / 2025",
     name: "Aranya & Kabir",
-    image: "/images/cake.jpg",
+    image: "/images/cake.webp",
     alt: "Wedding cake with floral arrangement",
     rounded: "a",
   },
   {
     loc: "Goa / 2025",
     name: "Meher & Dev",
-    image: "/images/gazebo.jpg",
+    image: "/images/gazebo.webp",
     alt: "Wedding gazebo venue",
     rounded: "b",
   },
   {
     loc: "Tuscany / 2024",
     name: "Naina & Arjun",
-    image: "/images/bouquet.jpg",
+    image: "/images/bouquet.webp",
     alt: "Wedding floral bouquet detail",
     rounded: "a",
   },
@@ -60,19 +60,10 @@ export function Portfolio(): React.ReactElement {
     <section id="portfolio" className={styles.section}>
       <div className={styles.inner}>
         <div data-reveal="0" className={styles.head}>
-          <div>
-            <span className={styles.eyebrow}>Recent Celebrations</span>
-            <h2 className={styles.heading}>
-              A few stories we&apos;ve had the honour of designing.
-            </h2>
-          </div>
-          <a
-            data-enquiry-open="1"
-            href="#enquiry"
-            className={styles.headLink}
-          >
-            View Full Portfolio
-          </a>
+          <span className={styles.eyebrow}>Recent Celebrations</span>
+          <h2 className={styles.heading}>
+            A few stories we&apos;ve had the honour of designing.
+          </h2>
         </div>
 
         <a
@@ -83,7 +74,7 @@ export function Portfolio(): React.ReactElement {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/banquet.jpg"
+            src="/images/banquet.webp"
             alt="Long banquet table with chandelier"
           />
           <div className={styles.featureScrim} />

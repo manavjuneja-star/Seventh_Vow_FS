@@ -1,5 +1,6 @@
 .section {
   padding: 0 0 132px;
+  scroll-margin-top: 150px;
 }
 
 .inner {
@@ -9,12 +10,7 @@
 }
 
 .head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
   margin-bottom: 52px;
-  gap: 30px;
-  flex-wrap: wrap;
 }
 
 .eyebrow {
@@ -36,21 +32,6 @@
   max-width: 520px;
   margin: 0;
   text-wrap: pretty;
-}
-
-.headLink {
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding-bottom: 4px;
-  color: var(--mauve-dark);
-  border-bottom: 1px solid var(--gold);
-  white-space: nowrap;
-  transition: opacity 0.3s ease;
-}
-
-.headLink:hover {
-  opacity: 0.6;
 }
 
 .feature {

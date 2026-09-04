@@ -1,0 +1,54 @@
+.board {
+  position: relative;
+  z-index: 3;
+  background: var(--blush);
+  padding: clamp(56px, 8vw, 104px) 6vw clamp(64px, 9vw, 100px);
+}
+
+.promise {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1180px;
+  margin: clamp(48px, 6vw, 80px) auto 0;
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--mauve-dark);
+  text-align: center;
+}
+
+.promiseMark {
+  color: var(--gold-light);
+  font-style: normal;
+  font-size: 0.85rem;
+}
+
+.instaWrap {
+  padding-top: clamp(56px, 8vw, 104px);
+}
+
+.grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+
+.detailsWrap,
+.formWrap {
+  min-width: 0;
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}

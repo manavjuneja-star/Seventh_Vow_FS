@@ -16,12 +16,14 @@ export default function ServicesPage(): React.ReactElement {
     <>
       <ServicesHero />
       <ServiceGroup
+        id="services"
         eyebrow="Services"
         heading="The occasions we plan"
         intro="Each one taken on from the first conversation and carried to the last farewell — the same team, the same standard, whether it's a Roka for forty or a wedding for four hundred."
         items={SERVICES}
       />
       <ServiceGroup
+        id="specializations"
         eyebrow="Specializations"
         heading="How every day holds together"
         intro="The disciplines that run beneath the celebration. On their own or woven into full planning, this is the craft that makes a large, moving event feel effortless."

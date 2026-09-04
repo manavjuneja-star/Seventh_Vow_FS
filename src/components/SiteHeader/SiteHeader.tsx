@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 import { MobileMenu } from "@/components/MobileMenu/MobileMenu";
@@ -9,8 +12,33 @@ function Diamond(): React.ReactElement {
   return <span className={styles.diamond} />;
 }
 
-/** Fixed site header: brand centred, nav split either side, enquire CTA. */
+/** True when `href` is the page currently open (or a section of it). */
+function routeActive(pathname: string, href: string): boolean {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+/**
+ * The single site header, rendered once in the root layout so every page shares
+ * it. The link for the page you're on is marked with `aria-current` and a gold
+ * underline.
+ */
 export function SiteHeader(): React.ReactElement {
+  const pathname = usePathname();
+
+  const pageLink = (href: string, label: string): React.ReactElement => {
+    const active = routeActive(pathname, href);
+    return (
+      <Link
+        data-navtext="1"
+        href={href}
+        aria-current={active ? "page" : undefined}
+        className={`${styles.link} ${active ? styles.linkActive : ""}`}
+      >
+        {label}
+      </Link>
+    );
+  };
+
   return (
     <header data-header="1" className={styles.header}>
       <MobileMenu />
@@ -21,9 +49,7 @@ export function SiteHeader(): React.ReactElement {
           About
         </Link>
         <Diamond />
-        <Link data-navtext="1" href="/services" className={styles.link}>
-          Services
-        </Link>
+        {pageLink("/services", "Services")}
         <Diamond />
         <a
           data-navtext="1"
@@ -48,18 +74,9 @@ export function SiteHeader(): React.ReactElement {
           Portfolio
         </Link>
         <Diamond />
-        <Link data-navtext="1" href="/blog" className={styles.link}>
-          Blogs
-        </Link>
+        {pageLink("/blog", "Blogs")}
         <Diamond />
-        <a
-          data-navtext="1"
-          data-enquiry-open="1"
-          href="#enquiry"
-          className={styles.link}
-        >
-          Contact
-        </a>
+        {pageLink("/contact", "Contact")}
       </nav>
 
       <a

@@ -1,0 +1,23 @@
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(560px, 86%);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.42;
+}
+
+@media (max-width: 720px) {
+  .img {
+    width: 148%;
+    opacity: 0.36;
+  }
+}

@@ -28,19 +28,19 @@
 }
 
 .slide1 {
-  background-image: url("/images/banquet.jpg");
+  background-image: url("/images/banquet.webp");
   background-position: center 32%;
 }
 .slide2 {
-  background-image: url("/images/gazebo.jpg");
+  background-image: url("/images/gazebo.webp");
   background-position: center 68%;
 }
 .slide3 {
-  background-image: url("/images/mandap.jpg");
+  background-image: url("/images/mandap.webp");
   background-position: 30% center;
 }
 .slide4 {
-  background-image: url("/images/cake.jpg");
+  background-image: url("/images/cake.webp");
   background-position: center 42%;
 }
 

@@ -6,12 +6,12 @@ const HANDLE = "https://instagram.com/theseventhvow";
 type Post = { image: string; caption: string };
 
 const POSTS: Post[] = [
-  { image: "/images/gazebo.jpg", caption: "Gazebo, first light" },
-  { image: "/images/bouquet.jpg", caption: "Bouquet study" },
-  { image: "/images/banquet.jpg", caption: "Banquet, Jaisalmer" },
-  { image: "/images/cake.jpg", caption: "Six tiers, one flower" },
-  { image: "/images/mandap.jpg", caption: "Mandap at dusk" },
-  { image: "/images/vows.jpg", caption: "Vows, Udaipur" },
+  { image: "/images/gazebo.webp", caption: "Gazebo, first light" },
+  { image: "/images/bouquet.webp", caption: "Bouquet study" },
+  { image: "/images/banquet.webp", caption: "Banquet, Jaisalmer" },
+  { image: "/images/cake.webp", caption: "Six tiers, one flower" },
+  { image: "/images/mandap.webp", caption: "Mandap at dusk" },
+  { image: "/images/vows.webp", caption: "Vows, Udaipur" },
 ];
 
 function CameraIcon({ className }: { className: string }) {

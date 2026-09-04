@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/Logo/Logo";
@@ -15,7 +16,7 @@ const LINKS: MenuLink[] = [
   { label: "Destination & Venues", href: "#" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Blogs", href: "/blog" },
-  { label: "Contact", href: "#enquiry", enquiry: true },
+  { label: "Contact", href: "/contact" },
 ];
 
 /** True while the enquiry overlay has taken over the page (and the scroll lock). */
@@ -35,6 +36,7 @@ function enquiryIsOpen(): boolean {
  */
 export function MobileMenu(): React.ReactElement {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return undefined;
@@ -76,6 +78,12 @@ export function MobileMenu(): React.ReactElement {
 
         <nav className={styles.nav}>
           {LINKS.map((link, i) => {
+            const isPage = link.href.startsWith("/") && !link.href.includes("#");
+            const active =
+              isPage &&
+              (pathname === link.href ||
+                pathname.startsWith(`${link.href}/`));
+            const cls = `${styles.link} ${active ? styles.linkActive : ""}`;
             const inner = (
               <>
                 <span className={styles.index}>
@@ -88,7 +96,8 @@ export function MobileMenu(): React.ReactElement {
               <Link
                 key={link.label}
                 href={link.href}
-                className={styles.link}
+                aria-current={active ? "page" : undefined}
+                className={cls}
                 onClick={close}
               >
                 {inner}
@@ -98,7 +107,7 @@ export function MobileMenu(): React.ReactElement {
                 key={link.label}
                 href={link.href}
                 data-enquiry-open={link.enquiry ? "1" : undefined}
-                className={styles.link}
+                className={cls}
                 onClick={close}
               >
                 {inner}

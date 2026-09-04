@@ -1,7 +1,7 @@
 .section {
   position: relative;
   background: var(--blush);
-  padding: clamp(64px, 10vw, 120px) 6vw;
+  padding: clamp(40px, 6vw, 68px) 6vw clamp(64px, 10vw, 120px);
 }
 
 
@@ -16,8 +16,9 @@
 
 .head {
   max-width: 640px;
-  margin: 0 auto clamp(48px, 8vw, 88px);
+  margin: 0 auto clamp(40px, 6vw, 64px);
   text-align: center;
+  scroll-margin-top: 150px;
 }
 
 .eyebrow {

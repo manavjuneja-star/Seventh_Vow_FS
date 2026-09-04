@@ -43,7 +43,7 @@ function DividerTop(): React.ReactElement {
       <span className={styles.dividerLine} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/monogram-mark.png"
+        src="/images/monogram-mark.webp"
         alt=""
         className={styles.dividerMonogram}
       />
@@ -190,8 +190,14 @@ export function EnquiryModal(): React.ReactElement {
               </label>
               <div data-form-foot="1" className={styles.foot}>
                 <span className={styles.footNote}>
-                  We read every enquiry ourselves and write back within two
-                  working days.
+                  Prefer email? Write straight to{" "}
+                  <a
+                    href="mailto:hello@theseventhvow.com"
+                    className={styles.footLink}
+                  >
+                    hello@theseventhvow.com
+                  </a>
+                  .
                 </span>
                 <button type="submit" className={styles.submit}>
                   Send Enquiry
