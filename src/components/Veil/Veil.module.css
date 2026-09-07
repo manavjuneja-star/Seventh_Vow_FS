@@ -1,9 +1,11 @@
 .veil {
+  /* `inset: 0` alone fills the fixed-positioning viewport edge to edge on
+     every browser — including the full mobile screen behind the address bar.
+     An explicit `height: 100vh/100dvh` was worse on mobile: it anchors to the
+     top and any shortfall (dvh mid-transition, first-paint lag) leaves a gap
+     at the bottom where page content shows through the veil. */
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
   /* Above SiteHeader's z-index:60 — otherwise the fixed header stacks over
      the veil and can show through at the top of the screen. */
   z-index: 70;
