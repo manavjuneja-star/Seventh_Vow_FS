@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 import styles from "./Portfolio.module.css";
 
 type Story = {
+  slug: string;
   loc: string;
   name: string;
   image: string;
@@ -10,6 +13,7 @@ type Story = {
 
 const STORIES: Story[] = [
   {
+    slug: "aranya-kabir",
     loc: "Udaipur / 2025",
     name: "Aranya & Kabir",
     image: "/images/cake.webp",
@@ -17,6 +21,7 @@ const STORIES: Story[] = [
     rounded: "a",
   },
   {
+    slug: "meher-dev",
     loc: "Goa / 2025",
     name: "Meher & Dev",
     image: "/images/gazebo.webp",
@@ -24,6 +29,7 @@ const STORIES: Story[] = [
     rounded: "b",
   },
   {
+    slug: "naina-arjun",
     loc: "Tuscany / 2024",
     name: "Naina & Arjun",
     image: "/images/bouquet.webp",
@@ -32,11 +38,11 @@ const STORIES: Story[] = [
   },
 ];
 
-function StoryCard({ loc, name, image, alt, rounded }: Story) {
+function StoryCard({ slug, loc, name, image, alt, rounded }: Story) {
   return (
-    <a
+    <Link
       data-tilt="1"
-      href="#portfolio"
+      href={`/portfolio/${slug}`}
       className={`${styles.card} ${rounded === "a" ? styles.cardA : styles.cardB}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -50,7 +56,7 @@ function StoryCard({ loc, name, image, alt, rounded }: Story) {
           View the story <span className={styles.arrow}>→</span>
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -66,10 +72,10 @@ export function Portfolio(): React.ReactElement {
           </h2>
         </div>
 
-        <a
+        <Link
           data-tilt="1"
           data-reveal=".05"
-          href="#portfolio"
+          href="/portfolio/ira-rohan"
           className={styles.feature}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -92,7 +98,7 @@ export function Portfolio(): React.ReactElement {
               View the story <span className={styles.arrow}>→</span>
             </span>
           </div>
-        </a>
+        </Link>
 
         <div data-port-grid="1" data-reveal=".12" className={styles.grid}>
           {STORIES.map((s) => (

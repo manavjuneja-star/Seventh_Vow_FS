@@ -13,8 +13,15 @@ export function Veil(): React.ReactElement {
   return (
     <>
       <VeilGate />
-      <div data-veil="1" className={styles.veil} />
-      <div data-veilmark="1" className={styles.mark}>
+      {/* Position/size set inline too (not just in the CSS module) so the
+          veil covers the full viewport from the very first paint, even if
+          the stylesheet applies a beat late. */}
+      <div
+        data-veil="1"
+        className={styles.veil}
+        style={{ position: "fixed", inset: 0 }}
+      />
+      <div data-veilmark="1" className={styles.mark} style={{ position: "fixed" }}>
         <LogoLockup className={styles.markLogo} priority />
       </div>
     </>

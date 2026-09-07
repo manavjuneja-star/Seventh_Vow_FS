@@ -1,6 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   background: linear-gradient(
     160deg,
     var(--mauve-dark) 0%,
@@ -12,18 +13,28 @@
   text-align: center;
 }
 
-.arch {
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bgImg {
   position: absolute;
   left: 50%;
-  top: clamp(52px, 8vw, 92px);
-  width: min(700px, 95vw);
+  top: 50%;
+  width: min(640px, 90%);
   height: auto;
-  transform: translateX(-50%);
-  color: var(--gold-light);
-  opacity: 0.2;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 90%);
-  mask-image: linear-gradient(to bottom, #000 52%, transparent 90%);
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+}
+
+@media (max-width: 720px) {
+  .bgImg {
+    width: 150%;
+    opacity: 0.32;
+  }
 }
 
 .petal {

@@ -13,7 +13,7 @@ type MenuLink = { label: string; href: string; enquiry?: boolean };
 const LINKS: MenuLink[] = [
   { label: "About", href: "/#about" },
   { label: "Services", href: "/services" },
-  { label: "Destination & Venues", href: "#" },
+  { label: "Destination & Venues", href: "/destinations" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },

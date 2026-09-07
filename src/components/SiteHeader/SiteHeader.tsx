@@ -51,13 +51,18 @@ export function SiteHeader(): React.ReactElement {
         <Diamond />
         {pageLink("/services", "Services")}
         <Diamond />
-        <a
+        <Link
           data-navtext="1"
-          href="#"
-          className={`${styles.link} ${styles.linkNowrap}`}
+          href="/destinations"
+          aria-current={
+            routeActive(pathname, "/destinations") ? "page" : undefined
+          }
+          className={`${styles.link} ${styles.linkNowrap} ${
+            routeActive(pathname, "/destinations") ? styles.linkActive : ""
+          }`}
         >
           Destination &amp; Venues
-        </a>
+        </Link>
       </nav>
 
       <Link

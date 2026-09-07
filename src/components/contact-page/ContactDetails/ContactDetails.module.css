@@ -85,6 +85,25 @@ a.methodValue:hover {
   color: var(--gold);
 }
 
+.whatsappHint {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 9px;
+  transform: translateY(-1px);
+}
+
+.whatsappBadge {
+  width: 15px;
+  height: 15px;
+  color: #25d366;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+a.methodValue:hover .whatsappBadge {
+  opacity: 1;
+}
+
 .methodMeta {
   margin: 8px 0 0;
   font-size: 0.86rem;

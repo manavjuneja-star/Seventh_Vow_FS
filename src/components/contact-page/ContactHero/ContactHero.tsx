@@ -24,26 +24,14 @@ function Sprig(): React.ReactElement {
 export function ContactHero(): React.ReactElement {
   return (
     <section className={styles.hero}>
-      <svg
-        className={styles.arch}
-        viewBox="0 0 520 560"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          d="M40 560 L40 236 C40 78 168 34 260 34 C352 34 480 78 480 236 L480 560"
-          strokeWidth="1.1"
-          strokeLinecap="round"
+      <div className={styles.bg} aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/meeting_image.png"
+          alt=""
+          className={styles.bgImg}
         />
-        <path
-          d="M66 560 L66 244 C66 104 178 62 260 62 C342 62 454 104 454 244 L454 560"
-          strokeWidth="0.9"
-          strokeLinecap="round"
-          opacity="0.45"
-        />
-        <circle cx="260" cy="24" r="2.6" fill="currentColor" stroke="none" />
-      </svg>
+      </div>
 
       <svg
         className={`${styles.petal} ${styles.petal1}`}

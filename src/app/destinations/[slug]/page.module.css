@@ -1,0 +1,172 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ivory);
+  text-align: center;
+  padding: clamp(160px, 21vw, 220px) 6vw clamp(110px, 14vw, 150px);
+  background: var(--mauve-deep);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: saturate(0.88) contrast(1.02);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(42, 28, 27, 0.42) 0%,
+      rgba(42, 28, 27, 0.6) 48%,
+      rgba(42, 28, 27, 0.9) 100%
+    ),
+    radial-gradient(
+      120% 90% at 50% 28%,
+      rgba(110, 70, 66, 0.18),
+      rgba(42, 28, 27, 0.7) 78%
+    );
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--ivory);
+  opacity: 0.72;
+  border-bottom: 1px solid rgba(255, 253, 251, 0.4);
+  padding-bottom: 2px;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+}
+
+.back:hover {
+  opacity: 1;
+  color: var(--gold-light);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  text-shadow: 0 0 14px rgba(42, 28, 27, 0.9);
+}
+
+.title {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--ivory);
+  font-size: clamp(2.4rem, 5.6vw, 3.9rem);
+  line-height: 1.12;
+  margin: 0;
+  text-wrap: balance;
+  text-shadow: 0 6px 36px rgba(0, 0, 0, 0.5);
+}
+
+.sub {
+  margin: 20px auto 0;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ivory);
+  opacity: 0.88;
+  text-wrap: pretty;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+}
+
+.venues {
+  background: var(--blush);
+  padding: clamp(56px, 9vw, 110px) 6vw clamp(90px, 14vw, 150px);
+}
+
+.venuesInner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.venuesEyebrow {
+  display: block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.venuesHeading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.28;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.venuesNote {
+  margin: 20px auto 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.74;
+  text-wrap: pretty;
+}
+
+.venuesCta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 32px;
+  background: var(--gold);
+  color: var(--ivory);
+  padding: 15px 38px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  box-shadow: 0 14px 30px -12px rgba(169, 120, 43, 0.6);
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+.venuesCta:hover {
+  background: var(--gold-light);
+  color: var(--ivory);
+  transform: translateY(-3px);
+}

@@ -1,0 +1,52 @@
+.article {
+  background: var(--blush);
+}
+
+.intro {
+  max-width: 1080px;
+  margin: 34px auto 0;
+  padding: 26px clamp(1.4rem, 6vw, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.intro p {
+  max-width: 680px;
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--mauve-dark);
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.frames {
+  max-width: 1080px;
+  margin: clamp(40px, 6vw, 60px) auto 0;
+  padding: 0 clamp(1.4rem, 6vw, 3rem) clamp(24px, 4vw, 40px);
+}
+
+.frames p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.82;
+}
+
+.footWrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 76px) clamp(1.4rem, 6vw, 3rem) clamp(90px, 12vw, 130px);
+}
+
+.closing {
+  margin: 0 0 12px;
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mauve-dark);
+  text-align: center;
+  text-wrap: pretty;
+}

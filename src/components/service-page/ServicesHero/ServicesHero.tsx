@@ -35,18 +35,9 @@ export function ServicesHero(): React.ReactElement {
         </h1>
         <p className={styles.sub}>
           From the first idea to the last farewell, here is every way we can plan,
-          design, and run your day — the services that shape it, and the
-          specialisations that hold it together.
+          design, and run your day — and the on-ground craft that holds it all
+          together.
         </p>
-        <div className={styles.jump}>
-          <a href="#services" className={styles.jumpLink}>
-            Services
-          </a>
-          <span className={styles.jumpDot} />
-          <a href="#specializations" className={styles.jumpLink}>
-            Specializations
-          </a>
-        </div>
       </div>
 
       <svg

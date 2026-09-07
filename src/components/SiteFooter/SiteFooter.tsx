@@ -1,28 +1,30 @@
 import Link from "next/link";
 
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
-import { type Offering, SERVICES, SPECIALIZATIONS } from "@/lib/services";
+import { FOOTER_EXTRA, SERVICES } from "@/lib/services";
 
 import styles from "./SiteFooter.module.css";
+
+const SERVICE_LINKS = SERVICES.map((s) => ({
+  label: s.title,
+  href: `/services#${s.slug}`,
+}));
+const EXTRA_LINKS = FOOTER_EXTRA.map((label) => ({ label, href: "/services" }));
 
 function LinkColumn({
   title,
   items,
 }: {
   title: string;
-  items: Offering[];
+  items: Array<{ label: string; href: string }>;
 }): React.ReactElement {
   return (
     <div>
       <span className={styles.colTitle}>{title}</span>
       <div className={styles.linkCol}>
         {items.map((item) => (
-          <Link
-            key={item.slug}
-            href={`/services#${item.slug}`}
-            className={styles.navLink}
-          >
-            {item.title}
+          <Link key={item.label} href={item.href} className={styles.navLink}>
+            {item.label}
           </Link>
         ))}
       </div>
@@ -110,8 +112,8 @@ export function SiteFooter(): React.ReactElement {
             </a>
           </div>
 
-          <LinkColumn title="Services" items={SERVICES} />
-          <LinkColumn title="Specializations" items={SPECIALIZATIONS} />
+          <LinkColumn title="Services" items={SERVICE_LINKS} />
+          <LinkColumn title="More Services" items={EXTRA_LINKS} />
 
           <div className={styles.studioBlock}>
             <span className={styles.colTitle}>Studio</span>

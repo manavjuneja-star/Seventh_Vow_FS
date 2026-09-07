@@ -1,0 +1,153 @@
+.section {
+  background: var(--blush);
+  padding: clamp(56px, 8vw, 90px) 6vw clamp(90px, 14vw, 150px);
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 66px);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.heading {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  color: var(--mauve-dark);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(22px, 2.8vw, 34px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ivory);
+  border-radius: 3px 24px 3px 24px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 22px 44px -26px rgba(74, 48, 45, 0.4);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 34px 56px -24px rgba(169, 120, 43, 0.4);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.card:hover .media img,
+.card:focus-visible .media img {
+  transform: scale(1.06);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 26px 26px;
+}
+
+.region {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.62rem;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.name {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--mauve-dark);
+  margin: 0;
+}
+
+.blurb {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--charcoal);
+  opacity: 0.76;
+  text-wrap: pretty;
+}
+
+.cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mauve-dark);
+}
+
+.arrow {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

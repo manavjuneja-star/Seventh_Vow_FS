@@ -1,0 +1,7 @@
+/* Override the shared Threshold section's `padding: 0 6vw 130px` so the
+   portfolio page gets equal, modest space above and below it. Descendant
+   selector (class + element) outspecifies the component's own `.section`. */
+.threshold section {
+  padding-top: clamp(28px, 4vw, 48px);
+  padding-bottom: clamp(28px, 4vw, 48px);
+}

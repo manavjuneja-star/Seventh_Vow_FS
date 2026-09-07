@@ -8,7 +8,7 @@ export function MandapSketch(): React.ReactElement {
     <div className={styles.bg} aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/indian_wedding_mandap_gold_lineart.svg"
+        src="/images/test2.png"
         alt=""
         className={styles.img}
       />

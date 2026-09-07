@@ -4,43 +4,24 @@ import { ServiceRow } from "@/components/service-page/ServiceRow/ServiceRow";
 import styles from "./ServiceGroup.module.css";
 
 type ServiceGroupProps = {
-  id?: string;
-  eyebrow: string;
-  heading: string;
-  intro: string;
+  /** Optional titled header. Omit it entirely when the hero already covers the
+   *  intro and there's only one group on the page. */
+  head?: { id?: string; eyebrow: string; heading: string; intro: string };
   items: Offering[];
-  garland?: boolean;
 };
 
-/** A titled band of alternating offering rows. */
-export function ServiceGroup({
-  id,
-  eyebrow,
-  heading,
-  intro,
-  items,
-  garland,
-}: ServiceGroupProps): React.ReactElement {
+/** A band of alternating offering rows, optionally headed. */
+export function ServiceGroup({ head, items }: ServiceGroupProps): React.ReactElement {
   return (
     <section className={styles.section}>
-      {garland && (
-        <div className={styles.garland} aria-hidden="true">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              d="M0,60 C200,10 300,110 500,60 C700,10 800,110 1000,60 C1100,35 1150,70 1200,55"
-              stroke="currentColor"
-              fill="none"
-              strokeWidth="1"
-            />
-          </svg>
-        </div>
-      )}
       <div className={styles.inner}>
-        <div id={id} data-reveal="0" className={styles.head}>
-          <span className={styles.eyebrow}>{eyebrow}</span>
-          <h2 className={styles.heading}>{heading}</h2>
-          <p className={styles.intro}>{intro}</p>
-        </div>
+        {head && (
+          <div id={head.id} data-reveal="0" className={styles.head}>
+            <span className={styles.eyebrow}>{head.eyebrow}</span>
+            <h2 className={styles.heading}>{head.heading}</h2>
+            <p className={styles.intro}>{head.intro}</p>
+          </div>
+        )}
         {items.map((offering, i) => (
           <ServiceRow key={offering.slug} offering={offering} index={i} />
         ))}

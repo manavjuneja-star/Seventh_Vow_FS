@@ -86,6 +86,18 @@ function paintToggle(color: string): void {
   toggle.style.color = color;
 }
 
+/** Pages whose masthead is light at the very top (no dark hero photo) need the
+ *  header's solid-dark backing immediately, not just after scrolling — an
+ *  individual blog post's masthead, not the `/blog` index itself. */
+function needsDarkHeaderAtTop(): boolean {
+  return /^\/blog\/[^/]+/.test(window.location.pathname);
+}
+
+/** Re-run by `initRoute` on every client navigation so a page needing the
+ *  dark header at scroll-top gets it immediately, without waiting for a
+ *  `scroll` event that a same-position navigation may never fire. */
+let syncHeaderToRoute: (() => void) | null = null;
+
 /** Header: transparent over the hero, a solid dark bar once scrolled. The nav
     stays in its ivory-on-dark palette throughout; only the backing changes. */
 function initHeader(): Cleanup {
@@ -114,7 +126,7 @@ function initHeader(): Cleanup {
 
   let last: boolean | null = null;
   const onScroll = (): void => {
-    const s = window.scrollY > 40;
+    const s = window.scrollY > 40 || needsDarkHeaderAtTop();
     if (s !== last) {
       last = s;
       apply(s);
@@ -122,6 +134,7 @@ function initHeader(): Cleanup {
   };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  syncHeaderToRoute = onScroll;
   return () => window.removeEventListener("scroll", onScroll);
 }
 
@@ -450,6 +463,7 @@ export function initOnce(): void {
  *  navigation; the returned cleanup unwinds the observers first. */
 export function initRoute(): Cleanup {
   initLook();
+  syncHeaderToRoute?.();
   const cleanups: Cleanup[] = [
     initReveals(),
     initCarousel(),

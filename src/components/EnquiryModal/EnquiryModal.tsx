@@ -43,7 +43,7 @@ function DividerTop(): React.ReactElement {
       <span className={styles.dividerLine} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/monogram-mark.webp"
+        src="/images/only-logo-lockup.webp"
         alt=""
         className={styles.dividerMonogram}
       />

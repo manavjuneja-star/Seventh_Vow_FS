@@ -1,7 +1,8 @@
 /**
- * Services and specializations shown on `/services` and linked from the footer.
- * Ordered by what matters most to a couple choosing a planner. Photography is
- * placeholder (reuses the wedding set) until the studio supplies its own.
+ * Services shown on `/services` and linked from the footer. Ordered by what
+ * matters most to a couple choosing a planner. One source of truth: the page
+ * and the footer both import `SERVICES`. Photography is placeholder (reuses the
+ * wedding set) until the studio supplies its own.
  */
 
 export type Offering = {
@@ -27,76 +28,52 @@ export const SERVICES: Offering[] = [
     image: "/images/mandap.webp",
   },
   {
-    slug: "roka-engagement-ceremonies",
-    title: "Roka & Engagement Ceremonies",
+    slug: "event-design",
+    title: "Event Design",
     blurb:
-      "The first gathering sets the tone for everything after it. We design these early moments with the same care as the wedding — an intimate room, a considered menu, and a look your families remember long before the vows.",
+      "Mandaps, tablescapes, florals, and lighting composed as one continuous visual language — not a collection of rented pieces. We design to the couple, then build every layer to hold together from the entrance to the last table.",
     image: "/images/bouquet.webp",
   },
   {
-    slug: "wedding-anniversaries",
-    title: "Wedding Anniversaries",
-    blurb:
-      "A quieter occasion, and often a more personal one. We create anniversary celebrations that feel like a private return to what mattered — for the two of you, or for the hundred people who were there the first time.",
-    image: "/images/vows.webp",
-  },
-  {
-    slug: "birthday-celebrations",
-    title: "Birthday Celebrations",
-    blurb:
-      "A milestone birthday deserves more than a booking. We bring the same design language and on-ground precision to a landmark year — a room that feels like the person, and an evening that runs without a single visible seam.",
-    image: "/images/cake.webp",
-  },
-  {
-    slug: "corporate-events",
-    title: "Corporate Events",
-    blurb:
-      "Launches, off-sites, and awards nights staged with the polish of a private celebration. Clear brand expression, tight logistics, and a guest experience your team and clients actually talk about afterwards.",
-    image: "/images/gazebo.webp",
-  },
-];
-
-export const SPECIALIZATIONS: Offering[] = [
-  {
-    slug: "event-design-styling",
-    title: "Event Design & Styling",
-    blurb:
-      "Mandaps, tablescapes, florals, and lighting composed as one continuous visual language — not a collection of rented pieces. We design to the couple, then build every layer to hold together from the entrance to the last table.",
-    image: "/images/mandap.webp",
-  },
-  {
-    slug: "hospitality-guest-experience",
-    title: "Hospitality & Guest Experience",
+    slug: "hospitality",
+    title: "Hospitality",
     blurb:
       "Travel, stay, and welcome experiences that make every guest feel expected. From the airport pickup to the note on the pillow, the details that turn attendees into people who felt looked after.",
     image: "/images/gazebo.webp",
   },
   {
-    slug: "event-flow-on-ground-execution",
-    title: "Event Flow & On-Ground Execution",
+    slug: "event-flow",
+    title: "Event Flow",
     blurb:
       "A minute-by-minute plan, and a team who runs it so quietly you never see the work. Cues, contingencies, and a single point of contact on the day — so the couple is a guest at their own celebration.",
-    image: "/images/banquet.webp",
+    image: "/images/vows.webp",
   },
   {
-    slug: "entertainment-curation",
-    title: "Entertainment Curation",
+    slug: "vendor-coordination",
+    title: "Vendor Coordination",
     blurb:
-      "Musicians, performers, and hosts chosen for the room and the moment, not a standard package. We brief every act to the arc of the evening so the energy builds exactly where it should.",
+      "A curated bench of artisans, caterers, and craftsmen — briefed, managed, and held to a standard. One team speaks to all of them, so nothing falls between the gaps.",
     image: "/images/cake.webp",
   },
   {
-    slug: "vendor-partner-coordination",
-    title: "Vendor & Partner Coordination",
+    slug: "entertainment",
+    title: "Entertainment",
     blurb:
-      "A curated bench of artisans, caterers, and craftsmen — briefed, managed, and held to a standard. One team speaks to all of them, so nothing falls between the gaps.",
-    image: "/images/bouquet.webp",
+      "Musicians, performers, and hosts chosen for the room and the moment, not a standard package. We brief every act to the arc of the evening so the energy builds exactly where it should.",
+    image: "/images/banquet.webp",
   },
-  {
-    slug: "travel-logistics-management",
-    title: "Travel & Logistics Management",
-    blurb:
-      "Guest movements across cities, permits, transport, and the schedule that ties it together. The invisible infrastructure that lets a three-day, multi-venue celebration feel effortless.",
-    image: "/images/vows.webp",
-  },
+];
+
+/**
+ * Additional occasions the studio takes on beyond the core wedding work. Shown
+ * only in the footer, and only as plain links to `/services` — they have no
+ * section of their own on the page.
+ */
+export const FOOTER_EXTRA: string[] = [
+  "Wedding Planning",
+  "Roka & Engagement Ceremonies",
+  "Wedding Anniversaries",
+  "Birthday Celebrations",
+  "Corporate Events",
+  "Hospitality & Logistics Management",
 ];
