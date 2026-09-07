@@ -1,5 +1,11 @@
 .section {
   padding: 118px 0 104px;
+  /* The decorative frames sit at right:-30px / left:-26px. On desktop they
+     peek out beside the figure (well inside the 1240px content column); on a
+     narrow phone they'd reach past the viewport edge and leak all the way up
+     to <body>, adding a sliver of page background on the right that mobile
+     pinch-zoom reveals. Clip them at the section edge. */
+  overflow-x: clip;
 }
 
 .grid {

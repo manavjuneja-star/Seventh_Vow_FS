@@ -1,11 +1,13 @@
 .veil {
-  /* `inset: 0` alone fills the fixed-positioning viewport edge to edge on
-     every browser — including the full mobile screen behind the address bar.
-     An explicit `height: 100vh/100dvh` was worse on mobile: it anchors to the
-     top and any shortfall (dvh mid-transition, first-paint lag) leaves a gap
-     at the bottom where page content shows through the veil. */
+  /* Deliberately oversized past every edge. `inset: 0` was still landing ~50px
+     short of the visible bottom on a real phone (mobile fixed-positioning
+     viewport quirks / in-app browsers), leaving a strip where the Hero's
+     bottom wave showed through. Overhanging by 80px on all sides guarantees
+     full coverage no matter how the browser measures the viewport — the veil
+     is a solid, `pointer-events: none`, fades-out overlay so overflow is
+     harmless. NEVER use `dvh`/`svh` here (small/dynamic → resolves short). */
   position: fixed;
-  inset: 0;
+  inset: -80px;
   /* Above SiteHeader's z-index:60 — otherwise the fixed header stacks over
      the veil and can show through at the top of the screen. */
   z-index: 70;
