@@ -29,7 +29,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(sessionStorage.getItem('svVeilShown')){document.documentElement.setAttribute('data-veil-seen','')}}catch(e){}",
+              "try{var d=document.documentElement;if(sessionStorage.getItem('svVeilShown')){d.setAttribute('data-veil-seen','')}else if(location.pathname==='/'){d.classList.add('sv-veil-active')}}catch(e){}",
           }}
         />
         <SiteHeader />

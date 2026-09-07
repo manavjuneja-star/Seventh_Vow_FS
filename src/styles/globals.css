@@ -13,6 +13,18 @@ html{scroll-behavior:smooth;overflow-x:hidden;}
 body{margin:0;background:var(--blush);color:var(--charcoal);font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;}
 /* Intro veil plays on the first load of a session only. */
 html[data-veil-seen] [data-veil],html[data-veil-seen] [data-veilmark]{display:none !important;}
+/* While the intro veil is opaque, hide the page entirely — a fixed overlay
+   can't be trusted to cover every pixel on mobile, so there must be nothing
+   behind it to show through (the Hero's bottom wave was peeking out).
+   `.sv-veil-active` is added before first paint by the layout head script and
+   removed by VeilGate the instant the veil starts fading, so the crossfade
+   reveal still works. The 0s-duration animation is a JS-independent safety
+   net: if VeilGate never runs, everything reveals itself after 5s anyway. */
+html.sv-veil-active body>*:not([data-veil]):not([data-veilmark]){
+  visibility:hidden;
+  animation:sv-veil-reveal 0s linear 5s forwards;
+}
+@keyframes sv-veil-reveal{to{visibility:visible;}}
 /* Locks page scroll (veil intro, gallery lightbox). !important so it can't be
    beaten by any other inline/style-attribute writer; both html and body since
    html carries its own overflow-x rule and can be the scrolling root. */
