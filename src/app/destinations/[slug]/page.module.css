@@ -110,6 +110,7 @@
 
 .why {
   position: relative;
+  overflow-x: clip;
   background: var(--ivory);
   padding: clamp(64px, 10vw, 120px) 6vw clamp(50px, 7vw, 84px);
 }
@@ -123,12 +124,21 @@
 
 .whyMark {
   display: block;
-  font-family: "Petit Formal Script", cursive;
-  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  width: clamp(38px, 5vw, 48px);
+  height: clamp(38px, 5vw, 48px);
+  margin: 0 auto 18px;
+  color: var(--gold);
+  opacity: 0.75;
+}
+
+.whyStar {
+  position: absolute;
+  top: clamp(28px, 5vw, 54px);
+  right: clamp(8vw, 14vw, 18vw);
+  width: 26px;
+  height: 26px;
   color: var(--gold-light);
-  opacity: 0.55;
-  line-height: 1;
-  margin-bottom: 4px;
+  opacity: 0.6;
 }
 
 .whyPara {
@@ -142,11 +152,35 @@
 }
 
 .venues {
+  position: relative;
+  overflow: hidden;
   background: var(--blush);
   padding: clamp(56px, 9vw, 110px) 6vw clamp(90px, 14vw, 150px);
 }
 
+.venuesAsteriskTl,
+.venuesAsteriskBr {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  color: var(--mauve);
+  opacity: 0.28;
+}
+
+.venuesAsteriskTl {
+  top: clamp(28px, 5vw, 56px);
+  left: clamp(4vw, 7vw, 9vw);
+  transform: rotate(-8deg);
+}
+
+.venuesAsteriskBr {
+  bottom: clamp(28px, 5vw, 56px);
+  right: clamp(4vw, 7vw, 9vw);
+  transform: rotate(14deg);
+}
+
 .venuesInner {
+  position: relative;
   max-width: 1160px;
   margin: 0 auto;
   text-align: center;
@@ -168,6 +202,8 @@
 }
 
 .venuesHeading {
+  position: relative;
+  display: inline-block;
   font-family: "Fraunces", serif;
   font-weight: 400;
   color: var(--mauve-dark);
@@ -177,13 +213,42 @@
   text-wrap: balance;
 }
 
+.headingUnderline {
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 62%;
+  height: 12px;
+  transform: translateX(-50%);
+  color: var(--gold);
+  opacity: 0.55;
+}
+
 .venuesNote {
+  position: relative;
   margin: 20px auto 0;
   font-size: 0.95rem;
   line-height: 1.8;
   color: var(--charcoal);
   opacity: 0.74;
   text-wrap: pretty;
+}
+
+.venuesArrow {
+  position: absolute;
+  right: clamp(-10px, -4vw, 10px);
+  bottom: -46px;
+  width: 46px;
+  height: 36px;
+  color: var(--mauve);
+  opacity: 0.5;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 900px) {
+  .venuesArrow {
+    display: none;
+  }
 }
 
 .venuesCta {
@@ -210,7 +275,9 @@
 }
 
 .weather {
+  overflow-x: clip;
   background: var(--ivory);
+  border-top: 1px solid var(--line);
   padding: clamp(56px, 9vw, 110px) 6vw clamp(80px, 12vw, 130px);
 }
 
@@ -221,11 +288,23 @@
 }
 
 .weatherDiagramWrap {
+  position: relative;
   margin: 40px auto 0;
   padding: 28px clamp(16px, 3vw, 34px) 20px;
   background: var(--blush);
   border-radius: 4px 30px 4px 30px;
   box-shadow: 0 22px 44px -30px rgba(74, 48, 45, 0.35);
+}
+
+.weatherStar {
+  position: absolute;
+  top: -14px;
+  right: 22px;
+  width: 30px;
+  height: 30px;
+  color: var(--gold);
+  opacity: 0.65;
+  transform: rotate(12deg);
 }
 
 .weatherLegend {

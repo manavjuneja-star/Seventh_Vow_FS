@@ -5,16 +5,61 @@
 }
 
 .card {
+  position: relative;
   margin: 0;
   border-radius: 3px 20px 3px 20px;
   overflow: hidden;
   background: var(--ivory);
   box-shadow: 0 18px 38px -24px rgba(74, 48, 45, 0.4);
+  transform: rotate(var(--tilt, 0deg));
   transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.5s ease;
 }
 
+.card:nth-child(6n + 1) {
+  --tilt: -1.4deg;
+}
+
+.card:nth-child(6n + 2) {
+  --tilt: 1deg;
+}
+
+.card:nth-child(6n + 3) {
+  --tilt: -0.6deg;
+}
+
+.card:nth-child(6n + 4) {
+  --tilt: 1.6deg;
+}
+
+.card:nth-child(6n + 5) {
+  --tilt: -1deg;
+}
+
+.card:nth-child(6n + 6) {
+  --tilt: 0.8deg;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 64px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 251, 0.75),
+    rgba(255, 253, 251, 0.42)
+  );
+  border: 1px solid rgba(255, 253, 251, 0.5);
+  box-shadow: 0 3px 8px -2px rgba(43, 36, 34, 0.28);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .card:hover {
-  transform: translateY(-5px);
+  transform: rotate(var(--tilt, 0deg)) translateY(-5px);
   box-shadow: 0 26px 48px -22px rgba(169, 120, 43, 0.38);
 }
 
