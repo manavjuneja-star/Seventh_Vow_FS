@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { VenuesGrid } from "@/components/destinations-page/VenuesGrid/VenuesGrid";
+import { WeatherDiagram } from "@/components/destinations-page/WeatherDiagram/WeatherDiagram";
 import { getDestination, getDestinations } from "@/lib/destinations";
 
 import styles from "./page.module.css";
@@ -26,6 +28,8 @@ export default function DestinationPage({
 }: DestinationPageProps): React.ReactElement {
   const destination = getDestination(params.slug);
   if (!destination) notFound();
+
+  const hasVenues = Boolean(destination.venues && destination.venues.length > 0);
 
   return (
     <>
@@ -59,22 +63,73 @@ export default function DestinationPage({
         </svg>
       </section>
 
+      {destination.whyChoose && destination.whyChoose.length > 0 && (
+        <section className={styles.why}>
+          <div className={styles.whyInner}>
+            <span className={styles.whyMark} aria-hidden="true">
+              &#10098;
+            </span>
+            <span className={styles.venuesEyebrow}>Why choose {destination.name}</span>
+            {destination.whyChoose.map((para, i) => (
+              <p key={i} className={styles.whyPara}>
+                {para}
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className={styles.venues}>
         <div className={styles.venuesInner}>
           <span className={styles.venuesEyebrow}>Venues &amp; Stays</span>
           <h2 className={styles.venuesHeading}>
             The palaces, villas and resorts we work with in {destination.name}
           </h2>
-          <p className={styles.venuesNote}>
-            This list is being put together with the studio&apos;s partners.
-            In the meantime, tell us the celebration you have in mind and we
-            will send the shortlist that fits it.
-          </p>
+
+          {hasVenues ? (
+            <>
+              <p className={styles.venuesNote}>
+                A studio-curated shortlist — each partnered independently and vetted
+                for how well it stages a wedding, not just a stay.
+              </p>
+              <div className={styles.venuesGridWrap}>
+                <VenuesGrid venues={destination.venues ?? []} />
+              </div>
+            </>
+          ) : (
+            <p className={styles.venuesNote}>
+              This list is being put together with the studio&apos;s partners.
+              In the meantime, tell us the celebration you have in mind and we
+              will send the shortlist that fits it.
+            </p>
+          )}
+
           <a data-enquiry-open="1" href="#enquiry" className={styles.venuesCta}>
             Begin an enquiry
           </a>
         </div>
       </section>
+
+      {destination.weather && (
+        <section className={styles.weather}>
+          <div className={styles.weatherInner}>
+            <span className={styles.venuesEyebrow}>Best time to marry here</span>
+            <h2 className={styles.venuesHeading}>{destination.weather.bestWindow}</h2>
+            <p className={styles.venuesNote}>{destination.weather.summary}</p>
+            <div className={styles.weatherDiagramWrap}>
+              <WeatherDiagram weather={destination.weather} />
+              <div className={styles.weatherLegend}>
+                <span className={styles.legendItem}>
+                  <span className={styles.legendSwatchLine} /> Average daytime temp
+                </span>
+                <span className={styles.legendItem}>
+                  <span className={styles.legendSwatchBar} /> Relative rainfall
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

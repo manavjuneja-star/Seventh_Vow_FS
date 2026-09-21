@@ -33,20 +33,24 @@ function DestinationCard({
   );
 }
 
-/** The grid of destinations — each card opens that place's own page. */
+/** A grid of destinations — each card opens that place's own page. */
 export function DestinationsList({
   destinations,
+  eyebrow = "Where we work",
+  heading = "Every destination has its own reasons",
+  tinted = false,
 }: {
   destinations: Destination[];
+  eyebrow?: string;
+  heading?: string;
+  tinted?: boolean;
 }): React.ReactElement {
   return (
-    <section className={styles.section}>
+    <section className={tinted ? `${styles.section} ${styles.tinted}` : styles.section}>
       <div className={styles.inner}>
         <div data-reveal="0" className={styles.head}>
-          <span className={styles.eyebrow}>Where we work</span>
-          <h2 className={styles.heading}>
-            Every destination has its own reasons
-          </h2>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 className={styles.heading}>{heading}</h2>
         </div>
 
         <div className={styles.grid}>

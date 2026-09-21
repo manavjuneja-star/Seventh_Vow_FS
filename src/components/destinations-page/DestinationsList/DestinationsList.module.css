@@ -3,6 +3,10 @@
   padding: clamp(56px, 8vw, 90px) 6vw clamp(90px, 14vw, 150px);
 }
 
+.tinted {
+  background: var(--blush-deep);
+}
+
 .inner {
   max-width: 1240px;
   margin: 0 auto;

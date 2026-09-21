@@ -12,11 +12,23 @@ export const metadata: Metadata = {
 
 export default function DestinationsPage(): React.ReactElement {
   const destinations = getDestinations();
+  const domestic = destinations.filter((d) => d.category === "domestic");
+  const international = destinations.filter((d) => d.category === "international");
 
   return (
     <>
       <DestinationsHero images={destinations.slice(0, 6).map((d) => d.image)} />
-      <DestinationsList destinations={destinations} />
+      <DestinationsList
+        eyebrow="Where we work, in India"
+        heading="Every destination has its own reasons"
+        destinations={domestic}
+      />
+      <DestinationsList
+        eyebrow="Further afield"
+        heading="For a wedding that begins with a flight"
+        destinations={international}
+        tinted
+      />
     </>
   );
 }
