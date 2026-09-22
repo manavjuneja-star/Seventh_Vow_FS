@@ -218,6 +218,14 @@
   overflow: hidden;
 }
 
+.formError {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #a3413a;
+}
+
 .foot {
   grid-column: 1 / -1;
   display: flex;
@@ -263,6 +271,11 @@
 
 .submit:hover {
   background: var(--gold-light);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .thanks {

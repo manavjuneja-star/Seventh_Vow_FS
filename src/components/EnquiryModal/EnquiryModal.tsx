@@ -80,15 +80,17 @@ function DividerBottom(): React.ReactElement {
 
 function SelectField({
   label,
+  name,
   options,
 }: {
   label: string;
+  name: string;
   options: string[];
 }): React.ReactElement {
   return (
     <label className={styles.field}>
       <span className={styles.label}>{label}</span>
-      <select className={styles.select}>
+      <select name={name} className={styles.select}>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
@@ -126,6 +128,7 @@ export function EnquiryModal(): React.ReactElement {
                 <span className={styles.label}>Your name</span>
                 <input
                   type="text"
+                  name="name"
                   required
                   autoComplete="name"
                   placeholder="Aranya & Kabir"
@@ -136,6 +139,7 @@ export function EnquiryModal(): React.ReactElement {
                 <span className={styles.label}>Phone</span>
                 <input
                   type="tel"
+                  name="phone"
                   required
                   autoComplete="tel"
                   placeholder="+91 98XXX XXXXX"
@@ -146,19 +150,21 @@ export function EnquiryModal(): React.ReactElement {
                 <span className={styles.label}>Email</span>
                 <input
                   type="email"
+                  name="email"
                   required
                   autoComplete="email"
                   placeholder="you@email.com"
                   className={styles.input}
                 />
               </label>
-              <SelectField label="Event type" options={EVENT_TYPES} />
-              <SelectField label="Event timeline" options={TIMELINES} />
-              <SelectField label="Budget (INR)" options={BUDGETS} />
+              <SelectField label="Event type" name="eventType" options={EVENT_TYPES} />
+              <SelectField label="Event timeline" name="timeline" options={TIMELINES} />
+              <SelectField label="Budget (INR)" name="budget" options={BUDGETS} />
               <label className={styles.field}>
                 <span className={styles.label}>Guest count</span>
                 <input
                   type="number"
+                  name="guests"
                   placeholder="250"
                   className={styles.input}
                 />
@@ -167,6 +173,7 @@ export function EnquiryModal(): React.ReactElement {
                 <span className={styles.label}>Preferred location</span>
                 <input
                   type="text"
+                  name="location"
                   placeholder="Udaipur, or open to suggestions"
                   className={styles.input}
                 />
@@ -174,6 +181,7 @@ export function EnquiryModal(): React.ReactElement {
               <label className={`${styles.field} ${styles.fieldWide}`}>
                 <span className={styles.label}>Anything we should know</span>
                 <textarea
+                  name="message"
                   rows={3}
                   placeholder="How you met, what you are imagining, what you would rather avoid. If you budget in another currency, tell us here."
                   className={styles.textarea}
@@ -183,11 +191,20 @@ export function EnquiryModal(): React.ReactElement {
                 Leave this empty
                 <input
                   type="text"
+                  name="company"
                   data-honeypot="1"
                   tabIndex={-1}
                   autoComplete="off"
                 />
               </label>
+              <p data-enquiry-error="1" className={styles.formError} hidden>
+                Something went wrong sending that — please try again, or write
+                straight to{" "}
+                <a href="mailto:hello@theseventhvow.com" className={styles.footLink}>
+                  hello@theseventhvow.com
+                </a>
+                .
+              </p>
               <div data-form-foot="1" className={styles.foot}>
                 <span className={styles.footNote}>
                   Prefer email? Write straight to{" "}
@@ -199,7 +216,11 @@ export function EnquiryModal(): React.ReactElement {
                   </a>
                   .
                 </span>
-                <button type="submit" className={styles.submit}>
+                <button
+                  type="submit"
+                  data-enquiry-submit="1"
+                  className={styles.submit}
+                >
                   Send Enquiry
                 </button>
               </div>

@@ -31,15 +31,17 @@ const BUDGETS = [
 
 function SelectField({
   label,
+  name,
   options,
 }: {
   label: string;
+  name: string;
   options: string[];
 }): React.ReactElement {
   return (
     <label className={styles.field}>
       <span className={styles.label}>{label}</span>
-      <select className={styles.select}>
+      <select name={name} className={styles.select}>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
@@ -61,15 +63,45 @@ function ThankYou(): React.ReactElement {
 }
 
 /** The contact page enquiry form. Self-contained: no overlay, its own submit
- *  state. Swap the `onSubmit` body for a real endpoint when the backend lands. */
+ *  state. Posts to `/api/enquiry`, which emails the studio. */
 export function ContactForm(): React.ReactElement {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const trap = new FormData(e.currentTarget).get("company");
+    const data = new FormData(e.currentTarget);
+    const trap = data.get("company");
     if (typeof trap === "string" && trap.length > 0) return;
-    setSent(true);
+
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          phone: data.get("phone"),
+          email: data.get("email"),
+          eventType: data.get("eventType"),
+          timeline: data.get("timeline"),
+          budget: data.get("budget"),
+          guests: data.get("guests"),
+          location: data.get("location"),
+          message: data.get("message"),
+          company: trap,
+          source: "contact-page",
+        }),
+      });
+      if (!res.ok) throw new Error("request_failed");
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -125,9 +157,9 @@ export function ContactForm(): React.ReactElement {
               className={styles.input}
             />
           </label>
-          <SelectField label="Event type" options={EVENT_TYPES} />
-          <SelectField label="Event timeline" options={TIMELINES} />
-          <SelectField label="Budget (INR)" options={BUDGETS} />
+          <SelectField label="Event type" name="eventType" options={EVENT_TYPES} />
+          <SelectField label="Event timeline" name="timeline" options={TIMELINES} />
+          <SelectField label="Budget (INR)" name="budget" options={BUDGETS} />
           <label className={styles.field}>
             <span className={styles.label}>Preferred location</span>
             <input
@@ -152,6 +184,17 @@ export function ContactForm(): React.ReactElement {
             <input type="text" name="company" tabIndex={-1} autoComplete="off" />
           </label>
 
+          {error && (
+            <p className={styles.formError} role="alert">
+              Something went wrong sending that — please try again, or write
+              straight to{" "}
+              <a href="mailto:hello@theseventhvow.com" className={styles.footLink}>
+                hello@theseventhvow.com
+              </a>
+              .
+            </p>
+          )}
+
           <div className={styles.foot}>
             <span className={styles.footNote}>
               Prefer email? Write straight to{" "}
@@ -160,8 +203,8 @@ export function ContactForm(): React.ReactElement {
               </a>
               .
             </span>
-            <button type="submit" className={styles.submit}>
-              Send Enquiry
+            <button type="submit" className={styles.submit} disabled={sending}>
+              {sending ? "Sending…" : "Send Enquiry"}
             </button>
           </div>
         </form>

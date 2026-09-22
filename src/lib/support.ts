@@ -261,10 +261,12 @@ function initEnquiry(): Cleanup {
     if (e) e.preventDefault();
     const frm = one("[data-enquiry-form]") as HTMLFormElement | null;
     const thanks = one("[data-enquiry-thanks]");
+    const errorEl = one("[data-enquiry-error]") as HTMLElement | null;
     if (frm && frm.style.display === "none") {
       frm.reset();
       frm.style.display = "grid";
       if (thanks) thanks.style.display = "none";
+      if (errorEl) errorEl.hidden = true;
     }
     ov.style.opacity = "1";
     ov.style.pointerEvents = "auto";
@@ -299,10 +301,52 @@ function initEnquiry(): Cleanup {
   window.addEventListener("keydown", onKey);
   one("[data-enquiry-form]")?.addEventListener("submit", (e) => {
     e.preventDefault();
-    const frm = one("[data-enquiry-form]");
+    const frm = e.currentTarget as HTMLFormElement;
     const thanks = one("[data-enquiry-thanks]");
-    if (frm) frm.style.display = "none";
-    if (thanks) thanks.style.display = "block";
+    const errorEl = one("[data-enquiry-error]") as HTMLElement | null;
+    const submitBtn = one("[data-enquiry-submit]") as HTMLButtonElement | null;
+
+    const data = new FormData(frm);
+    const trap = data.get("company");
+    if (typeof trap === "string" && trap.length > 0) return;
+
+    if (errorEl) errorEl.hidden = true;
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+    }
+
+    fetch("/api/enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: data.get("name"),
+        phone: data.get("phone"),
+        email: data.get("email"),
+        eventType: data.get("eventType"),
+        timeline: data.get("timeline"),
+        budget: data.get("budget"),
+        guests: data.get("guests"),
+        location: data.get("location"),
+        message: data.get("message"),
+        company: trap,
+        source: "modal",
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("request_failed");
+        frm.style.display = "none";
+        if (thanks) thanks.style.display = "block";
+      })
+      .catch(() => {
+        if (errorEl) errorEl.hidden = false;
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send Enquiry";
+        }
+      });
   });
   return () => {
     document.removeEventListener("click", onDocClick);
