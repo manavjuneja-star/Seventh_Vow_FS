@@ -19,18 +19,19 @@ export function About(): React.ReactElement {
         <div data-reveal=".12">
           <span className={styles.eyebrow}>Our Philosophy</span>
           <h2 className={styles.heading}>
-            We don&apos;t design weddings.
-            <br />
-            We design <em>the seventh promise</em>, the one made in front of
-            everyone you love.
+            Your wedding should feel like <em>your story</em>, and nobody
+            else&apos;s.
           </h2>
           <p className={styles.body}>
-            Every celebration we build begins with a single question: what is
-            true about this couple that no template could ever capture? From that
-            answer comes the palette, the setting, the smallest detail on the
-            table. Nothing borrowed, nothing repeated.
+            There will be moments on your wedding day that you&apos;ll remember
+            forever. Those are the moments you should be thinking about, not
+            the vendor who&apos;s late or the timeline that&apos;s changing. We
+            take care of the planning, so you can be present for what&apos;s in
+            front of you. Because {" "}
+            <em>your wedding deserves to be lived, not managed.</em>
           </p>
           <div className={styles.sign}>
+            <span className={styles.name}>Manav Juneja</span>
             <span className={styles.role}>Founder &amp; Creative Director</span>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import styles from "./Instagram.module.css";
 
 const PETAL_LEAF = "M12 2 C16 8 16 16 12 22 C8 16 8 8 12 2 Z";
-const HANDLE = "https://instagram.com/theseventhvow";
+const HANDLE = "https://www.instagram.com/theseventhvow_weddings";
 
 type Post = { image: string; caption: string };
 
@@ -87,7 +87,7 @@ export function Instagram(): React.ReactElement {
                 stroke="none"
               />
             </svg>
-            @theseventhvow
+            @theseventhvow_weddings
           </a>
         </div>
 

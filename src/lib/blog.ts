@@ -1,19 +1,21 @@
 /**
- * Blog content.
+ * Blog data access — backed by `content/blog.json` (see
+ * `src/lib/repo/store.ts` for the persistence caveat). Server-only: this
+ * file imports the `fs`-based repo layer, so client components must import
+ * types/constants/`formatDate` from `blogShared.ts` directly, not here —
+ * see that file's header comment for why.
  *
- * These posts are placeholders so the Journal page can be designed and reviewed
- * now. When the admin panel lands, replace the `POSTS` array with a query — the
- * `BlogPost` shape (and its four `format` variants) is the contract the rest of
- * the site relies on. Covers/frames reuse the 6 stock photos in `public/images/`
- * until the client supplies real galleries, same as the portfolio pages.
+ * The admin panel at `/admin/blog` has full create/edit/delete; on create,
+ * the admin picks one of the four formats and fills that format's fields —
+ * the format is locked after creation (switching formats mid-post would
+ * mean re-authoring the content anyway, so there's nothing an "edit format"
+ * control would actually do short of discarding what's there).
  *
- * The four formats below are also the four templates the admin will choose from
- * when drafting a new post — each has a distinct text/image structure, not just
- * a different skin. All four share one repeatable building block, rendered by
+ * All four formats share one repeatable building block, rendered by
  * `AlternatingMedia`: a large image on one side and text on the other, sides
  * auto-alternating by position — the admin adds as many of these as a post
- * needs (a step, a chapter, a frame, an editorial section-with-image) and they
- * always read left/right/left/right without any per-item config:
+ * needs and they always read left/right/left/right without any per-item
+ * config:
  *  - "editorial"   — magazine feature: facts strip + prose, where any section
  *                    with an `image` breaks out into an alternating row.
  *  - "photo-essay" — a full-width cover, then every frame as an alternating
@@ -22,361 +24,71 @@
  *  - "chapters"    — a narrative told across alternating chapters.
  */
 
-/** Filter order shown on the Journal listing. "All" is added by the UI. */
-export const BLOG_CATEGORIES = ["Wedding & Planning", "Decor & Styling"] as const;
+import { readJson, writeJson } from "@/lib/repo/store";
+import { slugify, uniqueSlug } from "@/lib/slug";
 
-export type PostFormat = "editorial" | "photo-essay" | "guide" | "chapters";
+const FILE = "blog.json";
 
-export type EditorialContent = {
-  standfirst: string;
-  facts: { label: string; value: string }[];
-  /**
-   * Each section is the admin's repeatable unit — add as many as you like.
-   * A section with an `image` renders as a large alternating image/text row
-   * (side auto-alternates by position); a section without one renders as
-   * plain text.
-   */
-  sections: {
-    heading?: string;
-    paragraphs: string[];
-    pullQuote?: string;
-    image?: { src: string; alt: string; caption?: string };
-    /** Force which side the image sits on; omit to auto-alternate by position. */
-    imageRight?: boolean;
-  }[];
-};
+export {
+  BLOG_CATEGORIES,
+  POST_FORMATS,
+  formatDate,
+  type BlogPost,
+  type ChaptersContent,
+  type EditorialContent,
+  type GuideContent,
+  type PhotoEssayContent,
+  type PostFormat,
+} from "@/lib/blogShared";
+import type { BlogPost } from "@/lib/blogShared";
 
-export type PhotoEssayContent = {
-  intro: string;
-  frames: { src: string; alt: string; caption: string }[];
-  closing: string;
-};
-
-export type GuideContent = {
-  intro: string;
-  steps: { title: string; body: string; image: { src: string; alt: string } }[];
-};
-
-export type ChaptersContent = {
-  intro: string;
-  /** Admin's repeatable unit — add as many chapters as you like; side
-   *  auto-alternates by position, no per-chapter config needed. */
-  chapters: {
-    title: string;
-    body: string;
-    image: { src: string; alt: string };
-  }[];
-};
-
-type PostBase = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  cover: string;
-  category: string;
-  /** ISO date, e.g. "2026-05-18" */
-  date: string;
-  readMinutes: number;
-  featured?: boolean;
-};
-
-export type BlogPost =
-  | (PostBase & { format: "editorial"; content: EditorialContent })
-  | (PostBase & { format: "photo-essay"; content: PhotoEssayContent })
-  | (PostBase & { format: "guide"; content: GuideContent })
-  | (PostBase & { format: "chapters"; content: ChaptersContent });
-
-const POSTS: BlogPost[] = [
-  {
-    slug: "aranya-and-kabir-a-lakeside-vow-in-udaipur",
-    title: "Aranya & Kabir — a lakeside vow in Udaipur",
-    excerpt:
-      "Three days on the water, a mandap built to catch the evening light, and four hundred guests who never once had to ask where to be.",
-    cover: "/images/mandap.webp",
-    category: "Wedding & Planning",
-    date: "2026-06-02",
-    readMinutes: 7,
-    featured: true,
-    format: "editorial",
-    content: {
-      standfirst:
-        "Three days on the water, a mandap built to catch the evening light, and four hundred guests who never once had to ask where to be.",
-      facts: [
-        { label: "Couple", value: "Aranya & Kabir" },
-        { label: "Location", value: "Udaipur, Rajasthan" },
-        { label: "Guests", value: "400" },
-        { label: "Duration", value: "Three days" },
-        { label: "Season", value: "Early monsoon" },
-      ],
-      sections: [
-        {
-          paragraphs: [
-            "Aranya's only brief, in the first call, was a single sentence: she wanted the lake to feel like a guest at her own wedding, not scenery behind it. That sentence shaped everything that followed — where we built, which way every chair faced, and why the mandap went up on a jetty instead of the lawn everyone assumed we'd use.",
-            "Kabir's family had hosted in Udaipur before, decades ago, and remembered a city of hard light and harder heat. We planned instead for the week the monsoon first softens the air — cooler evenings, a sky that changes every twenty minutes, water that catches every one of those changes and throws it back twice as bright.",
-          ],
-        },
-        {
-          heading: "The mandap",
-          paragraphs: [
-            "Four hundred guests is a lot of sightlines to protect. We raised the structure on the jetty rather than the palace lawn specifically so that every row — not just the front ones — had open water behind the couple instead of a wall of other guests' backs. It meant building a temporary jetty extension strong enough for the structure and the weight of a full baraat procession, engineered and load-tested three weeks out.",
-          ],
-          pullQuote: "The lake does the work a chandelier can't — it never stops moving.",
-          image: { src: "/images/mandap.webp", alt: "Mandap structure over the lake at dusk" },
-          imageRight: true,
-        },
-        {
-          paragraphs: [
-            "Every panel of the structure was cut and dry-fitted off-site first, then reassembled on the jetty itself over two days — there was no room to improvise once the barges carrying it were out on the water.",
-          ],
-          image: { src: "/images/mandap.webp", alt: "Mandap panels assembled on the jetty" },
-          imageRight: false,
-        },
-        {
-          paragraphs: [
-            "By the morning of, the crew had run the full weight test twice: once empty, once with sandbags standing in for four hundred guests' worth of movement across the boards.",
-          ],
-          image: { src: "/images/banquet.webp", alt: "Jetty structure prepared ahead of the ceremony" },
-          imageRight: true,
-        },
-        {
-          heading: "The last night",
-          paragraphs: [
-            "The final evening was deliberately unstaged: no assigned seating, no stage, low tables scattered across the terrace so conversations could drift the way they do at a real dinner party rather than a production. Aranya changed out of her wedding lehenga for the first time in three days and, by her account, didn't sit down once.",
-          ],
-        },
-      ],
-    },
-  },
-  {
-    slug: "building-a-timeline-that-holds",
-    title: "Building a wedding timeline that actually holds",
-    excerpt:
-      "The difference between a day that flows and a day that drags is usually forty minutes hidden in the wrong place. Here is how we map it.",
-    cover: "/images/banquet.webp",
-    category: "Wedding & Planning",
-    date: "2026-05-19",
-    readMinutes: 6,
-    format: "guide",
-    content: {
-      intro:
-        "Most wedding-day timelines fail in the same handful of places — not because the plan was wrong, but because nobody built in room for the day to breathe. Here's the order we actually work in.",
-      steps: [
-        {
-          title: "Start from the exit, not the entrance",
-          body: "We build every timeline backward from the last guest's departure, not forward from the first arrival. Fixing the end point first — when the venue's noise curfew hits, when the last transport leaves — is what tells you how much room the middle of the day actually has.",
-          image: { src: "/images/banquet.webp", alt: "Long banquet table set for the evening" },
-        },
-        {
-          title: "Protect the golden hour twice",
-          body: "Couples plan for one golden-hour photo window and lose it to a delayed ceremony. We schedule two: a buffer window earlier in case the first slips, and we tell the photography team which one is expendable before the day starts, not during it.",
-          image: { src: "/images/gazebo.webp", alt: "Gazebo venue in warm evening light" },
-        },
-        {
-          title: "Build in forty minutes you don't announce",
-          body: "Every timeline gets a hidden forty-minute cushion, placed right after the segment most likely to run long — usually the couple's entrance or the family photographs. Nobody on the guest list ever knows it's there. That's the point.",
-          image: { src: "/images/vows.webp", alt: "Couple exchanging vows" },
-        },
-        {
-          title: "Brief the vendors on the day, not just the plan",
-          body: "A written timeline means nothing if the catering lead and the band find out about a schedule change from each other. We run a ten-minute stand-up with every vendor lead on the morning of, even when nothing has changed — it's when the small adjustments actually surface.",
-          image: { src: "/images/mandap.webp", alt: "Mandap set up before the ceremony" },
-        },
-      ],
-    },
-  },
-  {
-    slug: "one-flower-six-tiers",
-    title: "One flower, six tiers: designing a cake as a centrepiece",
-    excerpt:
-      "When the cake has to carry a whole room, it stops being dessert and starts being architecture. Notes from a collaboration with the pastry team.",
-    cover: "/images/cake.webp",
-    category: "Decor & Styling",
-    date: "2026-04-28",
-    readMinutes: 5,
-    format: "photo-essay",
-    content: {
-      intro:
-        "The brief was one flower, repeated at six different scales, from a single bloom pressed into the base tier to a sugar sculpture large enough to be seen from the back of the room. Six weeks and four failed armatures later, here's what actually held.",
-      frames: [
-        {
-          src: "/images/cake.webp",
-          alt: "Six-tier wedding cake with floral detailing",
-          caption: "The final structure, photographed before the reception opened — every tier is load-bearing, not just decorative.",
-        },
-        {
-          src: "/images/bouquet.webp",
-          alt: "Reference bouquet used for the cake's floral motif",
-          caption: "The bouquet that set the brief. Every sugar petal on the cake traces back to a bloom in this arrangement.",
-        },
-        {
-          src: "/images/banquet.webp",
-          alt: "Cake positioned as the centrepiece of the banquet room",
-          caption: "Placed at the room's sightline centre rather than off to one side — the whole layout was planned around it.",
-        },
-      ],
-      closing:
-        "The armature that finally held was steel dowel, not the wooden supports we started with — obvious in hindsight, expensive to learn in week two. Worth it: guests spent as long photographing the cake as they did the couple's entrance.",
-    },
-  },
-  {
-    slug: "the-roka-ceremony-explained",
-    title: "The Roka ceremony, and why we start planning here",
-    excerpt:
-      "A small gathering that sets the tone for everything after it. What it means, who it is for, and how to make it feel like the beginning it is.",
-    cover: "/images/bouquet.webp",
-    category: "Wedding & Planning",
-    date: "2026-04-11",
-    readMinutes: 4,
-    format: "guide",
-    content: {
-      intro:
-        "The Roka is usually the first event we plan for a couple, and often the one that gets the least attention — treated as a formality before the \"real\" planning starts. We'd argue it deserves the opposite treatment.",
-      steps: [
-        {
-          title: "What a Roka actually is",
-          body: "A Roka marks the formal agreement between two families that a wedding will happen — traditionally an intimate, families-only affair, exchanging rings or sweets as a mark of the commitment. It has no fixed rituals the way a wedding ceremony does, which is exactly what makes it worth designing intentionally rather than defaulting to a living-room gathering.",
-          image: { src: "/images/bouquet.webp", alt: "Floral arrangement at an intimate family gathering" },
-        },
-        {
-          title: "Who it's for",
-          body: "Unlike the wedding itself, the guest list is almost entirely immediate family — which means the room can be smaller, closer, and far more personal than anything that follows. We treat it as the one event in the whole calendar where scale is a design constraint worth keeping small on purpose.",
-          image: { src: "/images/banquet.webp", alt: "Small gathering set for a family celebration" },
-        },
-        {
-          title: "How we plan around it",
-          body: "Because it's the first event, the Roka is where we test a couple's actual taste against the mood board — colour palette, floral style, even the tone of the invitations. Whatever works here becomes the throughline for the wedding months later, so we treat every choice as a preview, not a one-off.",
-          image: { src: "/images/mandap.webp", alt: "Decor detail carried through from an early celebration" },
-        },
-      ],
-    },
-  },
-  {
-    slug: "choosing-a-destination-for-a-winter-wedding",
-    title: "Choosing a destination for a winter wedding",
-    excerpt:
-      "Palaces, coastlines and hidden gardens read very differently in December. A short guide to scouting for the season you are actually marrying in.",
-    cover: "/images/gazebo.webp",
-    category: "Wedding & Planning",
-    date: "2026-03-22",
-    readMinutes: 8,
-    format: "photo-essay",
-    content: {
-      intro:
-        "Every venue photographs beautifully in the season its brochure was shot in. Scouting for a winter date means asking a different question at every stop: what does this place look like when the light is low and the evenings turn cold at 6pm, not 9?",
-      frames: [
-        {
-          src: "/images/gazebo.webp",
-          alt: "Gazebo venue framed by winter light",
-          caption: "A gazebo venue we scouted in December — the low winter sun cuts across the structure instead of overhead, changing every shadow in the space.",
-        },
-        {
-          src: "/images/bouquet.webp",
-          alt: "Winter floral arrangement",
-          caption: "Winter florals lean heavier and warmer — deep garnets and amber instead of the pastels that read better in summer light.",
-        },
-        {
-          src: "/images/banquet.webp",
-          alt: "Indoor banquet setup prepared for a cold evening",
-          caption: "Heating and flow matter more than décor in a winter venue — this layout was chosen for how guests move between warmed zones, not just for how it photographs.",
-        },
-        {
-          src: "/images/vows.webp",
-          alt: "Evening ceremony setup with warm lighting",
-          caption: "Ceremony time moved two hours earlier than a summer date would need, simply to catch any daylight at all.",
-        },
-      ],
-      closing:
-        "The venues that hold up in winter are rarely the ones that look best in their own marketing photos — they're the ones with good indoor flow, real heating, and a layout that doesn't depend on a 7pm sunset to work.",
-    },
-  },
-  {
-    slug: "meher-and-dev-a-monsoon-morning-in-goa",
-    title: "Meher & Dev — a monsoon morning in Goa",
-    excerpt:
-      "They handed us a folder of half-ideas and asked for a weekend that felt like it had always existed. The rain, it turned out, was on our side.",
-    cover: "/images/vows.webp",
-    category: "Wedding & Planning",
-    date: "2026-02-14",
-    readMinutes: 6,
-    format: "chapters",
-    content: {
-      intro:
-        "Meher and Dev came to the first meeting with a shared folder of screenshots — no theme, no colour palette, just a feeling they couldn't quite name. It took three conversations to realise what they actually wanted: a wedding that felt found, not built.",
-      chapters: [
-        {
-          title: "The folder of half-ideas",
-          body: "Sixty saved posts, no two in the same style. What connected them, once we laid them all out, was texture — worn wood, damp stone, candlelight instead of string lights. Nothing curated or camera-ready. We built the entire weekend around that instinct rather than asking them to pick a theme they didn't have.",
-          image: { src: "/images/vows.webp", alt: "Intimate ceremony setup at dusk" },
-        },
-        {
-          title: "The rain",
-          body: "The forecast called for rain on the ceremony morning, three days out, with no realistic way to move the date. Rather than fight it with a backup indoor plan that would have hidden the coastline entirely, we opened one side of the gazebo structure to the weather on purpose — guests could hear the rain through the whole ceremony.",
-          image: { src: "/images/gazebo.webp", alt: "Gazebo venue during a monsoon morning" },
-        },
-        {
-          title: "The morning after",
-          body: "The closing brunch was the one moment we didn't plan a single detail for beyond the food and the table settings — deliberately unstyled, because by day three, Meher told us, they didn't want anything left to look at. Just the people who'd flown in for it.",
-          image: { src: "/images/banquet.webp", alt: "Relaxed morning brunch setting" },
-        },
-      ],
-    },
-  },
-  {
-    slug: "hosting-a-guest-list-of-four-hundred",
-    title: "Hospitality at scale: hosting four hundred guests well",
-    excerpt:
-      "Travel, stay and welcome experiences that make a large celebration feel intimate. The systems we run behind the scenes so no one feels like a number.",
-    cover: "/images/banquet.webp",
-    category: "Wedding & Planning",
-    date: "2026-01-30",
-    readMinutes: 7,
-    format: "guide",
-    content: {
-      intro:
-        "Four hundred guests is easy to plan for as a headcount and very hard to plan for as four hundred individual experiences. The systems below are what keep a large wedding from ever feeling like one.",
-      steps: [
-        {
-          title: "Travel, mapped before invitations go out",
-          body: "We build the full travel matrix — who's flying from where, on what dates, into which airport — before a single invitation is sent, not after RSVPs start arriving. It's the only way to negotiate group flight blocks and airport transfers at a price that makes sense.",
-          image: { src: "/images/gazebo.webp", alt: "Destination venue guests travel to" },
-        },
-        {
-          title: "A welcome that starts at the airport",
-          body: "Every guest is met at arrivals by name, not by a generic signboard — a small detail that costs almost nothing and does more to set the tone of a four-hundred-guest weekend than anything that happens at the venue itself.",
-          image: { src: "/images/banquet.webp", alt: "Guests arriving to a warm welcome" },
-        },
-        {
-          title: "Systems no guest ever sees",
-          body: "A wedding this size runs on a guest-services desk staffed in shifts, a shared tracker for every dietary and mobility need collected at RSVP, and a same-day issue line that routes straight to whoever can actually fix the problem — never a general inbox.",
-          image: { src: "/images/vows.webp", alt: "Behind-the-scenes coordination at a large wedding" },
-        },
-        {
-          title: "The hospitality desk",
-          body: "A physical desk, staffed the entire weekend, that exists for one purpose: so that a guest with a question never has to find a planner in a crowd. It's the single change that gets mentioned most often in the thank-you notes afterward.",
-          image: { src: "/images/cake.webp", alt: "Reception detail at a large-scale celebration" },
-        },
-      ],
-    },
-  },
-];
-
-export function getPosts(): BlogPost[] {
-  return [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
+async function readAll(): Promise<BlogPost[]> {
+  return readJson<BlogPost[]>(FILE, []);
 }
 
-export function getPost(slug: string): BlogPost | undefined {
-  return POSTS.find((p) => p.slug === slug);
+export async function getPosts(): Promise<BlogPost[]> {
+  const all = await readAll();
+  return [...all].sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function getCategories(): string[] {
-  const present = new Set(POSTS.map((p) => p.category));
+export async function getPost(slug: string): Promise<BlogPost | undefined> {
+  const all = await readAll();
+  return all.find((p) => p.slug === slug);
+}
+
+export async function getCategories(): Promise<string[]> {
+  const { BLOG_CATEGORIES } = await import("@/lib/blogShared");
+  const all = await readAll();
+  const present = new Set(all.map((p) => p.category));
   return BLOG_CATEGORIES.filter((c) => present.has(c));
 }
 
-export function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+export async function createPost(input: Omit<BlogPost, "slug">): Promise<BlogPost> {
+  const all = await readAll();
+  const slug = uniqueSlug(slugify(input.title), new Set(all.map((p) => p.slug)));
+  const post = { ...input, slug } as BlogPost;
+  all.push(post);
+  await writeJson(FILE, all);
+  return post;
+}
+
+export async function updatePost(
+  slug: string,
+  patch: Partial<Omit<BlogPost, "slug" | "format">>,
+): Promise<BlogPost | null> {
+  const all = await readAll();
+  const i = all.findIndex((p) => p.slug === slug);
+  if (i === -1) return null;
+  const merged = { ...all[i], ...patch } as BlogPost;
+  all[i] = merged;
+  await writeJson(FILE, all);
+  return merged;
+}
+
+export async function deletePost(slug: string): Promise<boolean> {
+  const all = await readAll();
+  const next = all.filter((p) => p.slug !== slug);
+  if (next.length === all.length) return false;
+  await writeJson(FILE, next);
+  return true;
 }

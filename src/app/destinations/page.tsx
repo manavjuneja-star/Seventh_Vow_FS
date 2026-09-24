@@ -4,14 +4,16 @@ import { DestinationsHero } from "@/components/destinations-page/DestinationsHer
 import { DestinationsList } from "@/components/destinations-page/DestinationsList/DestinationsList";
 import { getDestinations } from "@/lib/destinations";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Destination & Venues — The Seventh Vow Weddings",
   description:
     "Palaces, villas, farmhouses and forest lawns across India — the destinations we scout, negotiate and stage weddings in.",
 };
 
-export default function DestinationsPage(): React.ReactElement {
-  const destinations = getDestinations();
+export default async function DestinationsPage(): Promise<React.ReactElement> {
+  const destinations = await getDestinations();
   const domestic = destinations.filter((d) => d.category === "domestic");
   const international = destinations.filter((d) => d.category === "international");
 

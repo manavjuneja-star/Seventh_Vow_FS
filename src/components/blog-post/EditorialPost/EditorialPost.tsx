@@ -1,4 +1,4 @@
-import type { BlogPost, EditorialContent } from "@/lib/blog";
+import type { BlogPost, EditorialContent } from "@/lib/blogShared";
 
 import { AlternatingMedia } from "../AlternatingMedia/AlternatingMedia";
 import { PostFooter } from "../PostFooter/PostFooter";

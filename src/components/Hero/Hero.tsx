@@ -54,8 +54,11 @@ export function Hero(): React.ReactElement {
       </h1>
 
       <p className={styles.sub}>
-        A bespoke wedding design house crafting cinematic, deeply personal
-        celebrations, one union at a time, never repeated twice.
+        The celebration beyond the seven vows.
+        <br />
+        <br />
+        We plan weddings that bring together your story, your people and your
+        vision, beautifully conceived and meticulously executed.
       </p>
       <div data-note="1" className={styles.actions}>
         <a data-enquiry-open="1" href="#enquiry" className={styles.btnPrimary}>

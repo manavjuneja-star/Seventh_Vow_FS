@@ -68,8 +68,8 @@ export function ContactHero(): React.ReactElement {
 
         <p className={styles.quick}>
           Rather write straight away?{" "}
-          <a href="mailto:hello@theseventhvow.com" className={styles.quickLink}>
-            hello@theseventhvow.com
+          <a href="mailto:info@theseventhvowweddings.com" className={styles.quickLink}>
+            info@theseventhvowweddings.com
           </a>
         </p>
       </div>

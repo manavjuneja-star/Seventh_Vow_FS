@@ -111,3 +111,40 @@ export async function sendEnquiryEmail(payload: EnquiryPayload): Promise<void> {
     throw new Error(error.message);
   }
 }
+
+/**
+ * Admin login OTP. Sent to `ADMIN_EMAIL` only — same Resend account/sender
+ * as the enquiry mail above, so the same free-tier/domain-verification
+ * notes apply.
+ */
+export async function sendOtpEmail(toEmail: string, code: string): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "RESEND_API_KEY is not set — see src/lib/email.ts for setup notes.",
+    );
+  }
+
+  const resend = new Resend(apiKey);
+  const { error } = await resend.emails.send({
+    from: `The Seventh Vow — Admin <${FROM_EMAIL}>`,
+    to: toEmail,
+    subject: `Your admin login code: ${code}`,
+    html: `
+      <div style="font-family:Georgia,serif;max-width:420px;">
+        <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#A9782B;margin:0 0 14px;">
+          Admin sign-in
+        </p>
+        <p style="font-size:32px;letter-spacing:.12em;color:#2B2422;margin:0 0 14px;">${code}</p>
+        <p style="font-size:13px;color:#6E4642;margin:0;">
+          This code expires in 10 minutes. If you didn't request it, ignore this email.
+        </p>
+      </div>
+    `,
+    text: `Your admin login code is ${code}. It expires in 10 minutes.`,
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+}

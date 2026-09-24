@@ -17,12 +17,15 @@ import styles from "./page.module.css";
 
 type DestinationPageProps = { params: { slug: string } };
 
-export function generateStaticParams(): Array<{ slug: string }> {
-  return getDestinations().map((d) => ({ slug: d.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const destinations = await getDestinations();
+  return destinations.map((d) => ({ slug: d.slug }));
 }
 
-export function generateMetadata({ params }: DestinationPageProps): Metadata {
-  const destination = getDestination(params.slug);
+export async function generateMetadata({ params }: DestinationPageProps): Promise<Metadata> {
+  const destination = await getDestination(params.slug);
   if (!destination) return { title: "Destinations — The Seventh Vow Weddings" };
   return {
     title: `${destination.name} — The Seventh Vow Weddings`,
@@ -30,10 +33,10 @@ export function generateMetadata({ params }: DestinationPageProps): Metadata {
   };
 }
 
-export default function DestinationPage({
+export default async function DestinationPage({
   params,
-}: DestinationPageProps): React.ReactElement {
-  const destination = getDestination(params.slug);
+}: DestinationPageProps): Promise<React.ReactElement> {
+  const destination = await getDestination(params.slug);
   if (!destination) notFound();
 
   const hasVenues = Boolean(destination.venues && destination.venues.length > 0);

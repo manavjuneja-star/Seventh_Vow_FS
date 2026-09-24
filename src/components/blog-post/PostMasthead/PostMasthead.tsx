@@ -1,4 +1,4 @@
-import type { BlogPost } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blogShared";
 
 import { PostKicker } from "../PostKicker/PostKicker";
 import styles from "./PostMasthead.module.css";

@@ -200,8 +200,8 @@ export function EnquiryModal(): React.ReactElement {
               <p data-enquiry-error="1" className={styles.formError} hidden>
                 Something went wrong sending that — please try again, or write
                 straight to{" "}
-                <a href="mailto:hello@theseventhvow.com" className={styles.footLink}>
-                  hello@theseventhvow.com
+                <a href="mailto:info@theseventhvowweddings.com" className={styles.footLink}>
+                  info@theseventhvowweddings.com
                 </a>
                 .
               </p>
@@ -209,10 +209,10 @@ export function EnquiryModal(): React.ReactElement {
                 <span className={styles.footNote}>
                   Prefer email? Write straight to{" "}
                   <a
-                    href="mailto:hello@theseventhvow.com"
+                    href="mailto:info@theseventhvowweddings.com"
                     className={styles.footLink}
                   >
-                    hello@theseventhvow.com
+                    info@theseventhvowweddings.com
                   </a>
                   .
                 </span>

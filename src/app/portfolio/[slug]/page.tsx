@@ -17,12 +17,15 @@ type PortfolioPageProps = {
   params: { slug: string };
 };
 
-export function generateStaticParams(): Array<{ slug: string }> {
-  return getPortfolioEntries().map((entry) => ({ slug: entry.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const entries = await getPortfolioEntries();
+  return entries.map((entry) => ({ slug: entry.slug }));
 }
 
-export function generateMetadata({ params }: PortfolioPageProps): Metadata {
-  const entry = getPortfolioEntry(params.slug);
+export async function generateMetadata({ params }: PortfolioPageProps): Promise<Metadata> {
+  const entry = await getPortfolioEntry(params.slug);
   if (!entry) return { title: "Portfolio — The Seventh Vow Weddings" };
   return {
     title: `${entry.coupleNames} — The Seventh Vow Weddings`,
@@ -30,13 +33,13 @@ export function generateMetadata({ params }: PortfolioPageProps): Metadata {
   };
 }
 
-export default function PortfolioDetailPage({
+export default async function PortfolioDetailPage({
   params,
-}: PortfolioPageProps): React.ReactElement {
-  const entry = getPortfolioEntry(params.slug);
+}: PortfolioPageProps): Promise<React.ReactElement> {
+  const entry = await getPortfolioEntry(params.slug);
   if (!entry) notFound();
 
-  const { next, others } = getPortfolioNeighbours(entry.slug);
+  const { next, others } = await getPortfolioNeighbours(entry.slug);
 
   return (
     <>

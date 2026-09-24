@@ -17,8 +17,8 @@ type Vow = {
 const VOWS: Vow[] = [
   {
     num: "I",
-    title: "Originality",
-    desc: "No wedding of ours is ever repeated.",
+    title: "Thoughtful Planning",
+    desc: "Your vision, shaped with expertise and care.",
     reveal: "0.00",
     rotate: "rotate(-1.6deg)",
     tone: "light",
@@ -26,8 +26,8 @@ const VOWS: Vow[] = [
   },
   {
     num: "II",
-    title: "Continuity",
-    desc: "One planner, from first sketch to farewell.",
+    title: "Seamless Coordination",
+    desc: "From logistics to guests, we keep it effortless.",
     reveal: "0.08",
     rotate: "rotate(1.3deg)",
     tone: "deep",
@@ -35,8 +35,8 @@ const VOWS: Vow[] = [
   },
   {
     num: "III",
-    title: "Transparency",
-    desc: "Every number shown in full, always.",
+    title: "Curated Experiences",
+    desc: "Every moment, designed around you.",
     reveal: "0.16",
     rotate: "rotate(-1deg)",
     tone: "light",
@@ -44,8 +44,8 @@ const VOWS: Vow[] = [
   },
   {
     num: "IV",
-    title: "Precision",
-    desc: "Nothing stands that we did not place.",
+    title: "Flawless Execution",
+    desc: "Meticulous planning, brought to life.",
     reveal: "0.24",
     rotate: "rotate(1.6deg)",
     tone: "deep",
@@ -71,7 +71,7 @@ function VowNote({ num, title, desc, reveal, rotate, tone, place }: Vow) {
   );
 }
 
-/** "Our vows to you" — the studio's promises as pinned paper notes. */
+/** "Our Craft" — the studio's process as pinned paper notes. */
 export function Vows(): React.ReactElement {
   return (
     <section className={styles.section}>
@@ -99,8 +99,8 @@ export function Vows(): React.ReactElement {
             Our vows <em>to you</em>, before you make yours.
           </h2>
           <p className={styles.body}>
-            Written down, kept on the wall of the studio, and read back to every
-            couple we take on.
+            Four promises we make to every couple at our first meeting, and keep
+            until the last guest has gone home.
           </p>
           <div className={styles.signRow}>
             <span className={styles.signScript}>The Seventh Vow Weddings</span>

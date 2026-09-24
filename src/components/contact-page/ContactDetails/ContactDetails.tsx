@@ -39,16 +39,16 @@ function WhatsAppBadge(): React.ReactElement {
 const METHODS: Method[] = [
   {
     label: "Write to us",
-    value: "hello@theseventhvow.com",
+    value: "info@theseventhvowweddings.com",
     meta: "The surest way to reach the studio. We read every note ourselves.",
-    href: "mailto:hello@theseventhvow.com",
+    href: "mailto:info@theseventhvowweddings.com",
     icon: ENVELOPE,
   },
   {
     label: "Call or WhatsApp",
-    value: "+91 98XXX XXXXX",
+    value: "+91 83840 81013",
     meta: "Monday to Saturday, 10am – 7pm IST. A message is fine after hours.",
-    href: "https://wa.me/919800000000",
+    href: "https://wa.me/918384081013",
     icon: PHONE,
     whatsapp: true,
   },

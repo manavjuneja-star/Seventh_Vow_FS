@@ -188,8 +188,8 @@ export function ContactForm(): React.ReactElement {
             <p className={styles.formError} role="alert">
               Something went wrong sending that — please try again, or write
               straight to{" "}
-              <a href="mailto:hello@theseventhvow.com" className={styles.footLink}>
-                hello@theseventhvow.com
+              <a href="mailto:info@theseventhvowweddings.com" className={styles.footLink}>
+                info@theseventhvowweddings.com
               </a>
               .
             </p>
@@ -198,8 +198,8 @@ export function ContactForm(): React.ReactElement {
           <div className={styles.foot}>
             <span className={styles.footNote}>
               Prefer email? Write straight to{" "}
-              <a href="mailto:hello@theseventhvow.com" className={styles.footLink}>
-                hello@theseventhvow.com
+              <a href="mailto:info@theseventhvowweddings.com" className={styles.footLink}>
+                info@theseventhvowweddings.com
               </a>
               .
             </span>

@@ -62,8 +62,7 @@ export function Services(): React.ReactElement {
         <div data-reveal="0" className={styles.head}>
           <span className={styles.eyebrow}>What We Do</span>
           <h2 className={styles.heading}>
-            Three disciplines, one vision, carried from first sketch to final
-            farewell.
+            From the first conversation to the final farewell, we&apos;re there for every detail.
           </h2>
         </div>
 

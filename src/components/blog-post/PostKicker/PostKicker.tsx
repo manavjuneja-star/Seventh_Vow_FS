@@ -1,5 +1,4 @@
-import type { BlogPost } from "@/lib/blog";
-import { formatDate } from "@/lib/blog";
+import { type BlogPost, formatDate } from "@/lib/blogShared";
 
 import styles from "./PostKicker.module.css";
 

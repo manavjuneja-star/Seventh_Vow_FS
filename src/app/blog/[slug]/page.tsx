@@ -9,21 +9,25 @@ import { getPost, getPosts } from "@/lib/blog";
 
 type Params = { params: { slug: string } };
 
-export function generateStaticParams(): { slug: string }[] {
-  return getPosts().map((p) => ({ slug: p.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  const posts = await getPosts();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const post = await getPost(params.slug);
   if (!post) return { title: "Not found — The Seventh Vow Weddings" };
   return { title: `${post.title} — The Seventh Vow Weddings`, description: post.excerpt };
 }
 
-export default function BlogPostPage({ params }: Params): React.ReactElement {
-  const post = getPost(params.slug);
+export default async function BlogPostPage({ params }: Params): Promise<React.ReactElement> {
+  const post = await getPost(params.slug);
   if (!post) notFound();
 
-  const index = getPosts().findIndex((p) => p.slug === post.slug) + 1;
+  const posts = await getPosts();
+  const index = posts.findIndex((p) => p.slug === post.slug) + 1;
 
   switch (post.format) {
     case "editorial":

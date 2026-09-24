@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import type { BlogPost } from "@/lib/blog";
+import type { BlogPost } from "@/lib/blogShared";
 import { PostCard } from "@/components/blog/PostCard/PostCard";
 
 import styles from "./BlogList.module.css";

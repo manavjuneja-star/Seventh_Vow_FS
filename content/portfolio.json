@@ -1,0 +1,294 @@
+[
+  {
+    "slug": "ira-rohan",
+    "coupleNames": "Ira & Rohan",
+    "location": "Jaisalmer, Rajasthan",
+    "date": "2024",
+    "duration": "Three days",
+    "heroImage": "/images/banquet.webp",
+    "heroAlt": "Long banquet table with chandelier",
+    "featured": true,
+    "description": "Four hundred guests carried across three cities, ending with dinner for all of them under one desert sky.",
+    "photos": [
+      {
+        "src": "/images/banquet.webp",
+        "alt": "Long banquet table with chandelier",
+        "size": "lg"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Floral mandap at dusk",
+        "size": "tall"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Bridal bouquet detail",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Six-tier wedding cake",
+        "size": "sm"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Desert gazebo ceremony",
+        "size": "wide"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "Vows at golden hour",
+        "size": "md"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Floral centrepiece",
+        "size": "sm"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "Guests at the long table",
+        "size": "md"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Mandap detail",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Cake and florals",
+        "size": "tall"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "First look",
+        "size": "sm"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Evening light over the gazebo",
+        "size": "wide"
+      }
+    ]
+  },
+  {
+    "slug": "aranya-kabir",
+    "coupleNames": "Aranya & Kabir",
+    "location": "Udaipur, Rajasthan",
+    "date": "2025",
+    "duration": "Four days",
+    "heroImage": "/images/mandap.webp",
+    "heroAlt": "Wedding cake with floral arrangement",
+    "featured": false,
+    "description": "A mandap built to catch the evening light on the water, and a lakeside vow four hundred guests never once had to ask where to be for.",
+    "photos": [
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Lakeside mandap",
+        "size": "lg"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "Exchanging vows",
+        "size": "wide"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Bouquet study",
+        "size": "sm"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Ceremony gazebo",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Wedding cake",
+        "size": "md"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "Reception banquet",
+        "size": "tall"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "A quiet moment",
+        "size": "sm"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Mandap florals",
+        "size": "sm"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Golden hour at the gazebo",
+        "size": "wide"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Bridal details",
+        "size": "md"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "The long table, lit for dinner",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Cutting the cake",
+        "size": "sm"
+      }
+    ]
+  },
+  {
+    "slug": "meher-dev",
+    "coupleNames": "Meher & Dev",
+    "location": "Goa",
+    "date": "2025",
+    "duration": "A weekend",
+    "heroImage": "/images/gazebo.webp",
+    "heroAlt": "Wedding gazebo venue",
+    "featured": false,
+    "description": "A folder of half-ideas and a weekend that felt like it had always existed — the rain, it turned out, was on our side.",
+    "photos": [
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Monsoon gazebo ceremony",
+        "size": "wide"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "Vows in the rain-light",
+        "size": "lg"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Bouquet in hand",
+        "size": "sm"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "Dinner under string lights",
+        "size": "sm"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Floral mandap",
+        "size": "tall"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Cake table",
+        "size": "sm"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "The gazebo, from the aisle",
+        "size": "sm"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "A shared look",
+        "size": "md"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Floral detail",
+        "size": "sm"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "The reception table",
+        "size": "wide"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Mandap at dusk",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Six tiers, one flower",
+        "size": "md"
+      }
+    ]
+  },
+  {
+    "slug": "naina-arjun",
+    "coupleNames": "Naina & Arjun",
+    "location": "Tuscany, Italy",
+    "date": "2024",
+    "duration": "Five days",
+    "heroImage": "/images/vows.webp",
+    "heroAlt": "Wedding floral bouquet detail",
+    "featured": false,
+    "description": "A destination wedding scouted and staged from scratch — hidden gardens, a villa reception, and a week the families still talk about.",
+    "photos": [
+      {
+        "src": "/images/vows.webp",
+        "alt": "Vows among the vineyards",
+        "size": "wide"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Garden bouquet",
+        "size": "lg"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Villa ceremony",
+        "size": "sm"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Wedding cake",
+        "size": "sm"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "Reception dinner",
+        "size": "md"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Floral arch",
+        "size": "sm"
+      },
+      {
+        "src": "/images/bouquet.webp",
+        "alt": "Bridal florals",
+        "size": "sm"
+      },
+      {
+        "src": "/images/vows.webp",
+        "alt": "First dance",
+        "size": "tall"
+      },
+      {
+        "src": "/images/gazebo.webp",
+        "alt": "Evening at the villa",
+        "size": "wide"
+      },
+      {
+        "src": "/images/cake.webp",
+        "alt": "Cake detail",
+        "size": "sm"
+      },
+      {
+        "src": "/images/banquet.webp",
+        "alt": "The long table",
+        "size": "sm"
+      },
+      {
+        "src": "/images/mandap.webp",
+        "alt": "Arch at golden hour",
+        "size": "md"
+      }
+    ]
+  }
+]

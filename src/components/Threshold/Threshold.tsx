@@ -14,8 +14,8 @@ export function Threshold(): React.ReactElement {
               theirs.
             </h2>
             <p className={styles.body}>
-              Twelve weddings a year, and each one starts with a conversation,
-              with no forms and no pitch.
+              Tell us your vision. We understand your celebration, build the
+              planning approach around it, and begin creating.
             </p>
             <a
               data-threshold="1"

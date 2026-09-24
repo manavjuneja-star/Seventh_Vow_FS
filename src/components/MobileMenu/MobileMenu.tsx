@@ -126,11 +126,11 @@ export function MobileMenu(): React.ReactElement {
             Begin an enquiry
           </a>
           <a
-            href="mailto:hello@theseventhvow.com"
+            href="mailto:info@theseventhvowweddings.com"
             className={styles.contact}
             onClick={close}
           >
-            hello@theseventhvow.com
+            info@theseventhvowweddings.com
           </a>
           <span className={styles.place}>New Delhi, India</span>
         </div>

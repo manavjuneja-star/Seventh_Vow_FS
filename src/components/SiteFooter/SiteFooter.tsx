@@ -99,9 +99,9 @@ export function SiteFooter(): React.ReactElement {
               />
             </div>
             <p className={styles.blurb}>
-              A bespoke wedding design house in New Delhi, taking on twelve
-              celebrations a year, each one drawn from scratch and never
-              repeated.
+              Wedding planners in New Delhi, bringing your story, your people
+              and your vision together, beautifully planned and carefully
+              executed.
             </p>
             <a
               data-enquiry-open="1"
@@ -119,23 +119,22 @@ export function SiteFooter(): React.ReactElement {
             <span className={styles.colTitle}>Studio</span>
             <div className={styles.studioCol}>
               <a
-                href="mailto:hello@theseventhvow.com"
+                href="mailto:info@theseventhvowweddings.com"
                 className={styles.studioLink}
               >
-                hello@theseventhvow.com
+                info@theseventhvowweddings.com
               </a>
-              <a href="tel:+919800000000" className={styles.studioLink}>
-                +91 98XXX XXXXX
+              <a href="tel:+918384081013" className={styles.studioLink}>
+                +91 83840 81013
               </a>
               <span className={styles.studioPlace}>New Delhi, India</span>
             </div>
-            <a href="https://wa.me/919800000000" className={styles.whatsapp}>
+            <a href="https://wa.me/918384081013" className={styles.whatsapp}>
               Message on WhatsApp
             </a>
             <div className={styles.social}>
               <a
-                data-enquiry-open="1"
-                href="#enquiry"
+                href="https://www.instagram.com/theseventhvow_weddings"
                 aria-label="Instagram"
                 className={styles.socialLink}
               >

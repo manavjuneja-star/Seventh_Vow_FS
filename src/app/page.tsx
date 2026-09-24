@@ -9,6 +9,8 @@ import { Threshold } from "@/components/Threshold/Threshold";
 import { Veil } from "@/components/Veil/Veil";
 import { Vows } from "@/components/Vows/Vows";
 
+export const dynamic = "force-dynamic";
+
 export default function HomePage(): React.ReactElement {
   return (
     <>

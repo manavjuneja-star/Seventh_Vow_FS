@@ -1,4 +1,4 @@
-import type { BlogPost, GuideContent } from "@/lib/blog";
+import type { BlogPost, GuideContent } from "@/lib/blogShared";
 
 import { AlternatingMedia } from "../AlternatingMedia/AlternatingMedia";
 import { PostFooter } from "../PostFooter/PostFooter";

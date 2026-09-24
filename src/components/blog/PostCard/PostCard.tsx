@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { type BlogPost, formatDate } from "@/lib/blog";
+import { type BlogPost, formatDate } from "@/lib/blogShared";
 
 import styles from "./PostCard.module.css";
 
