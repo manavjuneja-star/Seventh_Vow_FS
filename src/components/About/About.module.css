@@ -135,8 +135,11 @@
 
 .name {
   flex-basis: 100%;
-  font-family: "Petit Formal Script", cursive;
-  font-size: 1.7rem;
+  /* Original font, kept for reference: "Petit Formal Script", cursive (thin script, 1.5rem/1.7rem) */
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.9rem;
   line-height: 1.1;
   color: var(--gold);
 }

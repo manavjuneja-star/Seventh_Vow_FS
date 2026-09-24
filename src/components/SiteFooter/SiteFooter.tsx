@@ -116,7 +116,7 @@ export function SiteFooter(): React.ReactElement {
           <LinkColumn title="More Services" items={EXTRA_LINKS} />
 
           <div className={styles.studioBlock}>
-            <span className={styles.colTitle}>Studio</span>
+            <span className={styles.colTitle}>Our Planning House</span>
             <div className={styles.studioCol}>
               <a
                 href="mailto:info@theseventhvowweddings.com"
@@ -179,7 +179,7 @@ export function SiteFooter(): React.ReactElement {
           <span className={styles.copyright}>
             © 2026 The Seventh Vow Weddings. All rights reserved.
           </span>
-          <span className={styles.signoff}>Designed one union at a time</span>
+          <span className={styles.signoff}>Planned with intention.Celebrated with meaning.</span>
         </div>
       </footer>
   );
