@@ -116,6 +116,17 @@
   text-wrap: balance;
 }
 
+.tagline {
+  margin: 14px 0 0;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: var(--gold);
+  max-width: 34ch;
+  text-wrap: balance;
+}
+
 .blurb {
   margin: 18px 0 0;
   font-size: 1rem;

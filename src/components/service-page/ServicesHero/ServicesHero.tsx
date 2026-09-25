@@ -31,12 +31,13 @@ export function ServicesHero(): React.ReactElement {
       <div className={styles.inner}>
         <span className={styles.eyebrow}>Our Services</span>
         <h1 className={styles.title}>
-          Everything your celebration needs, <em>under one roof</em>
+          Your story is personal. Your <em>planning</em> should be too.
         </h1>
         <p className={styles.sub}>
-          From the first idea to the last farewell, here is every way we can plan,
-          design, and run your day — and the on-ground craft that holds it all
-          together.
+          We begin by understanding what matters to you, then bring together the
+          people, places, experiences and details that make your celebration
+          feel entirely its own, planned with intention and delivered with
+          precision.
         </p>
       </div>
 

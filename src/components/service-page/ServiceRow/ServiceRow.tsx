@@ -36,6 +36,7 @@ export function ServiceRow({
       <div className={styles.text}>
         <span className={styles.num}>{ROMAN[index] ?? String(index + 1)}</span>
         <h3 className={styles.title}>{offering.title}</h3>
+        <p className={styles.tagline}>{offering.tagline}</p>
         <p className={styles.blurb}>{offering.blurb}</p>
       </div>
     </article>

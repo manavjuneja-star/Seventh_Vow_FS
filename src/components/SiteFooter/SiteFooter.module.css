@@ -249,31 +249,6 @@
   opacity: 0.9;
 }
 
-.credit {
-  flex-basis: 100%;
-  margin: 6px 0 0;
-  text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  color: var(--ivory);
-  opacity: 0.4;
-  transition: opacity 0.35s ease;
-}
-
-.credit:hover {
-  opacity: 0.75;
-}
-
-.creditLink {
-  color: inherit;
-  border-bottom: 1px solid rgba(201, 162, 92, 0.4);
-  padding-bottom: 1px;
-}
-
-.creditLink:hover {
-  color: var(--gold-light);
-}
-
 .arrow {
   font-family: "Fraunces", serif;
   font-style: italic;

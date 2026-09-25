@@ -8,58 +8,67 @@
 export type Offering = {
   slug: string;
   title: string;
+  /** One-line headline shown above the description. */
+  tagline: string;
   blurb: string;
   image: string;
 };
 
 export const SERVICES: Offering[] = [
   {
-    slug: "end-to-end-wedding-planning",
-    title: "End-to-End Wedding Planning",
+    slug: "wedding-planning-management",
+    title: "Wedding Planning & Management",
+    tagline: "Your vision stays yours. The complexity becomes ours.",
     blurb:
-      "From the first mood board to the last farewell, one team holds every moving part — budgets, timelines, vendors, and the thousand small decisions in between. You make the choices that matter; we carry the rest, so the months before feel as calm as the day itself.",
+      "We build the structure behind your celebration, managing budgets, timelines, venues, vendors, schedules and the countless decisions that keep everything moving. You remain involved where it matters, while we take responsibility for making the pieces work together.",
     image: "/images/banquet.webp",
   },
   {
-    slug: "creative-concepts-innovation",
-    title: "Creative Concepts & Innovation",
+    slug: "concept-experience-curation",
+    title: "Concept & Experience Curation",
+    tagline: "A celebration should feel like you before it looks like you.",
     blurb:
-      "Every celebration begins with a single question: what is true about this couple that no template could capture? From that answer comes the palette, the staging, and ideas you haven't seen at another wedding — because we don't repeat them.",
+      "We begin with your story, personality and the experience you want your guests to have. From the overall celebration concept to the details that shape each event, we develop ideas that feel personal, purposeful and considered, crafted exclusively around you.",
     image: "/images/mandap.webp",
   },
   {
-    slug: "event-design",
-    title: "Event Design",
+    slug: "event-design-styling",
+    title: "Event Design & Styling",
+    tagline: "Every element belongs to the same story.",
     blurb:
-      "Mandaps, tablescapes, florals, and lighting composed as one continuous visual language — not a collection of rented pieces. We design to the couple, then build every layer to hold together from the entrance to the last table.",
+      "From mandaps and florals to tablescapes, lighting, stationery and styling, we create a visual language for each celebration. Every element is considered in relation to the space, the occasion and the experience, creating environments that feel cohesive rather than assembled.",
     image: "/images/bouquet.webp",
   },
   {
-    slug: "hospitality",
-    title: "Hospitality",
+    slug: "guest-hospitality-experience",
+    title: "Guest Hospitality & Experience",
+    tagline: "The celebration begins the moment your guests arrive.",
     blurb:
-      "Travel, stay, and welcome experiences that make every guest feel expected. From the airport pickup to the note on the pillow, the details that turn attendees into people who felt looked after.",
+      "We look after the journey around the wedding, from invitations, RSVP management and travel to accommodation, airport transfers, rooming, welcomes and on-ground assistance. Every interaction is planned to make your guests feel expected, comfortable and genuinely looked after.",
     image: "/images/gazebo.webp",
   },
   {
-    slug: "event-flow",
-    title: "Event Flow",
+    slug: "event-management-execution",
+    title: "Event Management & Execution",
+    tagline: "When the day arrives, every detail needs to know its place.",
     blurb:
-      "A minute-by-minute plan, and a team who runs it so quietly you never see the work. Cues, contingencies, and a single point of contact on the day — so the couple is a guest at their own celebration.",
+      "Our on-ground team manages schedules, rehearsals, guest movement, vendor coordination, production, transitions and last-minute changes in real time. The work happens around you, allowing you to be present in the celebration rather than managing what happens next.",
     image: "/images/vows.webp",
   },
   {
-    slug: "vendor-coordination",
-    title: "Vendor Coordination",
+    slug: "vendor-curation-management",
+    title: "Vendor Curation & Management",
+    tagline: "The right celebration starts with the right people.",
     blurb:
-      "A curated bench of artisans, caterers, and craftsmen — briefed, managed, and held to a standard. One team speaks to all of them, so nothing falls between the gaps.",
+      "We curate and manage the specialists behind your wedding, from décor and catering to photography, production and florals. Every partner is briefed around your vision, coordinated throughout the planning process and managed as part of one larger team.",
     image: "/images/cake.webp",
   },
   {
-    slug: "entertainment",
-    title: "Entertainment",
+    slug: "entertainment-artist-management",
+    title: "Entertainment & Artist Management",
+    tagline: "Entertainment should belong to the celebration, not interrupt it.",
     blurb:
-      "Musicians, performers, and hosts chosen for the room and the moment, not a standard package. We brief every act to the arc of the evening so the energy builds exactly where it should.",
+      "We curate artists, musicians, DJs, performers and hosts based on your audience, setting and the energy you want to create. From artist selection and negotiations to schedules, technical requirements and on-ground coordination, we manage the details behind every performance.",
     image: "/images/banquet.webp",
   },
 ];
