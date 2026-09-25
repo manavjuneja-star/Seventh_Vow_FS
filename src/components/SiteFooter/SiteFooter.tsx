@@ -180,6 +180,17 @@ export function SiteFooter(): React.ReactElement {
             © 2026 The Seventh Vow Weddings. All rights reserved.
           </span>
           <span className={styles.signoff}>Planned with intention.Celebrated with meaning.</span>
+          <p className={styles.credit}>
+            Designed and developed by{" "}
+            <a
+              href="https://priyammaini.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.creditLink}
+            >
+              Priyam Maini
+            </a>
+          </p>
         </div>
       </footer>
   );

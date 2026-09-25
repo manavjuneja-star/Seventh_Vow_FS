@@ -66,7 +66,7 @@ export function Instagram(): React.ReactElement {
           <div>
             <span className={styles.eyebrow}>From the house of Seventh Vow Weddings</span>
             <h2 className={styles.heading}>
-              Step into <em>our world</em>
+              Follow along<em> as it happens</em>
             </h2>
           </div>
           <a href={HANDLE} className={styles.handle}>
@@ -97,7 +97,7 @@ export function Instagram(): React.ReactElement {
 
         <div data-reveal=".15" className={styles.more}>
           <a href={HANDLE} className={styles.moreLink}>
-            Follow the studio <span className={styles.arrow}>→</span>
+            Step into our world <span className={styles.arrow}>→</span>
           </a>
         </div>
       </div>
