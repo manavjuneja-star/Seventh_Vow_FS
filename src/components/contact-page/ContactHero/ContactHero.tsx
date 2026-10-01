@@ -14,7 +14,10 @@ function Sprig(): React.ReactElement {
         strokeLinecap="round"
       />
       <path d="M15 8 C15 4 17 1 21 0 C20 4 18 7 15 8 Z" fill="currentColor" />
-      <path d="M23 7 C23 11 25 14 29 15 C28 11 26 8 23 7 Z" fill="currentColor" />
+      <path
+        d="M23 7 C23 11 25 14 29 15 C28 11 26 8 23 7 Z"
+        fill="currentColor"
+      />
       <path d="M32 5 C32 2 34 -1 38 -2 C37 2 35 4 32 5 Z" fill="currentColor" />
     </svg>
   );
@@ -26,11 +29,7 @@ export function ContactHero(): React.ReactElement {
     <section className={styles.hero}>
       <div className={styles.bg} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/meeting_image.png"
-          alt=""
-          className={styles.bgImg}
-        />
+        <img src="/images/meeting_image.png" alt="" className={styles.bgImg} />
       </div>
 
       <svg
@@ -52,12 +51,13 @@ export function ContactHero(): React.ReactElement {
 
       <div className={styles.inner}>
         <span className={styles.kicker}>Come and say hello</span>
+
         <h1 className={styles.title}>
-          We would <em>love</em> to hear from you
+          We would <em>love</em> to hear what you’re planning
         </h1>
+
         <p className={styles.sub}>
-          Tell us as much or as little as you like — the planner who would run
-          your day writes back within two working days.
+          Tell us as much or as little as you like, from the celebration you’re imagining to the details you already know, or simply where you’d like to begin. We’ll take the time to understand what matters to you and what you envision for your celebration.
         </p>
 
         <div className={styles.flourish} aria-hidden="true">
@@ -67,8 +67,14 @@ export function ContactHero(): React.ReactElement {
         </div>
 
         <p className={styles.quick}>
+          The planner who would run your day writes back personally within two
+          working days.
+          <br />
           Rather write straight away?{" "}
-          <a href="mailto:info@theseventhvowweddings.com" className={styles.quickLink}>
+          <a
+            href="mailto:info@theseventhvowweddings.com"
+            className={styles.quickLink}
+          >
             info@theseventhvowweddings.com
           </a>
         </p>

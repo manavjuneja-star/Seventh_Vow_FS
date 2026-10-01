@@ -40,22 +40,22 @@ const METHODS: Method[] = [
   {
     label: "Write to us",
     value: "info@theseventhvowweddings.com",
-    meta: "The surest way to reach the studio. We read every note ourselves.",
+    meta: "The easiest way to begin the conversation. Every enquiry is personally read by our planning team.",
     href: "mailto:info@theseventhvowweddings.com",
     icon: ENVELOPE,
   },
   {
     label: "Call or WhatsApp",
     value: "+91 83840 81013",
-    meta: "Monday to Saturday, 10am – 7pm IST. A message is fine after hours.",
+    meta: "Reach us by phone or WhatsApp to start a conversation about your celebration.",
     href: "https://wa.me/918384081013",
     icon: PHONE,
     whatsapp: true,
   },
   {
-    label: "The studio",
+    label: "Our Office",
     value: "New Delhi, India",
-    meta: "Visits are by appointment — tell us you would like to come by and we will find a time.",
+    meta: "Come by, sit with us, and tell us about your celebration. Visits are by appointment — simply get in touch and we’ll arrange a time for you.",
     icon: PIN,
   },
 ];
@@ -108,14 +108,17 @@ export function ContactDetails(): React.ReactElement {
   return (
     <div data-reveal="0" className={styles.wrap}>
       <span className={styles.eyebrow}>The Seventh Vow Weddings</span>
+
       <h2 className={styles.heading}>
-        A real planner on the other end, from the first word
+        A real planner behind every detail
       </h2>
+
       <p className={styles.intro}>
-        We are a bespoke wedding design house in New Delhi, taking on a
-        deliberately limited number of celebrations each year so every one has
-        our full attention. The planner who writes back is the one who will lead
-        your wedding — from the first sketch to the last farewell.
+        We are a wedding planning company in New Delhi, taking a hands-on
+        approach to every celebration we undertake. The planner you speak to
+        is closely involved in understanding your vision, shaping the plan,
+        coordinating the details and making sure everything comes together
+        when it matters most.
       </p>
 
       <span className={styles.rule} />
