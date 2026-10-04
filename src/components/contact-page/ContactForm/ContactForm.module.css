@@ -1,3 +1,13 @@
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+}
+
 .card {
   background: var(--ivory);
   border: 1px solid rgba(169, 120, 43, 0.3);

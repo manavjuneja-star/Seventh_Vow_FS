@@ -29,15 +29,23 @@ export function DestinationsHero({
       </div>
 
       <div className={styles.inner}>
-        <span className={styles.eyebrow}>Destination &amp; Venues</span>
+        <span className={styles.eyebrow}>Destinations &amp; Venues</span>
+
         <h1 className={styles.title}>
-          A wedding that belongs to the place it&apos;s held
+          The right place sets the tone for everything that follows.
         </h1>
+
         <p className={styles.sub}>
-          We scout, negotiate and stage weddings across India&apos;s most
-          photographed cities and its quietest corners — the venue found first,
-          everything else built around it. Choose a destination to see the
-          palaces, villas and forest lawns we work with there.
+          From iconic palaces and beachfront resorts to private villas and
+          hidden retreats, we help you find the right setting for your
+          celebration.
+        </p>
+
+        <p className={styles.sub}>
+          Choosing a venue is about more than beautiful spaces. We consider the
+          guest experience, accommodation, events, logistics, food, service and
+          everything the destination makes possible, helping you explore options
+          and build the right plan around the place you choose.
         </p>
       </div>
 

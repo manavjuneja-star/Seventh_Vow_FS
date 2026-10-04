@@ -1,27 +1,9 @@
 import styles from "./EnquiryModal.module.css";
 
-const EVENT_TYPES = [
-  "Wedding",
-  "Engagement",
-  "Sangeet / Mehndi",
-  "Reception",
-  "Anniversary",
-  "Other celebration",
-];
-
-const TIMELINES = [
-  "Within 3 months",
-  "3 – 6 months",
-  "6 – 12 months",
-  "More than a year away",
-  "Date not decided",
-];
-
 const BUDGETS = [
-  "Under ₹25 lakh",
-  "₹25 – 50 lakh",
   "₹50 lakh – 1 crore",
-  "Above ₹1 crore",
+  "₹1 – 2 crore",
+  "Above ₹2 crore",
   "Not decided yet",
 ];
 
@@ -125,7 +107,7 @@ export function EnquiryModal(): React.ReactElement {
 
             <form data-enquiry-form="1" className={styles.form}>
               <label className={styles.field}>
-                <span className={styles.label}>Your name</span>
+                <span className={styles.label}>Your name or couple name</span>
                 <input
                   type="text"
                   name="name"
@@ -157,8 +139,30 @@ export function EnquiryModal(): React.ReactElement {
                   className={styles.input}
                 />
               </label>
-              <SelectField label="Event type" name="eventType" options={EVENT_TYPES} />
-              <SelectField label="Event timeline" name="timeline" options={TIMELINES} />
+              <label className={styles.field}>
+                <span className={styles.label}>Event type</span>
+                <input
+                  type="text"
+                  name="eventType"
+                  required
+                  placeholder="Wedding, Sangeet, Reception..."
+                  className={styles.input}
+                />
+              </label>
+              <div className={styles.field}>
+                <span className={styles.label}>Event timeline</span>
+                <input
+                  type="date"
+                  name="timeline"
+                  data-timeline-date="1"
+                  required
+                  className={styles.input}
+                />
+                <label className={styles.checkboxRow}>
+                  <input type="checkbox" data-timeline-undecided="1" />
+                  Date not decided yet
+                </label>
+              </div>
               <SelectField label="Budget (INR)" name="budget" options={BUDGETS} />
               <label className={styles.field}>
                 <span className={styles.label}>Guest count</span>

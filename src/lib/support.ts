@@ -267,6 +267,11 @@ function initEnquiry(): Cleanup {
       frm.style.display = "grid";
       if (thanks) thanks.style.display = "none";
       if (errorEl) errorEl.hidden = true;
+      const timelineDate = one("[data-timeline-date]") as HTMLInputElement | null;
+      if (timelineDate) {
+        timelineDate.disabled = false;
+        timelineDate.required = true;
+      }
     }
     ov.style.opacity = "1";
     ov.style.pointerEvents = "auto";
@@ -299,6 +304,16 @@ function initEnquiry(): Cleanup {
     if (e.target === ov) closeIt();
   });
   window.addEventListener("keydown", onKey);
+
+  const timelineDate = one("[data-timeline-date]") as HTMLInputElement | null;
+  const timelineUndecided = one("[data-timeline-undecided]") as HTMLInputElement | null;
+  timelineUndecided?.addEventListener("change", () => {
+    if (!timelineDate) return;
+    timelineDate.disabled = timelineUndecided.checked;
+    timelineDate.required = !timelineUndecided.checked;
+    if (timelineUndecided.checked) timelineDate.value = "";
+  });
+
   one("[data-enquiry-form]")?.addEventListener("submit", (e) => {
     e.preventDefault();
     const frm = e.currentTarget as HTMLFormElement;
@@ -324,7 +339,7 @@ function initEnquiry(): Cleanup {
         phone: data.get("phone"),
         email: data.get("email"),
         eventType: data.get("eventType"),
-        timeline: data.get("timeline"),
+        timeline: timelineUndecided?.checked ? "Not decided yet" : data.get("timeline"),
         budget: data.get("budget"),
         guests: data.get("guests"),
         location: data.get("location"),

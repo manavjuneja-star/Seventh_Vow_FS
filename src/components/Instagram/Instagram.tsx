@@ -64,7 +64,7 @@ export function Instagram(): React.ReactElement {
       <div className={styles.inner}>
         <div data-reveal="0" className={styles.head}>
           <div>
-            <span className={styles.eyebrow}>From the house of Seventh Vow Weddings</span>
+            <span className={styles.eyebrow}>From the house of The Seventh Vow Weddings</span>
             <h2 className={styles.heading}>
               Follow along<em> as it happens</em>
             </h2>

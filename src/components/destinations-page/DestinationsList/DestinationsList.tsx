@@ -19,7 +19,11 @@ function DestinationCard({
     >
       <div className={styles.media}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={destination.image} alt="" loading={index < 3 ? "eager" : "lazy"} />
+        <img
+          src={destination.image}
+          alt=""
+          loading={index < 3 ? "eager" : "lazy"}
+        />
       </div>
       <div className={styles.body}>
         <span className={styles.region}>{destination.region}</span>
@@ -36,8 +40,8 @@ function DestinationCard({
 /** A grid of destinations — each card opens that place's own page. */
 export function DestinationsList({
   destinations,
-  eyebrow = "Where we work",
-  heading = "Every destination has its own reasons",
+  eyebrow = "Every destination has a story.",
+  heading = "We know how to make it part of yours.",
   tinted = false,
 }: {
   destinations: Destination[];
@@ -46,7 +50,9 @@ export function DestinationsList({
   tinted?: boolean;
 }): React.ReactElement {
   return (
-    <section className={tinted ? `${styles.section} ${styles.tinted}` : styles.section}>
+    <section
+      className={tinted ? `${styles.section} ${styles.tinted}` : styles.section}
+    >
       <div className={styles.inner}>
         <div data-reveal="0" className={styles.head}>
           <span className={styles.eyebrow}>{eyebrow}</span>
@@ -55,7 +61,11 @@ export function DestinationsList({
 
         <div className={styles.grid}>
           {destinations.map((destination, i) => (
-            <DestinationCard key={destination.slug} destination={destination} index={i} />
+            <DestinationCard
+              key={destination.slug}
+              destination={destination}
+              index={i}
+            />
           ))}
         </div>
       </div>

@@ -9,10 +9,22 @@ export function Hero(): React.ReactElement {
   return (
     <section data-hero="1" className={styles.hero}>
       <div className={styles.bg}>
+        {/* Slideshow background — kept here, commented out, in case we go
+            back to it. Swapped for the Grand Reel video below. */}
+        {/*
         <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide3}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
+        */}
+        <video
+          className={styles.bgVideo}
+          src="/videos/grand-reel.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         <div className={styles.scrim} />
       </div>
 

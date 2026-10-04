@@ -66,7 +66,7 @@ export function ContactHero(): React.ReactElement {
           <span className={`${styles.line} ${styles.lineRight}`} />
         </div>
 
-        <p className={styles.quick}>
+        {/* <p className={styles.quick}>
           The planner who would run your day writes back personally within two
           working days.
           <br />
@@ -77,7 +77,7 @@ export function ContactHero(): React.ReactElement {
           >
             info@theseventhvowweddings.com
           </a>
-        </p>
+        </p> */}
       </div>
 
       <svg

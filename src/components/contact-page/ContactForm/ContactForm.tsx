@@ -4,28 +4,10 @@ import { type FormEvent, useState } from "react";
 
 import styles from "./ContactForm.module.css";
 
-const EVENT_TYPES = [
-  "Wedding",
-  "Engagement / Roka",
-  "Sangeet / Mehndi",
-  "Reception",
-  "Anniversary",
-  "Other celebration",
-];
-
-const TIMELINES = [
-  "Within 3 months",
-  "3 – 6 months",
-  "6 – 12 months",
-  "More than a year away",
-  "Date not decided",
-];
-
 const BUDGETS = [
-  "Under ₹25 lakh",
-  "₹25 – 50 lakh",
   "₹50 lakh – 1 crore",
-  "Above ₹1 crore",
+  "₹1 – 2 crore",
+  "Above ₹2 crore",
   "Not decided yet",
 ];
 
@@ -47,6 +29,31 @@ function SelectField({
         ))}
       </select>
     </label>
+  );
+}
+
+function TimelineField(): React.ReactElement {
+  const [undecided, setUndecided] = useState(false);
+  return (
+    <div className={styles.field}>
+      <span className={styles.label}>Event timeline</span>
+      <input
+        type="date"
+        name="timeline"
+        disabled={undecided}
+        required={!undecided}
+        className={styles.input}
+      />
+      <label className={styles.checkboxRow}>
+        <input
+          type="checkbox"
+          checked={undecided}
+          onChange={(e) => setUndecided(e.target.checked)}
+        />
+        Date not decided yet
+      </label>
+      {undecided && <input type="hidden" name="timeline" value="Not decided yet" />}
+    </div>
   );
 }
 
@@ -116,7 +123,7 @@ export function ContactForm(): React.ReactElement {
       ) : (
         <form className={styles.form} onSubmit={onSubmit}>
           <label className={styles.field}>
-            <span className={styles.label}>Your name</span>
+            <span className={styles.label}>Your name or couple name</span>
             <input
               type="text"
               name="name"
@@ -157,8 +164,17 @@ export function ContactForm(): React.ReactElement {
               className={styles.input}
             />
           </label>
-          <SelectField label="Event type" name="eventType" options={EVENT_TYPES} />
-          <SelectField label="Event timeline" name="timeline" options={TIMELINES} />
+          <label className={styles.field}>
+            <span className={styles.label}>Event type</span>
+            <input
+              type="text"
+              name="eventType"
+              required
+              placeholder="Wedding, Sangeet, Reception..."
+              className={styles.input}
+            />
+          </label>
+          <TimelineField />
           <SelectField label="Budget (INR)" name="budget" options={BUDGETS} />
           <label className={styles.field}>
             <span className={styles.label}>Preferred location</span>
