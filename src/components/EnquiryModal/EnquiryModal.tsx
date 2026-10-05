@@ -1,6 +1,7 @@
 import styles from "./EnquiryModal.module.css";
 
 const BUDGETS = [
+  "Under ₹50 lakh",
   "₹50 lakh – 1 crore",
   "₹1 – 2 crore",
   "Above ₹2 crore",
@@ -150,7 +151,7 @@ export function EnquiryModal(): React.ReactElement {
                 />
               </label>
               <div className={styles.field}>
-                <span className={styles.label}>Event timeline</span>
+                <span className={styles.label}>Event date</span>
                 <input
                   type="date"
                   name="timeline"

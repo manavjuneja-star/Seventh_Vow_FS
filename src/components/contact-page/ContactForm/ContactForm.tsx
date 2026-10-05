@@ -5,6 +5,7 @@ import { type FormEvent, useState } from "react";
 import styles from "./ContactForm.module.css";
 
 const BUDGETS = [
+  "Under ₹50 lakh",
   "₹50 lakh – 1 crore",
   "₹1 – 2 crore",
   "Above ₹2 crore",
@@ -36,7 +37,7 @@ function TimelineField(): React.ReactElement {
   const [undecided, setUndecided] = useState(false);
   return (
     <div className={styles.field}>
-      <span className={styles.label}>Event timeline</span>
+      <span className={styles.label}>Event date</span>
       <input
         type="date"
         name="timeline"
