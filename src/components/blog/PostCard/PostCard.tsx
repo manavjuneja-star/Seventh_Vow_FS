@@ -11,7 +11,6 @@ export function PostCard({ post }: { post: BlogPost }): React.ReactElement {
       <div className={styles.media}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={post.cover} alt="" />
-        <span className={styles.category}>{post.category}</span>
       </div>
       <div className={styles.body}>
         <h2 className={styles.title}>{post.title}</h2>

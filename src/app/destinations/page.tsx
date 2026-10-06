@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 
 export default async function DestinationsPage(): Promise<React.ReactElement> {
   const destinations = await getDestinations();
+  const domestic = destinations.filter((d) => d.category === "domestic");
+  const international = destinations.filter((d) => d.category === "international");
 
   return (
     <>
@@ -24,7 +26,14 @@ export default async function DestinationsPage(): Promise<React.ReactElement> {
       <DestinationsList
         eyebrow="Every destination has a story."
         heading="We know how to make it part of yours."
-        destinations={destinations}
+        destinations={domestic}
+      />
+
+      <DestinationsList
+        eyebrow="International"
+        heading="For a wedding that begins with a flight"
+        destinations={international}
+        tinted
       />
     </>
   );
