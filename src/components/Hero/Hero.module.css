@@ -55,7 +55,7 @@
 .scrim {
   position: absolute;
   inset: 0;
-  background:
+  /* background:
     linear-gradient(
       180deg,
       rgba(43, 32, 30, 0.6) 0%,
@@ -68,7 +68,7 @@
       ellipse at 50% 30%,
       rgba(201, 162, 92, 0.14),
       transparent 60%
-    );
+    ); */
 }
 
 .petal {
