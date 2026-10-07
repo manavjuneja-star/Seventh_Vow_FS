@@ -30,10 +30,11 @@ export default async function DestinationsPage(): Promise<React.ReactElement> {
       />
 
       <DestinationsList
-        eyebrow="International"
-        heading="For a wedding that begins with a flight"
+        eyebrow="Beyond the border, the same care."
+        heading="When the right place is across the sea"
         destinations={international}
         tinted
+        twoColumns
       />
     </>
   );

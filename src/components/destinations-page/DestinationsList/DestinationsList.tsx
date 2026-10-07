@@ -43,11 +43,14 @@ export function DestinationsList({
   eyebrow = "Every destination has a story.",
   heading = "We know how to make it part of yours.",
   tinted = false,
+  twoColumns = false,
 }: {
   destinations: Destination[];
   eyebrow?: string;
   heading?: string;
   tinted?: boolean;
+  /** Lay the cards out two across (for a group of four). */
+  twoColumns?: boolean;
 }): React.ReactElement {
   return (
     <section
@@ -59,7 +62,11 @@ export function DestinationsList({
           <h2 className={styles.heading}>{heading}</h2>
         </div>
 
-        <div className={styles.grid}>
+        <div
+          className={
+            twoColumns ? `${styles.grid} ${styles.gridTwo}` : styles.grid
+          }
+        >
           {destinations.map((destination, i) => (
             <DestinationCard
               key={destination.slug}
