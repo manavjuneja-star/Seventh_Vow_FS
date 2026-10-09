@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 import { EnquiryModal } from "@/components/EnquiryModal/EnquiryModal";
 import { SiteFooter } from "@/components/SiteFooter/SiteFooter";
@@ -9,6 +10,8 @@ import { SITE, SITE_URL } from "@/lib/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/structuredData";
 
 import "@/styles/globals.css";
+
+const GA_ID = "G-H2P26F99YF";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -72,6 +75,16 @@ export default function RootLayout({
   return (
     <html lang="en-IN" suppressHydrationWarning>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
         <script
