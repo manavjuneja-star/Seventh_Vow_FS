@@ -24,7 +24,7 @@
         "image": "/images/venue-jaipur-3.webp"
       },
       {
-        "name": "Jaipur Marriott (Westin)",
+        "name": "The Westin Jaipur",
         "image": "/images/venue-jaipur-4.webp"
       },
       {
@@ -124,7 +124,7 @@
         "image": "/images/venue-udaipur-3.webp"
       },
       {
-        "name": "Radisson Blu Udaipur Palace Resort",
+        "name": "Taj Lake Palace Udaipur",
         "image": "/images/venue-udaipur-4.webp"
       },
       {
@@ -298,14 +298,6 @@
         }
       ]
     }
-  },
-  {
-    "slug": "agra",
-    "name": "Agra",
-    "region": "Uttar Pradesh",
-    "category": "domestic",
-    "image": "/images/dest-agra.webp",
-    "blurb": "Mughal gardens, riverside terraces and, if you plan the sightlines carefully, the Taj in the frame. A destination for couples who want one unmistakable backdrop."
   },
   {
     "slug": "jim-corbett",
@@ -620,23 +612,23 @@
     ],
     "venues": [
       {
-        "name": "Mandapa, a Ritz-Carlton Reserve",
+        "name": "Jumeirah Bali",
         "image": "/images/venue-bali-1.webp"
       },
       {
-        "name": "InterContinental Bali Resort",
+        "name": "Renaissance Bali",
         "image": "/images/venue-bali-2.webp"
       },
       {
-        "name": "Anantara Uluwatu Bali Resort",
+        "name": "The St. Regis Bali Resort",
         "image": "/images/venue-bali-3.webp"
       },
       {
-        "name": "Hilton Bali Resort",
+        "name": "The Laguna, a Luxury Collection Resort & Spa, Nusa Dua",
         "image": "/images/venue-bali-4.webp"
       },
       {
-        "name": "Conrad Bali",
+        "name": "The Ritz-Carlton, Bali",
         "image": "/images/venue-bali-5.webp"
       }
     ],
@@ -803,6 +795,106 @@
           "month": "Dec",
           "tempC": 25,
           "rain": 5
+        }
+      ]
+    }
+  },
+  {
+    "slug": "dubai",
+    "name": "Dubai",
+    "region": "United Arab Emirates",
+    "category": "international",
+    "image": "/images/dest-dubai.webp",
+    "blurb": "For contemporary celebrations with a sense of grandeur. Modern luxury, exceptional hospitality and a city that knows how to celebrate.",
+    "whyChoose": [
+      "For couples drawn to modern luxury, Dubai offers a very different wedding canvas. From sophisticated ballroom celebrations to glamorous beachfront events and high-energy after-parties, it allows for weddings that are polished, contemporary and larger in scale.",
+      "Exceptional hospitality, easy flights from across India and a hotel scene built for large celebrations make it simple to host a guest list that travels."
+    ],
+    "venues": [
+      {
+        "name": "Versace Palazzo",
+        "image": "/images/venue-dubai-1.webp"
+      },
+      {
+        "name": "Atlantis",
+        "image": "/images/venue-dubai-2.webp"
+      },
+      {
+        "name": "Raffles The Palm",
+        "image": "/images/venue-dubai-3.webp"
+      },
+      {
+        "name": "Four Seasons Resort",
+        "image": "/images/venue-dubai-4.webp"
+      },
+      {
+        "name": "Taj Exotica Resort & Spa",
+        "image": "/images/venue-dubai-5.webp"
+      }
+    ],
+    "weather": {
+      "bestWindow": "November – March",
+      "summary": "The Gulf summer is intense, so the wedding season runs from November to March, when days are warm and dry and evenings are comfortable for outdoor events.",
+      "months": [
+        {
+          "month": "Jan",
+          "tempC": 24,
+          "rain": 12
+        },
+        {
+          "month": "Feb",
+          "tempC": 25,
+          "rain": 10
+        },
+        {
+          "month": "Mar",
+          "tempC": 28,
+          "rain": 9
+        },
+        {
+          "month": "Apr",
+          "tempC": 33,
+          "rain": 3
+        },
+        {
+          "month": "May",
+          "tempC": 38,
+          "rain": 0
+        },
+        {
+          "month": "Jun",
+          "tempC": 40,
+          "rain": 0
+        },
+        {
+          "month": "Jul",
+          "tempC": 42,
+          "rain": 0
+        },
+        {
+          "month": "Aug",
+          "tempC": 42,
+          "rain": 0
+        },
+        {
+          "month": "Sep",
+          "tempC": 39,
+          "rain": 0
+        },
+        {
+          "month": "Oct",
+          "tempC": 35,
+          "rain": 1
+        },
+        {
+          "month": "Nov",
+          "tempC": 29,
+          "rain": 4
+        },
+        {
+          "month": "Dec",
+          "tempC": 25,
+          "rain": 9
         }
       ]
     }

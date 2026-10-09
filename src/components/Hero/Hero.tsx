@@ -1,3 +1,4 @@
+import { HeroVideo } from "@/components/Hero/HeroVideo";
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 
 import styles from "./Hero.module.css";
@@ -10,21 +11,14 @@ export function Hero(): React.ReactElement {
     <section data-hero="1" className={styles.hero}>
       <div className={styles.bg}>
         {/* Slideshow background — kept here, commented out, in case we go
-            back to it. Swapped for the Grand Reel video below. */}
+            back to it. Swapped for the Grand Reel video below (mobile cut for phones and iPads, 1080p60 cut for desktop). */}
         {/*
         <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide3}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
         */}
-        <video
-          className={styles.bgVideo}
-          src="/videos/grand-reel.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <HeroVideo className={styles.bgVideo} />
         <div className={styles.scrim} />
       </div>
 

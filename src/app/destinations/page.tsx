@@ -34,7 +34,6 @@ export default async function DestinationsPage(): Promise<React.ReactElement> {
         heading="When the right place is across the sea"
         destinations={international}
         tinted
-        twoColumns
       />
     </>
   );
