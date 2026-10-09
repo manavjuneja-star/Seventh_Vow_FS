@@ -21,7 +21,7 @@ function DestinationCard({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={destination.image}
-          alt=""
+          alt={`${destination.name} wedding destination`}
           loading={index < 3 ? "eager" : "lazy"}
         />
       </div>

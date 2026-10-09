@@ -30,6 +30,7 @@ html.sv-veil-active body>*:not([data-veil]):not([data-veilmark]){
    html carries its own overflow-x rule and can be the scrolling root. */
 html.sv-veil-lock,html.sv-veil-lock body,
 html.sv-scroll-lock,html.sv-scroll-lock body{overflow:hidden !important;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 a{color:inherit;text-decoration:none;}
 a:hover{color:var(--gold);}
 img{max-width:100%;display:block;}

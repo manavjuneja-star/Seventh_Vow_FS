@@ -9,9 +9,11 @@ import { Instagram } from "@/components/Instagram/Instagram";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact — The Seventh Vow Weddings",
+  title: "Contact The Seventh Vow Weddings | Plan Your Wedding",
   description:
-    "Reach the studio directly — email, phone or the enquiry form. A real planner writes back within two working days.",
+    "Tell us about your wedding. Call or WhatsApp +91 83840 81013, email info@theseventhvowweddings.com or send an enquiry. Wedding planners in New Delhi planning weddings across India and abroad.",
+  alternates: { canonical: "/contact" },
+  openGraph: { url: "/contact", title: "Contact The Seventh Vow Weddings" },
 };
 
 export default function ContactPage(): React.ReactElement {

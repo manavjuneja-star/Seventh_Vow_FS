@@ -11,7 +11,7 @@ export function Hero(): React.ReactElement {
     <section data-hero="1" className={styles.hero}>
       <div className={styles.bg}>
         {/* Slideshow background — kept here, commented out, in case we go
-            back to it. Swapped for the Grand Reel video below (mobile cut for phones and iPads, 1080p60 cut for desktop). */}
+            back to it. Swapped for the Grand Reel video below (mobile cut for phones and iPads, 1440p60 cut for desktop). */}
         {/*
         <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
         <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
@@ -57,6 +57,10 @@ export function Hero(): React.ReactElement {
 
       <h1 className={styles.lockupWrap}>
         <LogoLockup className={styles.lockup} priority />
+        <span className="sr-only">
+          Wedding planners in Delhi and across India, destination weddings in
+          Udaipur, Jaipur, Goa, Bali, Thailand and Dubai
+        </span>
       </h1>
 
       <p className={styles.sub}>

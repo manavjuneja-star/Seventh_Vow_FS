@@ -9,7 +9,7 @@ export function VenuesGrid({ venues }: { venues: Venue[] }): React.ReactElement 
         <figure key={venue.name} data-reveal={String((i % 3) * 0.06)} className={styles.card}>
           <div className={styles.media}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={venue.image} alt="" loading={i < 3 ? "eager" : "lazy"} />
+            <img src={venue.image} alt={`${venue.name} wedding venue`} loading={i < 3 ? "eager" : "lazy"} />
           </div>
           <figcaption className={styles.name}>{venue.name}</figcaption>
         </figure>

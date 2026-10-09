@@ -2,14 +2,18 @@ import type { Metadata } from "next";
 
 import { DestinationsHero } from "@/components/destinations-page/DestinationsHero/DestinationsHero";
 import { DestinationsList } from "@/components/destinations-page/DestinationsList/DestinationsList";
+import { JsonLd } from "@/components/Seo/JsonLd";
 import { getDestinations } from "@/lib/destinations";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Destination & Venues — The Seventh Vow Weddings",
+  title: "Destination Wedding Venues in India & Abroad",
   description:
-    "From iconic palaces and beachfront resorts to private villas and hidden retreats, we help you find the right setting for your celebration.",
+    "Plan a destination wedding in Udaipur, Jaipur, Goa, Jim Corbett, Delhi NCR, Bali, Thailand, Dubai, Abu Dhabi or Sri Lanka. Palaces, beachfront resorts, villas and hotels, with expert planning from The Seventh Vow Weddings.",
+  alternates: { canonical: "/destinations" },
+  openGraph: { url: "/destinations", title: "Destination Wedding Venues in India & Abroad | The Seventh Vow Weddings" },
 };
 
 export default async function DestinationsPage(): Promise<React.ReactElement> {
@@ -19,6 +23,7 @@ export default async function DestinationsPage(): Promise<React.ReactElement> {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Destinations", path: "/destinations" }])} />
       <DestinationsHero
         images={destinations.slice(0, 6).map((d) => d.image)}
       />

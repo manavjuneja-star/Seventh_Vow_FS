@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const MOBILE_SRC = "/videos/grand-reel-mobile.mp4";
-const DESKTOP_SRC = "/videos/grand-reel-desktop.mp4";
+const DESKTOP_SRC = "/videos/grand-reel-desktop-1440.mp4";
 // Desktop only: a wide screen with a mouse. Phones and iPads (touch) keep the
 // lighter portrait reel.
 const DESKTOP_QUERY = "(min-width: 1100px) and (hover: hover) and (pointer: fine)";
 
 /** Looping, muted background reel. Phones/iPads get the light mobile cut, large
- *  desktop screens get the 1080p60 cut. Mobile browsers pause background video
+ *  desktop screens get the 1440p60 cut. Mobile browsers pause background video
  *  on their own (low-power mode, tab switches, scrolling), so every pause the
  *  visitor didn't ask for is answered with a play(). */
 export function HeroVideo({ className }: { className?: string }): React.ReactElement {

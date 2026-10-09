@@ -11,7 +11,10 @@ import {
 } from "@/components/destinations-page/Scribbles/Scribbles";
 import { VenuesGrid } from "@/components/destinations-page/VenuesGrid/VenuesGrid";
 import { WeatherDiagram } from "@/components/destinations-page/WeatherDiagram/WeatherDiagram";
+import { JsonLd } from "@/components/Seo/JsonLd";
 import { getDestination, getDestinations } from "@/lib/destinations";
+import { absoluteUrl } from "@/lib/site";
+import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 import styles from "./page.module.css";
 
@@ -26,10 +29,15 @@ export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
 
 export async function generateMetadata({ params }: DestinationPageProps): Promise<Metadata> {
   const destination = await getDestination(params.slug);
-  if (!destination) return { title: "Destinations — The Seventh Vow Weddings" };
+  if (!destination) return { title: "Destinations" };
+  const url = `/destinations/${destination.slug}`;
+  const title = `${destination.name} Wedding Planners & Venues`;
+  const description = `Plan your wedding in ${destination.name}, ${destination.region}. ${destination.blurb}`;
   return {
-    title: `${destination.name} — The Seventh Vow Weddings`,
-    description: destination.blurb,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { url, title: `${title} | The Seventh Vow Weddings`, description, images: [{ url: destination.image, alt: `${destination.name} wedding destination` }] },
   };
 }
 
@@ -43,6 +51,24 @@ export default async function DestinationPage({
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Destinations", path: "/destinations" },
+          { name: destination.name, path: `/destinations/${destination.slug}` },
+        ])}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "TouristDestination",
+          name: `${destination.name} wedding destination`,
+          description: destination.blurb,
+          image: absoluteUrl(destination.image),
+          url: absoluteUrl(`/destinations/${destination.slug}`),
+          containedInPlace: { "@type": "Place", name: destination.region },
+        }}
+      />
       <section className={styles.hero}>
         <div className={styles.bg} aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
