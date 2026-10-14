@@ -23,8 +23,8 @@
           "title": "Personalised Welcome Cards",
           "body": "First impressions matter. Thoughtfully designed welcome cards, bespoke stationery and personalised details make guests feel special from the moment they arrive.",
           "image": {
-            "src": "/images/blog/blog-1-1.webp",
-            "alt": "A velvet-draped, richly styled welcome moment"
+            "src": "/images/blog/blog-1-welcome-card.webp",
+            "alt": "A personalised wedding welcome card"
           }
         },
         {
@@ -64,7 +64,7 @@
     "title": "2027 Wedding Trends: The Experiences That Will Redefine Celebrations",
     "excerpt": "From Mehendi Social Clubs to sculptural ceremony spaces, discover how weddings in 2027 could become more immersive, expressive and thoughtfully curated.",
     "cover": "/images/blog/blog-2-4.webp",
-    "category": "Wedding & Planning",
+    "category": "Wedding Planning",
     "date": "2026-10-13",
     "readMinutes": 4,
     "format": "chapters",
@@ -164,7 +164,7 @@
     "title": "The Evolution of Weddings: Through the Gen Z Lens",
     "excerpt": "Less about following the rules, more about rewriting them. A new generation is redefining what it means to celebrate love.",
     "cover": "/images/blog/blog-4-5.webp",
-    "category": "Wedding & Planning",
+    "category": "Wedding Planning",
     "date": "2026-10-11",
     "readMinutes": 3,
     "format": "editorial",
@@ -173,7 +173,7 @@
       "facts": [
         {
           "label": "Topic",
-          "value": "Wedding & Planning"
+          "value": "Wedding Planning"
         },
         {
           "label": "Read time",

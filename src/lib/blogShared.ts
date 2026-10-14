@@ -8,7 +8,7 @@
  * for server-side callers; import directly from here in client components.
  */
 
-export const BLOG_CATEGORIES = ["Wedding & Planning", "Decor & Styling"] as const;
+export const BLOG_CATEGORIES = ["Wedding Planning", "Decor & Styling"] as const;
 
 export const POST_FORMATS = ["editorial", "photo-essay", "guide", "chapters"] as const;
 export type PostFormat = (typeof POST_FORMATS)[number];

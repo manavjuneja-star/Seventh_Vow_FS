@@ -110,7 +110,7 @@ export function ContactDetails(): React.ReactElement {
       <span className={styles.eyebrow}>The Seventh Vow Weddings</span>
 
       <h2 className={styles.heading}>
-        A real planner behind every detail
+        Your Vision. Our Expertise.
       </h2>
 
       <p className={styles.intro}>
