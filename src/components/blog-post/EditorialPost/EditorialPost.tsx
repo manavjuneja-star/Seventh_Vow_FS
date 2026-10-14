@@ -1,17 +1,15 @@
 import type { BlogPost, EditorialContent } from "@/lib/blogShared";
 
-import { AlternatingMedia } from "../AlternatingMedia/AlternatingMedia";
 import { PostFooter } from "../PostFooter/PostFooter";
 import { PostMasthead } from "../PostMasthead/PostMasthead";
 import styles from "./EditorialPost.module.css";
 
 /**
  * The feature template: the shared masthead, a horizontal strip of facts,
- * then the read itself — plain text sections for prose, and any section
- * carrying an `image` breaks out to a full-width alternating image/text row
- * instead (side auto-alternates by position unless the section sets
- * `imageRight` explicitly). Sections are the admin's repeatable unit: add as
- * many as the feature needs, with or without an image.
+ * then the read itself, set left-aligned in a wide column. A section with an
+ * `image` hangs it in a narrow rail on the right beside its text, shown
+ * whole; sections without one run the full measure. Sections are the
+ * admin's repeatable unit: add as many as the feature needs.
  */
 export function EditorialPost({
   post,
@@ -22,8 +20,6 @@ export function EditorialPost({
   content: EditorialContent;
   index: number;
 }): React.ReactElement {
-  let mediaCount = 0;
-
   return (
     <article className={styles.article}>
       <PostMasthead post={post} index={index} label={post.featured ? "Featured Story" : undefined} />
@@ -42,9 +38,12 @@ export function EditorialPost({
       </dl>
 
       <div className={styles.body}>
-        {content.sections.map((section, i) => {
-          const text = (
-            <>
+        {content.sections.map((section, i) => (
+          <section
+            key={section.heading ?? `s${i}`}
+            className={`${styles.entry} ${section.image ? styles.withRail : ""}`}
+          >
+            <div className={styles.copy}>
               {section.heading && <h2 className={styles.sectionHeading}>{section.heading}</h2>}
               {section.paragraphs.map((p, j) => (
                 <p key={j} className={i === 0 && j === 0 ? styles.dropCap : undefined}>
@@ -54,30 +53,16 @@ export function EditorialPost({
               {section.pullQuote && (
                 <blockquote className={styles.pullQuote}>{section.pullQuote}</blockquote>
               )}
-            </>
-          );
-
-          if (!section.image) {
-            return (
-              <div key={section.heading ?? `s${i}`} className={styles.textSection}>
-                {text}
-              </div>
-            );
-          }
-
-          const reversed = section.imageRight ?? mediaCount % 2 === 1;
-          mediaCount += 1;
-
-          return (
-            <AlternatingMedia
-              key={section.heading ?? `s${i}`}
-              image={section.image}
-              index={reversed ? 1 : 0}
-            >
-              {text}
-            </AlternatingMedia>
-          );
-        })}
+            </div>
+            {section.image && (
+              <figure className={styles.rail}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={section.image.src} alt={section.image.alt} />
+                {section.image.caption && <figcaption>{section.image.caption}</figcaption>}
+              </figure>
+            )}
+          </section>
+        ))}
       </div>
 
       <div className={styles.footWrap}>

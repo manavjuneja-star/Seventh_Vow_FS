@@ -25,6 +25,12 @@
 @media (max-width: 780px) {
   .mastRow {
     grid-template-columns: minmax(0, 1fr);
+    padding-top: 112px;
+    gap: 24px;
+  }
+
+  .mastRow > *:not(.insetPhoto) {
+    padding-top: 0;
   }
 
   .insetPhoto {
@@ -32,6 +38,7 @@
   }
 
   .insetPhoto img {
-    height: 200px;
+    height: auto;
+    object-fit: contain;
   }
 }

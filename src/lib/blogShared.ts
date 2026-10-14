@@ -27,18 +27,21 @@ export type EditorialContent = {
 
 export type PhotoEssayContent = {
   intro: string;
-  frames: { src: string; alt: string; caption: string }[];
+  frames: { src: string; alt: string; caption: string; title?: string }[];
   closing: string;
+  closingTitle?: string;
 };
 
 export type GuideContent = {
   intro: string;
   steps: { title: string; body: string; image: { src: string; alt: string } }[];
+  closing?: { title: string; body: string };
 };
 
 export type ChaptersContent = {
   intro: string;
   chapters: { title: string; body: string; image: { src: string; alt: string } }[];
+  closing?: { title: string; body: string };
 };
 
 type PostBase = {
@@ -65,4 +68,9 @@ export function formatDate(iso: string): string {
     month: "long",
     year: "numeric",
   });
+}
+
+/** Body copy is stored as one string; a blank line starts a new paragraph. */
+export function splitParagraphs(text: string): string[] {
+  return text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
 }

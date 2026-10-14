@@ -4,8 +4,8 @@ import styles from "./PostKicker.module.css";
 
 /**
  * Shared masthead furniture for all 4 post templates: a thin-rule meta bar
- * (category / entry number), the recurring "The Journal" display mark, the
- * real post title as a smaller subtitle, then the date/read-time line. Each
+ * (category / entry number), the post title as the
+ * display heading, then the date/read-time line. Each
  * template wraps this with its own image treatment (inset photo, full-width
  * cover, collage grid, or nothing) — this piece stays identical everywhere
  * so the four formats read as one publication, not four different sites.
@@ -33,8 +33,7 @@ export function PostKicker({
         <span>{label}</span>
         <span>№ {String(index).padStart(2, "0")}</span>
       </div>
-      <h1 className={styles.journalMark}>The Journal</h1>
-      <p className={styles.subtitle}>{post.title}</p>
+      <h1 className={styles.title}>{post.title}</h1>
       <p className={styles.meta}>
         {formatDate(post.date)}
         <span className={styles.dot}>·</span>

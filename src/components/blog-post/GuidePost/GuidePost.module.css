@@ -11,7 +11,7 @@
 
 .intro p {
   max-width: 680px;
-  margin: 0;
+  margin: 0 0 14px;
   font-family: "Fraunces", serif;
   font-size: 1.14rem;
   line-height: 1.6;
@@ -19,39 +19,117 @@
   text-wrap: pretty;
 }
 
-.steps {
+.grid {
   max-width: 1080px;
-  margin: clamp(40px, 6vw, 60px) auto 0;
-  padding: 0 clamp(1.4rem, 6vw, 3rem) clamp(24px, 4vw, 40px);
+  margin: clamp(36px, 6vw, 56px) auto 0;
+  padding: 0 clamp(1.4rem, 6vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 36px);
+  align-items: start;
+}
+
+.card {
+  grid-column: span 2;
+  background: var(--ivory);
+  border-radius: 3px 26px 3px 26px;
+  overflow: hidden;
+  box-shadow: 0 26px 46px -30px rgba(74, 48, 45, 0.45);
+}
+
+.card:nth-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.photo {
+  position: relative;
+  background: var(--blush-deep);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .number {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  padding: 4px 10px;
   font-family: "Fraunces", serif;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   letter-spacing: 0.16em;
-  color: var(--gold);
-  opacity: 0.85;
+  color: var(--ivory);
+  background: rgba(74, 48, 45, 0.72);
+  border-radius: 999px;
+}
+
+.cardText {
+  padding: 20px 22px 24px;
 }
 
 .stepTitle {
   font-family: "Fraunces", serif;
   font-weight: 400;
   color: var(--mauve-dark);
-  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-  margin: 10px 0 12px;
-  text-wrap: pretty;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  margin: 0 0 10px;
+  text-wrap: balance;
 }
 
-.steps p {
-  margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.75;
+.cardText p {
+  margin: 0 0 10px;
+  font-size: 0.93rem;
+  line-height: 1.7;
   color: var(--charcoal);
-  opacity: 0.82;
+  opacity: 0.85;
+}
+
+.closing {
+  max-width: 680px;
+  margin: clamp(44px, 7vw, 72px) auto 0;
+  padding: 28px clamp(1.4rem, 6vw, 3rem) 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.closing h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--mauve-dark);
+  margin: 0 0 12px;
+}
+
+.closing p {
+  margin: 0 0 10px;
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mauve-dark);
 }
 
 .footWrap {
   max-width: 900px;
   margin: 0 auto;
   padding: clamp(24px, 4vw, 40px) clamp(1.4rem, 6vw, 3rem) clamp(90px, 12vw, 130px);
+}
+
+@media (max-width: 900px) {
+  .card,
+  .card:nth-child(-n + 2) {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card,
+  .card:nth-child(-n + 2) {
+    grid-column: auto;
+  }
 }

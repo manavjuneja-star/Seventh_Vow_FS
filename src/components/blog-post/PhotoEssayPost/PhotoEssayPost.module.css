@@ -11,28 +11,89 @@
 
 .intro p {
   max-width: 680px;
-  margin: 0;
+  margin: 0 0 12px;
   font-family: "Fraunces", serif;
   font-style: italic;
   font-size: 1.1rem;
   line-height: 1.65;
   color: var(--mauve-dark);
-  text-align: left;
   text-wrap: pretty;
 }
 
-.frames {
+.wall {
   max-width: 1080px;
-  margin: clamp(40px, 6vw, 60px) auto 0;
-  padding: 0 clamp(1.4rem, 6vw, 3rem) clamp(24px, 4vw, 40px);
+  margin: clamp(30px, 5vw, 48px) auto 0;
+  padding: 0 clamp(1.4rem, 6vw, 3rem);
+  column-count: 4;
+  column-gap: 14px;
 }
 
-.frames p {
+.tile {
+  margin: 0 0 14px;
+  break-inside: avoid;
+  border-radius: 3px 22px 3px 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 40px -26px rgba(74, 48, 45, 0.45);
+}
+
+.tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.read {
+  max-width: 880px;
+  margin: clamp(44px, 7vw, 72px) auto 0;
+  padding: 0 clamp(1.4rem, 6vw, 3rem);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 44px);
+  padding: clamp(22px, 3.5vw, 32px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.entryTitle {
   margin: 0;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--mauve-dark);
+  text-wrap: balance;
+}
+
+.entryBody p,
+.closing p {
+  margin: 0 0 14px;
   font-size: 0.98rem;
   line-height: 1.8;
   color: var(--charcoal);
-  opacity: 0.82;
+  opacity: 0.85;
+}
+
+.closing {
+  padding: clamp(26px, 4vw, 36px) 0 0;
+  border-top: 2px solid var(--gold-light);
+  text-align: center;
+}
+
+.closing h2 {
+  margin: 0 0 12px;
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--mauve-dark);
+}
+
+.closing p {
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  color: var(--mauve-dark);
+  opacity: 1;
 }
 
 .footWrap {
@@ -41,12 +102,15 @@
   padding: clamp(48px, 7vw, 76px) clamp(1.4rem, 6vw, 3rem) clamp(90px, 12vw, 130px);
 }
 
-.closing {
-  margin: 0 0 12px;
-  font-family: "Fraunces", serif;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--mauve-dark);
-  text-align: center;
-  text-wrap: pretty;
+@media (max-width: 860px) {
+  .wall {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
 }

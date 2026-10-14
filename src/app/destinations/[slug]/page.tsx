@@ -18,6 +18,15 @@ import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 import styles from "./page.module.css";
 
+/** Beach destinations are described as resorts only; the rest as resorts and palaces. */
+const BEACH_SLUGS = new Set(["goa", "bali", "thailand", "sri-lanka", "dubai", "abu-dhabi"]);
+
+function venuesHeadingLead(slug: string): string {
+  return BEACH_SLUGS.has(slug)
+    ? "The resorts we work with in"
+    : "The resorts and palaces we work with in";
+}
+
 type DestinationPageProps = { params: { slug: string } };
 
 export const dynamic = "force-dynamic";
@@ -105,7 +114,7 @@ export default async function DestinationPage({
         <div className={styles.venuesInner}>
           <span className={styles.venuesEyebrow}>Venues &amp; Stays</span>
           <h2 className={styles.venuesHeading}>
-            The palaces, villas and resorts we work with in {destination.name}
+            {venuesHeadingLead(destination.slug)} {destination.name}
             <ScribbleUnderline className={styles.headingUnderline} />
           </h2>
 

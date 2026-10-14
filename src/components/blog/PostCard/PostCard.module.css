@@ -27,6 +27,7 @@
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  background: var(--blush);
 }
 
 .media img {

@@ -30,8 +30,8 @@
 .media img {
   display: block;
   width: 100%;
-  height: clamp(240px, 30vw, 400px);
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .media figcaption {
