@@ -15,7 +15,7 @@ export default function AdminLayout({
   return (
     <div className={styles.shell}>
       <div className={styles.topbar}>
-        <span className={styles.brand}>Seventh Vow — Studio Admin</span>
+        <span className={styles.brand}>The Seventh Vow Weddings — Studio Admin</span>
         <nav className={styles.nav}>
           <Link href="/admin" className={styles.navLink}>
             Dashboard

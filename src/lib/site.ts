@@ -7,7 +7,7 @@ export const SITE_URL = (
 
 export const SITE = {
   name: "The Seventh Vow Weddings",
-  shortName: "The Seventh Vow",
+  shortName: "The Seventh Vow Weddings",
   tagline: "The celebration beyond the seven vows.",
   description:
     "The Seventh Vow Weddings is a wedding planning company in New Delhi planning weddings across India and abroad, from Udaipur, Jaipur and Goa to Bali, Thailand and Dubai. Bespoke planning, design, hospitality and on-ground execution.",

@@ -99,7 +99,7 @@ export async function sendEnquiryEmail(payload: EnquiryPayload): Promise<void> {
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: `The Seventh Vow — Enquiries <${FROM_EMAIL}>`,
+    from: `The Seventh Vow Weddings — Enquiries <${FROM_EMAIL}>`,
     to: TO_EMAIL,
     replyTo: payload.email,
     subject: `New enquiry from ${payload.name}`,
@@ -127,7 +127,7 @@ export async function sendOtpEmail(toEmail: string, code: string): Promise<void>
 
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
-    from: `The Seventh Vow — Admin <${FROM_EMAIL}>`,
+    from: `The Seventh Vow Weddings — Admin <${FROM_EMAIL}>`,
     to: toEmail,
     subject: `Your admin login code: ${code}`,
     html: `
