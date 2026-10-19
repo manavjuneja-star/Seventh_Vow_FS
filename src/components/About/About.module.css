@@ -50,17 +50,26 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: fade3 18s linear infinite both;
+  animation: fade6 33s linear infinite both;
 }
 
 .slide1 {
-  background-image: url("/images/mandap.webp");
+  background-image: url("/images/landing/philosophy-1.webp");
 }
 .slide2 {
-  background-image: url("/images/banquet.webp");
+  background-image: url("/images/landing/philosophy-2.webp");
 }
 .slide3 {
-  background-image: url("/images/bouquet.webp");
+  background-image: url("/images/landing/philosophy-3.webp");
+}
+.slide4 {
+  background-image: url("/images/landing/philosophy-4.webp");
+}
+.slide5 {
+  background-image: url("/images/landing/philosophy-5.webp");
+}
+.slide6 {
+  background-image: url("/images/landing/philosophy-6.webp");
 }
 
 .figureVeil {
@@ -154,4 +163,4 @@
 
 
 /* local keyframes (CSS Modules scopes animation names to the file) */
-@keyframes fade3{0%{opacity:1;transform:scale(1);}29%{opacity:1;}39%{opacity:0;transform:scale(1.09);}40%{transform:scale(1);}90%{opacity:0;transform:scale(1);}100%{opacity:1;transform:scale(1);}}
+@keyframes fade6{0%{opacity:1;transform:scale(1);}14.5%{opacity:1;}19.5%{opacity:0;transform:scale(1.09);}20%{transform:scale(1);}95%{opacity:0;transform:scale(1);}100%{opacity:1;transform:scale(1);}}

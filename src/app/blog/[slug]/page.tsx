@@ -12,7 +12,8 @@ import { breadcrumbJsonLd } from "@/lib/structuredData";
 
 type Params = { params: { slug: string } };
 
-export const dynamic = "force-dynamic";
+// Prerendered and refreshed in the background, so opening a page is instant.
+export const revalidate = 60;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPosts();

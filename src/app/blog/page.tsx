@@ -4,7 +4,8 @@ import { BlogHero } from "@/components/blog/BlogHero/BlogHero";
 import { BlogList } from "@/components/blog/BlogList/BlogList";
 import { getPosts } from "@/lib/blog";
 
-export const dynamic = "force-dynamic";
+// Prerendered and refreshed in the background, so opening a page is instant.
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "The Journal: Wedding Planning Ideas & Real Weddings",

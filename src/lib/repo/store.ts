@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import { revalidatePath } from "next/cache";
 import path from "path";
 
 /**
@@ -32,4 +33,10 @@ export async function writeJson<T>(file: string, data: T): Promise<void> {
   const tmpPath = `${filePath}.${Date.now()}.tmp`;
   await fs.writeFile(tmpPath, JSON.stringify(data, null, 2), "utf-8");
   await fs.rename(tmpPath, filePath);
+  // Public pages are prerendered; drop their cache so admin edits show at once.
+  try {
+    revalidatePath("/", "layout");
+  } catch {
+    // Not inside a Next request (scripts); the 60s revalidate still applies.
+  }
 }

@@ -29,7 +29,8 @@ function venuesHeadingLead(slug: string): string {
 
 type DestinationPageProps = { params: { slug: string } };
 
-export const dynamic = "force-dynamic";
+// Prerendered and refreshed in the background, so opening a page is instant.
+export const revalidate = 60;
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   const destinations = await getDestinations();

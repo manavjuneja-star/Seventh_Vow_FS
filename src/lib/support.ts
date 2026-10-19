@@ -441,12 +441,12 @@ function initPosts(): void {
 function initArch(): void {
   q("[data-arch]").forEach((a) => {
     if (!firstTime(a)) return;
-    const img = a.querySelector<HTMLElement>("img");
+    const imgs = Array.from(a.querySelectorAll<HTMLElement>("img"));
     a.addEventListener("mouseenter", () => {
-      if (img) img.style.transform = "scale(1.07)";
+      imgs.forEach((img) => (img.style.transform = "scale(1.07)"));
     });
     a.addEventListener("mouseleave", () => {
-      if (img) img.style.transform = "scale(1)";
+      imgs.forEach((img) => (img.style.transform = "scale(1)"));
     });
   });
 }

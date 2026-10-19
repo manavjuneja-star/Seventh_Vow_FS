@@ -65,16 +65,16 @@
 
 .tileTall {
   grid-row: 1 / 3;
-  background-image: url("/images/mandap.webp");
+  background-image: url("/images/landing/who-1.webp");
 }
 
 .tileTop {
-  background-image: url("/images/bouquet.webp");
+  background-image: url("/images/landing/who-2.webp");
   transform: translateY(28px);
 }
 
 .tileBottom {
-  background-image: url("/images/banquet.webp");
+  background-image: url("/images/landing/who-3.webp");
   transform: translateY(28px);
   border-radius: 20px 3px 20px 3px;
 }

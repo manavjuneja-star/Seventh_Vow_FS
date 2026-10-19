@@ -10,7 +10,8 @@ import { Veil } from "@/components/Veil/Veil";
 import { WhoWeAre } from "@/components/WhoWeAre/WhoWeAre";
 import { Vows } from "@/components/Vows/Vows";
 
-export const dynamic = "force-dynamic";
+// Prerendered and refreshed in the background, so opening a page is instant.
+export const revalidate = 60;
 
 export default function HomePage(): React.ReactElement {
   return (

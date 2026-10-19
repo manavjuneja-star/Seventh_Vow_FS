@@ -3,7 +3,7 @@
     "slug": "2027-wedding-trends-the-details-that-will-make-your-wedding-unforgettable",
     "title": "2027 Wedding Trends: The Details That Will Make Your Wedding Unforgettable",
     "excerpt": "From statement ceilings to dramatic tablescapes, here’s what couples should watch out for.",
-    "cover": "/images/blog/blog-1-4.webp",
+    "cover": "/images/blog/highlighted-blog.webp",
     "category": "Decor & Styling",
     "date": "2026-10-14",
     "readMinutes": 1,
@@ -265,7 +265,12 @@
             "Gen Z couples are increasingly interested in celebrations that reflect their values, relationships and personal journeys.",
             "From choosing meaningful venues to creating relaxed, experience-led celebrations, every decision becomes an opportunity to tell their story.",
             "The goal is no longer to impress everyone in the room, but to create a celebration that genuinely feels like them."
-          ]
+          ],
+          "image": {
+            "src": "/images/blog/blog-4-authentic.webp",
+            "alt": "A couple sharing a quiet, authentic moment"
+          },
+          "imageRight": true
         },
         {
           "heading": "A New Meaning of the Perfect Wedding",
@@ -274,7 +279,12 @@
             "Gen Z is reminding us that a wedding doesn't need to follow a formula to be extraordinary.",
             "It can be intimate yet grand, traditional yet unconventional, minimal yet full of personality.",
             "Because the weddings that leave a lasting impression aren't the ones that follow every rule. They're the ones that tell a story worth remembering."
-          ]
+          ],
+          "image": {
+            "src": "/images/blog/blog-4-new-meaning.webp",
+            "alt": "A couple celebrating their wedding their own way"
+          },
+          "imageRight": false
         }
       ]
     }

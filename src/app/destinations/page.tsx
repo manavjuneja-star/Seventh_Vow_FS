@@ -6,7 +6,8 @@ import { JsonLd } from "@/components/Seo/JsonLd";
 import { getDestinations } from "@/lib/destinations";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 
-export const dynamic = "force-dynamic";
+// Prerendered and refreshed in the background, so opening a page is instant.
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Destination Wedding Venues in India & Abroad",

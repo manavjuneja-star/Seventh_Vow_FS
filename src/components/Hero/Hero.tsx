@@ -10,14 +10,18 @@ export function Hero(): React.ReactElement {
   return (
     <section data-hero="1" className={styles.hero}>
       <div className={styles.bg}>
-        {/* Slideshow background — kept here, commented out, in case we go
-            back to it. Swapped for the Grand Reel video below (mobile cut for phones and iPads, 1440p60 cut for desktop). */}
-        {/*
-        <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
-        <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
-        <div data-hs="1" className={`${styles.slide} ${styles.slide3}`} />
-        <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
-        */}
+        {/* Desktop: photo slideshow. Phones and iPads: the Grand Reel video
+            (HeroVideo renders nothing on desktop, the slideshow is display:none
+            below the desktop breakpoint, so neither device downloads the other's media). */}
+        <div className={styles.slideshow} aria-hidden="true">
+          <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
+          <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
+          <div data-hs="1" className={`${styles.slide} ${styles.slide3}`} />
+          <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
+          <div data-hs="1" className={`${styles.slide} ${styles.slide5}`} />
+          <div data-hs="1" className={`${styles.slide} ${styles.slide6}`} />
+          <div className={styles.slideScrim} />
+        </div>
         <HeroVideo className={styles.bgVideo} />
         <div className={styles.scrim} />
       </div>

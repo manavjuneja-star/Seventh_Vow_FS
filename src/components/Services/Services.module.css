@@ -195,3 +195,45 @@
   text-transform: none;
   letter-spacing: 0;
 }
+
+/* Slideshow cards: photos stack in the arch and crossfade in turn. Each photo
+   starts SLIDE_SECONDS after the one before it (inline animation-delay). */
+.slide {
+  opacity: 0;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.fade3 {
+  animation-name: svcFade3;
+  animation-duration: 15s;
+}
+
+.fade6 {
+  animation-name: svcFade6;
+  animation-duration: 30s;
+}
+
+@keyframes svcFade3 {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  33% { opacity: 1; }
+  38% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes svcFade6 {
+  0% { opacity: 0; }
+  2% { opacity: 1; }
+  16.7% { opacity: 1; }
+  19% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide { animation: none; opacity: 0; }
+  .slide:first-child { opacity: 1; }
+}
+

@@ -11,6 +11,9 @@ export function About(): React.ReactElement {
             <div data-is-a="1" className={`${styles.slide} ${styles.slide1}`} />
             <div data-is-a="1" className={`${styles.slide} ${styles.slide2}`} />
             <div data-is-a="1" className={`${styles.slide} ${styles.slide3}`} />
+            <div data-is-a="1" className={`${styles.slide} ${styles.slide4}`} />
+            <div data-is-a="1" className={`${styles.slide} ${styles.slide5}`} />
+            <div data-is-a="1" className={`${styles.slide} ${styles.slide6}`} />
             <div className={styles.figureVeil} />
           </div>
           <div className={styles.frameFront} />
