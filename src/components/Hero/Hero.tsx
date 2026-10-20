@@ -16,7 +16,6 @@ export function Hero(): React.ReactElement {
           <div data-hs="1" className={`${styles.slide} ${styles.slide3}`} />
           <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
           <div data-hs="1" className={`${styles.slide} ${styles.slide5}`} />
-          <div data-hs="1" className={`${styles.slide} ${styles.slide6}`} />
         </div>
         <div className={styles.scrim} />
       </div>

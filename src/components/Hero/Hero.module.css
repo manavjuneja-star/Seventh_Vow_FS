@@ -26,7 +26,7 @@
   inset: 0;
   background-size: cover;
   opacity: 0;
-  animation: fade6 42s linear infinite both;
+  animation: fade5 36s linear infinite both;
 }
 
 .slideshow {
@@ -54,12 +54,10 @@
   background-position: center 40%;
 }
 .slide5 {
-  background-image: url("/images/landing/hero-couples-5.webp");
-  background-position: center 35%;
-}
-.slide6 {
   background-image: url("/images/landing/hero-couples-6.webp");
-  background-position: center 40%;
+  /* Zoomed in and centred so the couple stands either side of the logo, the circle between them. */
+  background-size: max(130%, 155vh) auto;
+  background-position: 55% 76%;
 }
 
 /* Portrait screens (phones, tablets held upright) show only a narrow slice of each
@@ -79,9 +77,7 @@
     background-position: 54% center;
   }
   .slide5 {
-    background-position: 67% center;
-  }
-  .slide6 {
+    background-size: cover;
     background-position: 53% center;
   }
 }
@@ -288,7 +284,7 @@
 }
 
 /* local keyframes (CSS Modules scopes animation names to the file) */
-@keyframes fade6{0%{opacity:1;transform:scale(1);}14.5%{opacity:1;}19.5%{opacity:0;transform:scale(1.08);}20%{transform:scale(1);}95%{opacity:0;transform:scale(1);}100%{opacity:1;transform:scale(1);}}
+@keyframes fade5{0%{opacity:1;transform:scale(1);}17.4%{opacity:1;}23.4%{opacity:0;transform:scale(1.08);}24%{transform:scale(1);}95%{opacity:0;transform:scale(1);}100%{opacity:1;transform:scale(1);}}
 @keyframes fadein{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 @keyframes fadeinSoft{from{opacity:0;}to{opacity:.88;}}
 @keyframes drift{0%{transform:translate(0,0) rotate(0deg);}100%{transform:translate(14px,-22px) rotate(12deg);}}
