@@ -73,7 +73,7 @@
   background-image: url("/images/landing/hero-couples-6.webp");
   /* Zoomed in and centred so the couple stands either side of the logo, the circle between them. */
   background-size: max(130%, 155vh) auto;
-  background-position: 55% 76%;
+  background-position: 55% 40%;
 }
 
 /* Portrait screens (phones, tablets held upright) show only a narrow slice of each
