@@ -1,4 +1,3 @@
-import { HeroVideo } from "@/components/Hero/HeroVideo";
 import { LogoLockup } from "@/components/LogoLockup/LogoLockup";
 
 import styles from "./Hero.module.css";
@@ -10,9 +9,7 @@ export function Hero(): React.ReactElement {
   return (
     <section data-hero="1" className={styles.hero}>
       <div className={styles.bg}>
-        {/* Desktop: photo slideshow. Phones and iPads: the Grand Reel video
-            (HeroVideo renders nothing on desktop, the slideshow is display:none
-            below the desktop breakpoint, so neither device downloads the other's media). */}
+        {/* One photo slideshow on every device (phones, tablets and desktop). */}
         <div className={styles.slideshow} aria-hidden="true">
           <div data-hs="1" className={`${styles.slide} ${styles.slide1}`} />
           <div data-hs="1" className={`${styles.slide} ${styles.slide2}`} />
@@ -20,9 +17,7 @@ export function Hero(): React.ReactElement {
           <div data-hs="1" className={`${styles.slide} ${styles.slide4}`} />
           <div data-hs="1" className={`${styles.slide} ${styles.slide5}`} />
           <div data-hs="1" className={`${styles.slide} ${styles.slide6}`} />
-          <div className={styles.slideScrim} />
         </div>
-        <HeroVideo className={styles.bgVideo} />
         <div className={styles.scrim} />
       </div>
 
