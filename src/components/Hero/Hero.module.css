@@ -49,8 +49,24 @@
   background-image: url("/images/landing/hero-couples-3.webp");
   background-position: center 55%;
 }
-.slide4 {
+/* Zoomed out a little: the photo sits at 92% width over a soft blurred copy of itself,
+   so the slim edges around it read as part of the same picture. */
+.slide4::before,
+.slide4::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: url("/images/landing/hero-couples-4.webp");
+  background-repeat: no-repeat;
+}
+.slide4::before {
+  background-size: cover;
+  background-position: center 40%;
+  filter: blur(22px);
+  transform: scale(1.1);
+}
+.slide4::after {
+  background-size: 92% auto;
   background-position: center 40%;
 }
 .slide5 {
@@ -73,8 +89,14 @@
   .slide3 {
     background-position: 50% center;
   }
-  .slide4 {
+  .slide4::before,
+  .slide4::after {
+    background-size: cover;
     background-position: 54% center;
+  }
+  .slide4::before {
+    filter: none;
+    transform: none;
   }
   .slide5 {
     background-size: cover;
