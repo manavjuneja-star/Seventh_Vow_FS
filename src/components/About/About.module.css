@@ -55,21 +55,27 @@
 
 .slide1 {
   background-image: url("/images/landing/philosophy-1.webp");
+  background-position: 50% 70%;
 }
 .slide2 {
   background-image: url("/images/landing/philosophy-2.webp");
+  background-position: 48% 50%;
 }
 .slide3 {
   background-image: url("/images/landing/philosophy-3.webp");
+  background-position: 50% 78%;
 }
 .slide4 {
   background-image: url("/images/landing/philosophy-4.webp");
+  background-position: 58% 50%;
 }
 .slide5 {
   background-image: url("/images/landing/philosophy-5.webp");
+  background-position: 65% 50%;
 }
 .slide6 {
   background-image: url("/images/landing/philosophy-6.webp");
+  background-position: 60% 50%;
 }
 
 .figureVeil {

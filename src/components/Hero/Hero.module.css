@@ -6,7 +6,9 @@
   justify-content: center;
   text-align: center;
   position: relative;
-  padding: 120px 6vw 96px;
+  /* Previous spacing (let the hero run a little past 100vh on shorter screens):
+  padding: 120px 6vw 96px; */
+  padding: 92px 6vw 76px;
   overflow: hidden;
   perspective: 1200px;
   background: var(--mauve-deep);
@@ -56,28 +58,28 @@
 }
 
 .slide1 {
-  background-image: url("/images/landing/hero-1.webp");
-  background-position: center 60%;
+  background-image: url("/images/landing/hero-couples-1.webp");
+  background-position: center 55%;
 }
 .slide2 {
-  background-image: url("/images/landing/hero-2.webp");
-  background-position: center 35%;
+  background-image: url("/images/landing/hero-couples-2.webp");
+  background-position: center 72%;
 }
 .slide3 {
-  background-image: url("/images/landing/hero-3.webp");
+  background-image: url("/images/landing/hero-couples-3.webp");
   background-position: center 55%;
 }
 .slide4 {
-  background-image: url("/images/landing/hero-4.webp");
+  background-image: url("/images/landing/hero-couples-4.webp");
   background-position: center 40%;
 }
 .slide5 {
-  background-image: url("/images/landing/hero-5.webp");
-  background-position: center 55%;
+  background-image: url("/images/landing/hero-couples-5.webp");
+  background-position: center 35%;
 }
 .slide6 {
-  background-image: url("/images/landing/hero-6.webp");
-  background-position: center 30%;
+  background-image: url("/images/landing/hero-couples-6.webp");
+  background-position: center 40%;
 }
 
 .scrim {
@@ -140,24 +142,28 @@
 .lockupWrap {
   position: relative;
   z-index: 2;
-  width: min(700px, 88vw);
+  /* Previous size (could push the hero past 100vh):
+  width: min(700px, 88vw); */
+  /* Capped by viewport height so logo, text and buttons fit inside 100vh. */
+  width: min(700px, 88vw, 60vh);
   margin: 0;
   animation: fadein 0.7s ease 4.35s both;
 }
 
-/* A soft darkening behind the lockup so the rose-gold reads on bright photos. */
+/* A soft white glow behind the lockup so the rose-gold stands out from the photos. */
 .lockupWrap::before {
   content: "";
   position: absolute;
-  inset: -22% -16%;
+  inset: -20% -14%;
   z-index: -1;
   background: radial-gradient(
     ellipse at center,
-    rgba(30, 20, 18, 0.82) 0%,
-    rgba(30, 20, 18, 0.6) 38%,
-    rgba(30, 20, 18, 0.24) 62%,
-    transparent 76%
+    rgba(255, 253, 251, 0.82) 0%,
+    rgba(255, 253, 251, 0.6) 40%,
+    rgba(255, 253, 251, 0.22) 64%,
+    transparent 78%
   );
+  filter: blur(14px);
   pointer-events: none;
 }
 
@@ -165,25 +171,47 @@
   width: 100%;
   height: auto;
   display: block;
-  filter: brightness(1.18) saturate(1.12) drop-shadow(0 1px 1px rgba(30, 20, 18, 0.7))
-    drop-shadow(0 0 22px rgba(201, 162, 92, 0.38)) drop-shadow(0 12px 32px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 1px 2px rgba(43, 32, 30, 0.55))
+    drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
 .sub {
   position: relative;
   z-index: 1;
   max-width: 470px;
-  margin: 22px auto 0;
+  /* Previous spacing:
+  margin: 22px auto 0; */
+  margin: 14px auto 0;
   font-size: 1.02rem;
   line-height: 1.7;
-  color: var(--ivory);
+  /* Previous text colour (for the photo overlay without the white glow):
+  color: var(--ivory); */
+  color: var(--mauve-deep);
   animation: fadeinSoft 1s ease 5.35s both;
+}
+
+/* The same white glow behind the copy; the text goes dark so it reads on it. */
+.sub::before {
+  content: "";
+  position: absolute;
+  inset: -16% -30%;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 253, 251, 0.8) 0%,
+    rgba(255, 253, 251, 0.55) 48%,
+    transparent 76%
+  );
+  filter: blur(14px);
+  pointer-events: none;
 }
 
 .actions {
   position: relative;
   z-index: 1;
-  margin-top: 34px;
+  /* Previous spacing:
+  margin-top: 34px; */
+  margin-top: 26px;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -276,6 +304,18 @@
 :global(html[data-veil-seen]) .cue {
   animation: none;
   opacity: 1;
+}
+
+/* Short laptop screens: tighten so everything still sits inside 100vh. */
+@media (max-height: 800px) {
+  .sub {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .actions {
+    margin-top: 22px;
+  }
 }
 
 /* local keyframes (CSS Modules scopes animation names to the file) */
