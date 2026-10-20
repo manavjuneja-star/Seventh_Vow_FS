@@ -92,7 +92,7 @@
   .slide4::before,
   .slide4::after {
     background-size: cover;
-    background-position: 54% center;
+    background-position: 51% center;
   }
   .slide4::before {
     filter: none;

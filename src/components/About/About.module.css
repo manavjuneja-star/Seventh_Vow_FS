@@ -55,15 +55,35 @@
 
 .slide1 {
   background-image: url("/images/landing/philosophy-1.webp");
-  background-position: 50% 70%;
+  /* Zoomed a hair so there is room to move the photo left. */
+  background-size: 110% auto;
+  background-position: 78% 70%;
 }
 .slide2 {
   background-image: url("/images/landing/philosophy-2.webp");
-  background-position: 48% 50%;
+  /* Zoomed in on the couple, anchored low so the arch at the top is out of frame. */
+  background-size: auto 170%;
+  background-position: 47% 100%;
 }
-.slide3 {
+/* The photo is scaled down to 82% of the frame and pushed to the left, so the whole flower
+   arch and the seated couple clear the curved edge of the frame; a soft blurred copy of it fills the strip on the right. */
+.slide3::before,
+.slide3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: url("/images/landing/philosophy-3.webp");
+  background-repeat: no-repeat;
+}
+.slide3::before {
+  background-size: cover;
   background-position: 50% 78%;
+  filter: blur(18px);
+  transform: scale(1.1);
+}
+.slide3::after {
+  background-size: 82% auto;
+  background-position: 0% 50%;
 }
 .slide4 {
   background-image: url("/images/landing/philosophy-4.webp");

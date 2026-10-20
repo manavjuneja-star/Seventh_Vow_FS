@@ -11,6 +11,10 @@ type Service = {
   body: string;
   /** One image shows static; two or more crossfade as a slideshow. */
   images: string[];
+  /** object-position for each image, so its subject stays in the arch. */
+  positions?: string[];
+  /** Indexes of images shown zoomed out: matted on a blurred copy of themselves. */
+  matted?: number[];
   lowered?: boolean;
 };
 
@@ -19,13 +23,15 @@ const SERVICES: Service[] = [
     num: "I",
     title: "Destination Weddings",
     body: "Palaces, coastlines, and hidden gardens across the world, scouted and staged for you.",
-    images: [1, 2, 3].map((n) => `/images/services/dest-${n}.webp`),
+    images: [1, 2, 3].map((n) => `/images/services/dest-v2-${n}.webp`),
+    positions: ["50% 40%", "72% 50%", "50% 50%"],
   },
   {
     num: "II",
     title: "Event Design & Styling",
     body: "Mandaps, tablescapes, and florals designed as one continuous visual language.",
-    images: [1, 2, 3, 4, 5, 6].map((n) => `/images/services/event-${n}.webp`),
+    images: [1, 2, 4].map((n) => `/images/services/event-v2-${n}.webp`),
+    positions: ["50% 55%", "56% 50%", "60% 50%"],
     lowered: true,
   },
   {
@@ -36,7 +42,7 @@ const SERVICES: Service[] = [
   },
 ];
 
-function ServiceCard({ num, title, body, images, lowered }: Service) {
+function ServiceCard({ num, title, body, images, positions, matted, lowered }: Service) {
   const slides = images.length > 1;
   return (
     <div
@@ -47,18 +53,37 @@ function ServiceCard({ num, title, body, images, lowered }: Service) {
       <div className={styles.archWrap}>
         <div className={styles.archFrame} />
         <div data-arch="1" className={styles.arch}>
-          {images.map((src, k) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={src}
-              src={src}
-              alt=""
-              loading={k === 0 ? undefined : "lazy"}
-              decoding="async"
-              className={slides ? `${styles.slide} ${styles[`fade${images.length}`] ?? ""}` : undefined}
-              style={slides ? { animationDelay: `${k * SLIDE_SECONDS}s` } : undefined}
-            />
-          ))}
+          {images.map((src, k) => {
+            const animation = slides
+              ? `${styles.slide} ${styles[`fade${images.length}`] ?? ""}`
+              : undefined;
+            const delay = slides ? { animationDelay: `${k * SLIDE_SECONDS}s` } : {};
+            const objectPosition = positions?.[k];
+
+            if (matted?.includes(k)) {
+              return (
+                <div key={src} className={`${styles.slideBox} ${animation ?? ""}`} style={delay}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt="" aria-hidden="true" className={styles.backdrop} style={{ objectPosition }} loading="lazy" decoding="async" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt="" className={styles.matted} style={{ objectPosition }} loading="lazy" decoding="async" />
+                </div>
+              );
+            }
+
+            return (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={src}
+                src={src}
+                alt=""
+                loading={k === 0 ? undefined : "lazy"}
+                decoding="async"
+                className={animation}
+                style={{ objectPosition, ...delay }}
+              />
+            );
+          })}
           <div className={styles.archVeil} />
           <span className={styles.archNum}>{num}</span>
         </div>

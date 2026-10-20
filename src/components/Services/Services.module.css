@@ -211,6 +211,11 @@
   animation-duration: 15s;
 }
 
+.fade4 {
+  animation-name: svcFade4;
+  animation-duration: 20s;
+}
+
 .fade6 {
   animation-name: svcFade6;
   animation-duration: 30s;
@@ -221,6 +226,14 @@
   3% { opacity: 1; }
   33% { opacity: 1; }
   38% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes svcFade4 {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  25% { opacity: 1; }
+  28.5% { opacity: 0; }
   100% { opacity: 0; }
 }
 
@@ -237,3 +250,22 @@
   .slide:first-child { opacity: 1; }
 }
 
+/* Zoomed-out slides: the photo sits a little smaller inside the arch, over a blurred copy of itself. */
+.slideBox {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.arch .backdrop {
+  filter: blur(18px);
+  transform: scale(1.15);
+}
+
+.arch .matted {
+  inset: 7% 0 auto 0;
+  height: 86%;
+}
