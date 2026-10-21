@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { sendEnquiryEmail, type EnquiryPayload } from "@/lib/email";
+import { saveEnquiryToSheet } from "@/lib/enquirySheet";
 
 function asString(v: unknown): string | undefined {
   return typeof v === "string" && v.trim() ? v.trim() : undefined;
@@ -51,10 +52,20 @@ export async function POST(request: Request): Promise<NextResponse> {
     return NextResponse.json({ error: "missing_fields" }, { status: 400 });
   }
 
-  try {
-    await sendEnquiryEmail(payload);
-  } catch (err) {
-    console.error("enquiry email failed", err);
+  // Two independent copies: the email and a Google Sheet row. The visitor only
+  // sees an error if BOTH fail, so one broken route never loses an enquiry.
+  const [emailed, saved] = await Promise.all([
+    sendEnquiryEmail(payload).then(
+      () => true,
+      (err: unknown) => {
+        console.error("enquiry email failed", err);
+        return false;
+      },
+    ),
+    saveEnquiryToSheet(payload),
+  ]);
+
+  if (!emailed && !saved) {
     return NextResponse.json({ error: "send_failed" }, { status: 500 });
   }
 
