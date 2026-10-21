@@ -1,74 +1,336 @@
 [
   {
-    "slug": "ira-rohan",
-    "coupleNames": "Ira & Rohan",
+    "slug": "alin-rubal",
+    "coupleNames": "Alin & Rubal",
     "location": "Jaisalmer, Rajasthan",
     "date": "2024",
     "duration": "Three days",
     "heroImage": "/images/landing/portfolio-1.webp",
-    "heroAlt": "Long banquet table with chandelier",
+    "heroAlt": "Alin & Rubal",
     "featured": true,
     "description": "Four hundred guests carried across three cities, ending with dinner for all of them under one desert sky.",
     "photos": [
       {
-        "src": "/images/banquet.webp",
-        "alt": "Long banquet table with chandelier",
-        "size": "lg"
+        "src": "/images/portfolio/alin-rubal/01-mehendi-1.webp",
+        "alt": "Mehendi and welcome, photo 1",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Floral mandap at dusk",
-        "size": "tall"
+        "src": "/images/portfolio/alin-rubal/02-mehendi-2.webp",
+        "alt": "Mehendi and welcome, photo 2",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Bridal bouquet detail",
-        "size": "sm"
+        "src": "/images/portfolio/alin-rubal/03-mehendi-3.webp",
+        "alt": "Mehendi and welcome, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Six-tier wedding cake",
-        "size": "sm"
+        "src": "/images/portfolio/alin-rubal/04-mehendi-4.webp",
+        "alt": "Mehendi and welcome, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/gazebo.webp",
-        "alt": "Desert gazebo ceremony",
-        "size": "wide"
+        "src": "/images/portfolio/alin-rubal/05-mehendi-5.webp",
+        "alt": "Mehendi and welcome, photo 5",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/vows.webp",
-        "alt": "Vows at golden hour",
-        "size": "md"
+        "src": "/images/portfolio/alin-rubal/06-haldi-1.webp",
+        "alt": "Haldi, photo 1",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Floral centrepiece",
-        "size": "sm"
+        "src": "/images/portfolio/alin-rubal/07-haldi-2.webp",
+        "alt": "Haldi, photo 2",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/banquet.webp",
-        "alt": "Guests at the long table",
-        "size": "md"
+        "src": "/images/portfolio/alin-rubal/08-haldi-3.webp",
+        "alt": "Haldi, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Mandap detail",
-        "size": "sm"
+        "src": "/images/portfolio/alin-rubal/09-haldi-4.webp",
+        "alt": "Haldi, photo 4",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Cake and florals",
-        "size": "tall"
+        "src": "/images/portfolio/alin-rubal/10-haldi-5.webp",
+        "alt": "Haldi, photo 5",
+        "size": "md",
+        "width": 2160,
+        "height": 1439
       },
       {
-        "src": "/images/vows.webp",
-        "alt": "First look",
-        "size": "sm"
+        "src": "/images/portfolio/alin-rubal/11-haldi-6.webp",
+        "alt": "Haldi, photo 6",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/gazebo.webp",
-        "alt": "Evening light over the gazebo",
-        "size": "wide"
+        "src": "/images/portfolio/alin-rubal/12-haldi-7.webp",
+        "alt": "Haldi, photo 7",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/13-haldi-8.webp",
+        "alt": "Haldi, photo 8",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/14-haldi-9.webp",
+        "alt": "Haldi, photo 9",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/15-kirtan-1.webp",
+        "alt": "Kirtan, photo 1",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/16-kirtan-2.webp",
+        "alt": "Kirtan, photo 2",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/17-kirtan-3.webp",
+        "alt": "Kirtan, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/18-kirtan-4.webp",
+        "alt": "Kirtan, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/19-kirtan-5.webp",
+        "alt": "Kirtan, photo 5",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/20-kirtan-6.webp",
+        "alt": "Kirtan, photo 6",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/21-kirtan-7.webp",
+        "alt": "Kirtan, photo 7",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/22-kirtan-8.webp",
+        "alt": "Kirtan, photo 8",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/23-sagan-1.webp",
+        "alt": "Sagan, photo 1",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/24-sagan-2.webp",
+        "alt": "Sagan, photo 2",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/25-sagan-3.webp",
+        "alt": "Sagan, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/26-sagan-4.webp",
+        "alt": "Sagan, photo 4",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/27-sagan-5.webp",
+        "alt": "Sagan, photo 5",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/28-chura-1.webp",
+        "alt": "Chura, photo 1",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/29-chura-2.webp",
+        "alt": "Chura, photo 2",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/30-chura-3.webp",
+        "alt": "Chura, photo 3",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/31-chura-4.webp",
+        "alt": "Chura, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/32-wedding-1.webp",
+        "alt": "Wedding and reception, photo 1",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/33-wedding-2.webp",
+        "alt": "Wedding and reception, photo 2",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/34-wedding-3.webp",
+        "alt": "Wedding and reception, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/35-wedding-4.webp",
+        "alt": "Wedding and reception, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/36-wedding-5.webp",
+        "alt": "Wedding and reception, photo 5",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/37-wedding-6.webp",
+        "alt": "Wedding and reception, photo 6",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/38-wedding-7.webp",
+        "alt": "Wedding and reception, photo 7",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/39-wedding-8.webp",
+        "alt": "Wedding and reception, photo 8",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/40-wedding-9.webp",
+        "alt": "Wedding and reception, photo 9",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/41-wedding-10.webp",
+        "alt": "Wedding and reception, photo 10",
+        "size": "md",
+        "width": 1439,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/42-wedding-11.webp",
+        "alt": "Wedding and reception, photo 11",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/43-wedding-12.webp",
+        "alt": "Wedding and reception, photo 12",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/44-wedding-13.webp",
+        "alt": "Wedding and reception, photo 13",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/46-wedding-15.webp",
+        "alt": "Wedding and reception, photo 15",
+        "size": "md",
+        "width": 1439,
+        "height": 2159
+      },
+      {
+        "src": "/images/portfolio/alin-rubal/45-wedding-14.webp",
+        "alt": "Wedding and reception, photo 14",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       }
     ]
   },
@@ -146,75 +408,239 @@
     ]
   },
   {
-    "slug": "meher-dev",
-    "coupleNames": "Meher & Dev",
+    "slug": "hitesha-aditya",
+    "coupleNames": "Hitesha & Aditya",
     "location": "Goa",
     "date": "2025",
     "duration": "A weekend",
     "heroImage": "/images/landing/portfolio-3.webp",
-    "heroAlt": "Wedding gazebo venue",
+    "heroAlt": "Hitesha & Aditya",
     "featured": false,
     "description": "A folder of half-ideas and a weekend that felt like it had always existed — the rain, it turned out, was on our side.",
     "photos": [
       {
-        "src": "/images/gazebo.webp",
-        "alt": "Monsoon gazebo ceremony",
-        "size": "wide"
+        "src": "/images/portfolio/hitesha-aditya/01-haldi-1.webp",
+        "alt": "Haldi, photo 1",
+        "size": "md",
+        "width": 1437,
+        "height": 2160
       },
       {
-        "src": "/images/vows.webp",
-        "alt": "Vows in the rain-light",
-        "size": "lg"
+        "src": "/images/portfolio/hitesha-aditya/02-haldi-2.webp",
+        "alt": "Haldi, photo 2",
+        "size": "md",
+        "width": 1437,
+        "height": 2160
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Bouquet in hand",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/03-haldi-3.webp",
+        "alt": "Haldi, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
       },
       {
-        "src": "/images/banquet.webp",
-        "alt": "Dinner under string lights",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/04-haldi-4.webp",
+        "alt": "Haldi, photo 4",
+        "size": "md",
+        "width": 1437,
+        "height": 2160
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Floral mandap",
-        "size": "tall"
+        "src": "/images/portfolio/hitesha-aditya/05-haldi-5.webp",
+        "alt": "Haldi, photo 5",
+        "size": "md",
+        "width": 1437,
+        "height": 2160
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Cake table",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/06-haldi-6.webp",
+        "alt": "Haldi, photo 6",
+        "size": "md",
+        "width": 1437,
+        "height": 2160
       },
       {
-        "src": "/images/gazebo.webp",
-        "alt": "The gazebo, from the aisle",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/07-haldi-7.webp",
+        "alt": "Haldi, photo 7",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/vows.webp",
-        "alt": "A shared look",
-        "size": "md"
+        "src": "/images/portfolio/hitesha-aditya/08-haldi-8.webp",
+        "alt": "Haldi, photo 8",
+        "size": "md",
+        "width": 2160,
+        "height": 1441
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Floral detail",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/09-games-1.webp",
+        "alt": "Games night, photo 1",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/banquet.webp",
-        "alt": "The reception table",
-        "size": "wide"
+        "src": "/images/portfolio/hitesha-aditya/10-games-2.webp",
+        "alt": "Games night, photo 2",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Mandap at dusk",
-        "size": "sm"
+        "src": "/images/portfolio/hitesha-aditya/11-games-3.webp",
+        "alt": "Games night, photo 3",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Six tiers, one flower",
-        "size": "md"
+        "src": "/images/portfolio/hitesha-aditya/12-wedding-1.webp",
+        "alt": "Wedding, photo 1",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/13-wedding-2.webp",
+        "alt": "Wedding, photo 2",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/14-wedding-3.webp",
+        "alt": "Wedding, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/15-wedding-4.webp",
+        "alt": "Wedding, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/16-wedding-5.webp",
+        "alt": "Wedding, photo 5",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/17-wedding-6.webp",
+        "alt": "Wedding, photo 6",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/18-wedding-7.webp",
+        "alt": "Wedding, photo 7",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/19-wedding-8.webp",
+        "alt": "Wedding, photo 8",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/20-wedding-9.webp",
+        "alt": "Wedding, photo 9",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/21-wedding-10.webp",
+        "alt": "Wedding, photo 10",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/22-wedding-11.webp",
+        "alt": "Wedding, photo 11",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/23-wedding-12.webp",
+        "alt": "Wedding, photo 12",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/24-wedding-13.webp",
+        "alt": "Wedding, photo 13",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/25-wedding-14.webp",
+        "alt": "Wedding, photo 14",
+        "size": "md",
+        "width": 1441,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/26-reception-1.webp",
+        "alt": "Reception, photo 1",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/27-reception-2.webp",
+        "alt": "Reception, photo 2",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/28-reception-3.webp",
+        "alt": "Reception, photo 3",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/29-reception-4.webp",
+        "alt": "Reception, photo 4",
+        "size": "md",
+        "width": 1440,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/30-reception-5.webp",
+        "alt": "Reception, photo 5",
+        "size": "md",
+        "width": 2160,
+        "height": 1440
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/31-reception-6.webp",
+        "alt": "Reception, photo 6",
+        "size": "md",
+        "width": 1441,
+        "height": 2160
+      },
+      {
+        "src": "/images/portfolio/hitesha-aditya/32-reception-7.webp",
+        "alt": "Reception, photo 7",
+        "size": "md",
+        "width": 1441,
+        "height": 2160
       }
     ]
   },

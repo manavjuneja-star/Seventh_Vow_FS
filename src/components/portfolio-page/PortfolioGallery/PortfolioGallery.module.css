@@ -6,13 +6,20 @@
 .grid {
   max-width: 1200px;
   margin: 0 auto;
-  column-count: 3;
-  column-gap: clamp(14px, 1.8vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 24px);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.8vw, 24px);
 }
 
 .frame {
-  margin: 0 0 clamp(14px, 1.8vw, 24px);
-  break-inside: avoid;
+  margin: 0;
+  min-width: 0;
   overflow: hidden;
   border-radius: 4px 28px 4px 28px;
   box-shadow: 0 22px 44px -28px rgba(74, 48, 45, 0.38);
@@ -160,14 +167,4 @@
   }
 }
 
-@media (max-width: 980px) {
-  .grid {
-    column-count: 2;
-  }
-}
 
-@media (max-width: 560px) {
-  .grid {
-    column-count: 1;
-  }
-}

@@ -18,6 +18,31 @@ const STOCK_DIMS: Record<string, [number, number]> = {
   "/images/vows.webp": [1400, 933],
 };
 
+/** Columns for the current screen width, matching the breakpoints in the CSS. */
+function useColumns(): number {
+  const [columns, setColumns] = useState(3);
+  useEffect(() => {
+    const update = (): void => {
+      setColumns(window.matchMedia("(max-width: 560px)").matches ? 1 : window.matchMedia("(max-width: 980px)").matches ? 2 : 3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return columns;
+}
+
+/** Photos in order, split into rows of `columns`. Within a row every photo shares one
+ *  height (its width follows its shape), so nothing is cropped and the sequence reads
+ *  strictly left to right, then top to bottom. */
+function intoRows(photos: PortfolioPhoto[], columns: number): number[][] {
+  const rows: number[][] = [];
+  for (let i = 0; i < photos.length; i += columns) {
+    rows.push(photos.slice(i, i + columns).map((_, k) => i + k));
+  }
+  return rows;
+}
+
 function Frame({
   photo,
   index,
@@ -29,8 +54,10 @@ function Frame({
 }): React.ReactElement {
   const reversed = index % 2 === 1;
   const [w, h] = STOCK_DIMS[photo.src] ?? [3, 2];
+  const aspect = (photo.width ?? w) / (photo.height ?? h);
   return (
     <figure
+      style={{ flex: `${aspect} 1 0` }}
       data-reveal={String((index % 5) * 0.04)}
       className={`${styles.frame} ${reversed ? styles.reversed : ""}`}
     >
@@ -129,6 +156,8 @@ export function PortfolioGallery({
   photos: PortfolioPhoto[];
 }): React.ReactElement {
   const [open, setOpen] = useState<number | null>(null);
+  const columns = useColumns();
+  const rows = intoRows(photos, columns);
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
@@ -162,8 +191,12 @@ export function PortfolioGallery({
   return (
     <section className={styles.section}>
       <div className={styles.grid}>
-        {photos.map((photo, i) => (
-          <Frame key={`${photo.src}-${i}`} photo={photo} index={i} onOpen={setOpen} />
+        {rows.map((row, r) => (
+          <div key={r} className={styles.row}>
+            {row.map((i) => (
+              <Frame key={`${photos[i].src}-${i}`} photo={photos[i]} index={i} onOpen={setOpen} />
+            ))}
+          </div>
         ))}
       </div>
 
