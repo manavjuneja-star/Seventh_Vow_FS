@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { PortfolioPhoto } from "@/lib/portfolio";
 
@@ -92,6 +92,24 @@ function Lightbox({
   onStep: (delta: number) => void;
 }): React.ReactElement {
   const photo = photos[index];
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  const onTouchStart = (event: React.TouchEvent<HTMLElement>): void => {
+    const touch = event.changedTouches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const onTouchEnd = (event: React.TouchEvent<HTMLElement>): void => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      onStep(deltaX < 0 ? 1 : -1);
+    }
+  };
 
   return (
     <div
@@ -122,7 +140,12 @@ function Lightbox({
         ‹
       </button>
 
-      <figure className={styles.stage} onClick={(e) => e.stopPropagation()}>
+      <figure
+        className={styles.stage}
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={photo.src} alt={photo.alt} />
       </figure>

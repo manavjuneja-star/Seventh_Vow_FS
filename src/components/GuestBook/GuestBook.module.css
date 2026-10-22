@@ -186,3 +186,30 @@
     background 0.4s ease,
     transform 0.4s ease;
 }
+
+@media (max-width: 767px) {
+  .arrow {
+    display: none;
+  }
+
+  .viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    transform: none !important;
+    transition: none;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+  }
+}

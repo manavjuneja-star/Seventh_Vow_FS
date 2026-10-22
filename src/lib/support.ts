@@ -205,15 +205,21 @@ function initCarousel(): Cleanup {
   const track = one("[data-track]");
   const dots = q("[data-dot]");
   const car = one("[data-carousel]");
-  if (!track || !car) return () => undefined;
+  const viewport = one("[data-viewport]");
+  if (!track || !car || !viewport) return () => undefined;
 
   const total = track.children.length;
+  const mobile = window.matchMedia("(max-width: 767px)");
   let idx = 0;
   let timer: number | undefined;
 
   const go = (n: number): void => {
     idx = (n + total) % total;
-    track.style.transform = "translateX(" + -idx * 100 + "%)";
+    if (mobile.matches) {
+      viewport.scrollTo({ left: idx * viewport.clientWidth, behavior: "smooth" });
+    } else {
+      track.style.transform = "translateX(" + -idx * 100 + "%)";
+    }
     dots.forEach((d, k) => {
       d.style.background = k === idx ? "var(--gold)" : "var(--line)";
       d.style.transform = k === idx ? "scale(1.6)" : "scale(1)";
@@ -233,11 +239,39 @@ function initCarousel(): Cleanup {
     go(k);
     startAuto();
   }));
-  car.addEventListener("mouseenter", () => window.clearInterval(timer));
-  car.addEventListener("mouseleave", startAuto);
+  const onScroll = (): void => {
+    if (!mobile.matches) return;
+    idx = Math.round(viewport.scrollLeft / viewport.clientWidth);
+    dots.forEach((d, k) => {
+      d.style.background = k === idx ? "var(--gold)" : "var(--line)";
+      d.style.transform = k === idx ? "scale(1.6)" : "scale(1)";
+    });
+    startAuto();
+  };
+  const onMediaChange = (): void => {
+    window.clearInterval(timer);
+    if (mobile.matches) {
+      viewport.scrollLeft = idx * viewport.clientWidth;
+    } else {
+      track.style.transform = "translateX(" + -idx * 100 + "%)";
+    }
+    startAuto();
+  };
+  viewport.addEventListener("scroll", onScroll, { passive: true });
+  mobile.addEventListener("change", onMediaChange);
+  car.addEventListener("mouseenter", () => {
+    if (!mobile.matches) window.clearInterval(timer);
+  });
+  car.addEventListener("mouseleave", () => {
+    if (!mobile.matches) startAuto();
+  });
   go(0);
   startAuto();
-  return () => window.clearInterval(timer);
+  return () => {
+    window.clearInterval(timer);
+    viewport.removeEventListener("scroll", onScroll);
+    mobile.removeEventListener("change", onMediaChange);
+  };
 }
 
 function initThreshold(): void {
