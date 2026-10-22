@@ -129,7 +129,12 @@ export function SiteFooter(): React.ReactElement {
               </a>
               <span className={styles.studioPlace}>New Delhi, India</span>
             </div>
-            <a href="https://wa.me/918384081013" className={styles.whatsapp}>
+            <a
+              href="https://wa.me/918384081013?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20your%20wedding%20planning%20services."
+              className={styles.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Message on WhatsApp
             </a>
             <div className={styles.social}>

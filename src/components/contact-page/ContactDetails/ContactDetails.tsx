@@ -48,7 +48,7 @@ const METHODS: Method[] = [
     label: "Call or WhatsApp",
     value: "+91 83840 81013",
     meta: "Reach us by phone or WhatsApp to start a conversation about your celebration.",
-    href: "https://wa.me/918384081013",
+    href: "https://wa.me/918384081013?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20your%20wedding%20planning%20services.",
     icon: PHONE,
     whatsapp: true,
   },
