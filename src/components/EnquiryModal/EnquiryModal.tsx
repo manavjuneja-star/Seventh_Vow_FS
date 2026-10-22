@@ -234,8 +234,7 @@ export function EnquiryModal(): React.ReactElement {
             <div data-enquiry-thanks="1" className={styles.thanks}>
               <span className={styles.thanksScript}>Thank you</span>
               <p className={styles.thanksBody}>
-                Your note is with the studio. We will write back within two
-                working days.
+                Our team will reach out to you within 2 days.
               </p>
             </div>
           </div>

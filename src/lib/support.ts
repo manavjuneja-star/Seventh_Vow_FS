@@ -8,10 +8,12 @@
  */
 
 /** Design-panel props from the original component, with their defaults. */
-const CONFIG: { accent: string; slideSeconds: number; petals: boolean } = {
+const CONFIG: { accent: string; slideSeconds: number; petals: boolean; thanksSeconds: number } = {
   accent: "#A9782B",
   slideSeconds: 5.5,
   petals: true,
+  /** How long the enquiry thank-you screen stays before the overlay closes. */
+  thanksSeconds: 6,
 };
 
 type Cleanup = () => void;
@@ -257,8 +259,18 @@ function initEnquiry(): Cleanup {
   const body = one("[data-scroll-body]");
   if (!ov || !body) return () => undefined;
 
+  // After a successful send the thank-you screen closes the overlay by itself.
+  let thanksTimer: number | undefined;
+  const clearThanksTimer = (): void => {
+    if (thanksTimer !== undefined) {
+      window.clearTimeout(thanksTimer);
+      thanksTimer = undefined;
+    }
+  };
+
   const openIt = (e?: Event): void => {
     if (e) e.preventDefault();
+    clearThanksTimer();
     const frm = one("[data-enquiry-form]") as HTMLFormElement | null;
     const thanks = one("[data-enquiry-thanks]");
     const errorEl = one("[data-enquiry-error]") as HTMLElement | null;
@@ -284,6 +296,7 @@ function initEnquiry(): Cleanup {
     });
   };
   const closeIt = (): void => {
+    clearThanksTimer();
     body.style.maxHeight = "0";
     body.style.opacity = "0";
     ov.style.opacity = "0";
@@ -352,6 +365,8 @@ function initEnquiry(): Cleanup {
         if (!res.ok) throw new Error("request_failed");
         frm.style.display = "none";
         if (thanks) thanks.style.display = "block";
+        clearThanksTimer();
+        thanksTimer = window.setTimeout(closeIt, CONFIG.thanksSeconds * 1000);
       })
       .catch(() => {
         if (errorEl) errorEl.hidden = false;
@@ -364,6 +379,7 @@ function initEnquiry(): Cleanup {
       });
   });
   return () => {
+    clearThanksTimer();
     document.removeEventListener("click", onDocClick);
     window.removeEventListener("keydown", onKey);
   };

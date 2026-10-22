@@ -155,22 +155,6 @@ export function SiteFooter(): React.ReactElement {
                   />
                 </svg>
               </a>
-              <a
-                data-enquiry-open="1"
-                href="#enquiry"
-                aria-label="Facebook"
-                className={styles.socialLink}
-              >
-                <span className={styles.socialGlyph}>f</span>
-              </a>
-              <a
-                data-enquiry-open="1"
-                href="#enquiry"
-                aria-label="Pinterest"
-                className={styles.socialLink}
-              >
-                <span className={styles.socialGlyph}>P</span>
-              </a>
             </div>
           </div>
         </div>

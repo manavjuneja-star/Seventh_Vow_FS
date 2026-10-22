@@ -1,8 +1,11 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 
 import styles from "./ContactForm.module.css";
+
+/** How long the thank-you message stays before it closes by itself. */
+const THANKS_SECONDS = 6;
 
 const BUDGETS = [
   "Under ₹50 lakh",
@@ -63,8 +66,7 @@ function ThankYou(): React.ReactElement {
     <div className={styles.thanks}>
       <span className={styles.thanksScript}>Thank you</span>
       <p className={styles.thanksBody}>
-        Your note is with the studio. We will write back within two working days
-        — usually sooner.
+        Our team will reach out to you within 2 days.
       </p>
     </div>
   );
@@ -76,6 +78,13 @@ export function ContactForm(): React.ReactElement {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+
+  // The thank-you message closes by itself and the form comes back, empty.
+  useEffect(() => {
+    if (!sent) return undefined;
+    const timer = window.setTimeout(() => setSent(false), THANKS_SECONDS * 1000);
+    return () => window.clearTimeout(timer);
+  }, [sent]);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();

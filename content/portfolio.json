@@ -2,13 +2,13 @@
   {
     "slug": "alin-rubal",
     "coupleNames": "Alin & Rubal",
-    "location": "Jaisalmer, Rajasthan",
-    "date": "2024",
-    "duration": "Three days",
+    "location": "Manesar, Delhi NCR",
+    "date": "2025",
+    "duration": "3 Days",
     "heroImage": "/images/landing/portfolio-1.webp",
     "heroAlt": "Alin & Rubal",
     "featured": true,
-    "description": "Four hundred guests carried across three cities, ending with dinner for all of them under one desert sky.",
+    "description": "Away from the city's rush, yet close to home. Two hundred loved ones came together for a wedding that felt like a destination celebration, filled with togetherness, joy and unforgettable moments.",
     "photos": [
       {
         "src": "/images/portfolio/alin-rubal/01-mehendi-1.webp",
@@ -335,15 +335,15 @@
     ]
   },
   {
-    "slug": "aranya-kabir",
-    "coupleNames": "Aranya & Kabir",
-    "location": "Udaipur, Rajasthan",
-    "date": "2025",
-    "duration": "Four days",
+    "slug": "manvi-sahej",
+    "coupleNames": "Manvi & Sahej",
+    "location": "Chandigarh",
+    "date": "2026",
+    "duration": "3 Days",
     "heroImage": "/images/landing/portfolio-2.webp",
-    "heroAlt": "Wedding cake with floral arrangement",
+    "heroAlt": "Manvi & Sahej",
     "featured": false,
-    "description": "A mandap built to catch the evening light on the water, and a lakeside vow four hundred guests never once had to ask where to be for.",
+    "description": "A journey across borders, a celebration close to their roots. Manvi & Sahej embraced the beauty of Sikh traditions with a heartfelt Anand Karaj in Chandigarh, making their wedding a homecoming to remember.",
     "photos": [
       {
         "src": "/images/mandap.webp",
@@ -410,13 +410,13 @@
   {
     "slug": "hitesha-aditya",
     "coupleNames": "Hitesha & Aditya",
-    "location": "Goa",
-    "date": "2025",
-    "duration": "A weekend",
+    "location": "Jodhpur, Rajasthan",
+    "date": "2026",
+    "duration": "3 Days",
     "heroImage": "/images/landing/portfolio-3.webp",
     "heroAlt": "Hitesha & Aditya",
     "featured": false,
-    "description": "A folder of half-ideas and a weekend that felt like it had always existed — the rain, it turned out, was on our side.",
+    "description": "They dreamed of a wedding that felt straight out of Yeh Jawaani Hai Deewani. A magnificent palace, their closest people, and celebrations filled with love, laughter and a little Bollywood magic.",
     "photos": [
       {
         "src": "/images/portfolio/hitesha-aditya/01-haldi-1.webp",
@@ -645,75 +645,225 @@
     ]
   },
   {
-    "slug": "naina-arjun",
-    "coupleNames": "Naina & Arjun",
-    "location": "Tuscany, Italy",
-    "date": "2024",
-    "duration": "Five days",
+    "slug": "pooja-kshitiz",
+    "coupleNames": "Pooja & Kshitiz",
+    "location": "Delhi",
+    "date": "2026",
+    "duration": "",
     "heroImage": "/images/landing/portfolio-4.webp",
-    "heroAlt": "Wedding floral bouquet detail",
+    "heroAlt": "Pooja & Kshitiz",
     "featured": false,
-    "description": "A destination wedding scouted and staged from scratch — hidden gardens, a villa reception, and a week the families still talk about.",
+    "description": "Not every unforgettable wedding needs a faraway destination. For Pooja & Kshitiz, the magic unfolded in Delhi, with a lively Sangeet, a beautiful wedding and celebrations that turned familiar surroundings into extraordinary memories.",
     "photos": [
       {
-        "src": "/images/vows.webp",
-        "alt": "Vows among the vineyards",
-        "size": "wide"
+        "src": "/images/portfolio/pooja-kshitiz/01.webp",
+        "alt": "Pooja & Kshitiz, photo 1",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Garden bouquet",
-        "size": "lg"
+        "src": "/images/portfolio/pooja-kshitiz/02.webp",
+        "alt": "Pooja & Kshitiz, photo 2",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
       },
       {
-        "src": "/images/gazebo.webp",
-        "alt": "Villa ceremony",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/03.webp",
+        "alt": "Pooja & Kshitiz, photo 3",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Wedding cake",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/04.webp",
+        "alt": "Pooja & Kshitiz, photo 4",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/banquet.webp",
-        "alt": "Reception dinner",
-        "size": "md"
+        "src": "/images/portfolio/pooja-kshitiz/05.webp",
+        "alt": "Pooja & Kshitiz, photo 5",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Floral arch",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/06.webp",
+        "alt": "Pooja & Kshitiz, photo 6",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/bouquet.webp",
-        "alt": "Bridal florals",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/07.webp",
+        "alt": "Pooja & Kshitiz, photo 7",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/vows.webp",
-        "alt": "First dance",
-        "size": "tall"
+        "src": "/images/portfolio/pooja-kshitiz/08.webp",
+        "alt": "Pooja & Kshitiz, photo 8",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/gazebo.webp",
-        "alt": "Evening at the villa",
-        "size": "wide"
+        "src": "/images/portfolio/pooja-kshitiz/09.webp",
+        "alt": "Pooja & Kshitiz, photo 9",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/cake.webp",
-        "alt": "Cake detail",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/10.webp",
+        "alt": "Pooja & Kshitiz, photo 10",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/banquet.webp",
-        "alt": "The long table",
-        "size": "sm"
+        "src": "/images/portfolio/pooja-kshitiz/11.webp",
+        "alt": "Pooja & Kshitiz, photo 11",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
       },
       {
-        "src": "/images/mandap.webp",
-        "alt": "Arch at golden hour",
-        "size": "md"
+        "src": "/images/portfolio/pooja-kshitiz/12.webp",
+        "alt": "Pooja & Kshitiz, photo 12",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/13.webp",
+        "alt": "Pooja & Kshitiz, photo 13",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/14.webp",
+        "alt": "Pooja & Kshitiz, photo 14",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/15.webp",
+        "alt": "Pooja & Kshitiz, photo 15",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/16.webp",
+        "alt": "Pooja & Kshitiz, photo 16",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/17.webp",
+        "alt": "Pooja & Kshitiz, photo 17",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/18.webp",
+        "alt": "Pooja & Kshitiz, photo 18",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/19.webp",
+        "alt": "Pooja & Kshitiz, photo 19",
+        "size": "md",
+        "width": 1706,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/20.webp",
+        "alt": "Pooja & Kshitiz, photo 20",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/21.webp",
+        "alt": "Pooja & Kshitiz, photo 21",
+        "size": "md",
+        "width": 2560,
+        "height": 1706
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/22.webp",
+        "alt": "Pooja & Kshitiz, photo 22",
+        "size": "md",
+        "width": 1707,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/23.webp",
+        "alt": "Pooja & Kshitiz, photo 23",
+        "size": "md",
+        "width": 1707,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/24.webp",
+        "alt": "Pooja & Kshitiz, photo 24",
+        "size": "md",
+        "width": 1707,
+        "height": 2560
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/25.webp",
+        "alt": "Pooja & Kshitiz, photo 25",
+        "size": "md",
+        "width": 1153,
+        "height": 1733
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/26.webp",
+        "alt": "Pooja & Kshitiz, photo 26",
+        "size": "md",
+        "width": 1413,
+        "height": 2123
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/27.webp",
+        "alt": "Pooja & Kshitiz, photo 27",
+        "size": "md",
+        "width": 1413,
+        "height": 2123
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/28.webp",
+        "alt": "Pooja & Kshitiz, photo 28",
+        "size": "md",
+        "width": 1413,
+        "height": 2123
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/29.webp",
+        "alt": "Pooja & Kshitiz, photo 29",
+        "size": "md",
+        "width": 1413,
+        "height": 2123
+      },
+      {
+        "src": "/images/portfolio/pooja-kshitiz/30.webp",
+        "alt": "Pooja & Kshitiz, photo 30",
+        "size": "md",
+        "width": 1413,
+        "height": 2123
       }
     ]
   }

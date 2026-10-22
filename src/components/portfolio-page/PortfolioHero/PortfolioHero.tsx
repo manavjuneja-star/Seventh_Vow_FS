@@ -24,7 +24,7 @@ export function PortfolioHero({
           ← All celebrations
         </Link>
         <span className={styles.eyebrow}>
-          {entry.location} · {entry.date} · {entry.duration}
+          {[entry.location, entry.date, entry.duration].filter(Boolean).join(" · ")}
         </span>
         <h1 className={styles.title}>{entry.coupleNames}</h1>
         <p className={styles.sub}>{entry.description}</p>
